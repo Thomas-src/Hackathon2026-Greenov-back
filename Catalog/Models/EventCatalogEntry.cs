@@ -42,4 +42,7 @@ public class ActionCatalogEntry
 
     [JsonPropertyName("carbonDelta")]
     public int CarbonDelta { get; init; }
+    
+    [JsonPropertyName("isGoodAnswer")]
+    public int IsGoodAnswer { get; init; }
 }

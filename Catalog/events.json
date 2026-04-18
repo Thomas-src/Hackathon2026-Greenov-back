@@ -11,7 +11,8 @@
         "label": "Faire un audit énergétique",
         "requiredBefore": [],
         "scoreDelta": 10,
-        "carbonDelta": -5
+        "carbonDelta": -5,
+        "isGoodAnswer": true
       },
       {
         "id": "B",
@@ -20,14 +21,16 @@
           "A"
         ],
         "scoreDelta": 30,
-        "carbonDelta": -25
+        "carbonDelta": -25,
+        "isGoodAnswer": true
       },
       {
         "id": "C",
         "label": "Ignorer",
         "requiredBefore": [],
         "scoreDelta": -10,
-        "carbonDelta": 20
+        "carbonDelta": 20,
+        "isGoodAnswer": false
       }
     ],
     "type": "cold"
@@ -44,21 +47,24 @@
         "label": "Installer une pompe à chaleur air-eau",
         "requiredBefore": [],
         "scoreDelta": 35,
-        "carbonDelta": -60
+        "carbonDelta": -60,
+        "isGoodAnswer": true
       },
       {
         "id": "B",
         "label": "Passer à une chaudière biomasse (granulés)",
         "requiredBefore": [],
         "scoreDelta": 30,
-        "carbonDelta": -55
+        "carbonDelta": -55,
+        "isGoodAnswer": true
       },
       {
         "id": "C",
         "label": "Réparer l'ancienne chaudière",
         "requiredBefore": [],
         "scoreDelta": -15,
-        "carbonDelta": 10
+        "carbonDelta": 10,
+        "isGoodAnswer": false
       }
     ],
     "type": "cold"
@@ -75,14 +81,16 @@
         "label": "Poser du double vitrage renforcé",
         "requiredBefore": [],
         "scoreDelta": 20,
-        "carbonDelta": -15
+        "carbonDelta": -15,
+        "isGoodAnswer": true
       },
       {
         "id": "B",
         "label": "Installer des volets roulants isolants",
         "requiredBefore": [],
         "scoreDelta": 12,
-        "carbonDelta": -8
+        "carbonDelta": -8,
+        "isGoodAnswer": true
       }
     ],
     "type": "cold"
@@ -99,14 +107,16 @@
         "label": "Installer un chauffe-eau thermodynamique",
         "requiredBefore": [],
         "scoreDelta": 25,
-        "carbonDelta": -20
+        "carbonDelta": -20,
+        "isGoodAnswer": true
       },
       {
         "id": "B",
         "label": "Installer des panneaux solaires thermiques",
         "requiredBefore": [],
         "scoreDelta": 30,
-        "carbonDelta": -25
+        "carbonDelta": -25,
+        "isGoodAnswer": true
       }
     ],
     "type": "dry"
@@ -123,14 +133,16 @@
         "label": "Installer une VMC simple flux hygroréglable",
         "requiredBefore": [],
         "scoreDelta": 15,
-        "carbonDelta": -5
+        "carbonDelta": -5,
+        "isGoodAnswer": true
       },
       {
         "id": "B",
         "label": "Installer une VMC double flux",
         "requiredBefore": [],
         "scoreDelta": 25,
-        "carbonDelta": -12
+        "carbonDelta": -12,
+        "isGoodAnswer": true
       }
     ],
     "type": "humidity"
@@ -147,14 +159,16 @@
         "label": "Poser des panneaux photovoltaïques",
         "requiredBefore": [],
         "scoreDelta": 30,
-        "carbonDelta": -40
+        "carbonDelta": -40,
+        "isGoodAnswer": true
       },
       {
         "id": "B",
         "label": "Souscrire à une coopérative solaire locale",
         "requiredBefore": [],
         "scoreDelta": 20,
-        "carbonDelta": -30
+        "carbonDelta": -30,
+        "isGoodAnswer": true
       }
     ],
     "type": "dry"
@@ -171,14 +185,16 @@
         "label": "Installer une cuve enterrée de 5000L",
         "requiredBefore": [],
         "scoreDelta": 25,
-        "carbonDelta": -5
+        "carbonDelta": -5,
+        "isGoodAnswer": true
       },
       {
         "id": "B",
         "label": "Placer des récupérateurs aériens aux gouttières",
         "requiredBefore": [],
         "scoreDelta": 15,
-        "carbonDelta": -2
+        "carbonDelta": -2,
+        "isGoodAnswer": true
       }
     ],
     "type": "humidity"
@@ -195,14 +211,16 @@
         "label": "Faire une isolation par l'extérieur",
         "requiredBefore": [],
         "scoreDelta": 40,
-        "carbonDelta": -50
+        "carbonDelta": -50,
+        "isGoodAnswer": true
       },
       {
         "id": "B",
         "label": "Faire un ravalement simple (peinture)",
         "requiredBefore": [],
         "scoreDelta": -5,
-        "carbonDelta": 10
+        "carbonDelta": 10,
+        "isGoodAnswer": false
       }
     ],
     "type": "cold"
@@ -219,14 +237,16 @@
         "label": "Installer une borne de recharge rapide",
         "requiredBefore": [],
         "scoreDelta": 20,
-        "carbonDelta": -35
+        "carbonDelta": -35,
+        "isGoodAnswer": true
       },
       {
         "id": "B",
         "label": "Installer une prise renforcée",
         "requiredBefore": [],
         "scoreDelta": 10,
-        "carbonDelta": -15
+        "carbonDelta": -15,
+        "isGoodAnswer": true
       }
     ],
     "type": "dry"
@@ -243,14 +263,16 @@
         "label": "Isoler le plafond du sous-sol",
         "requiredBefore": [],
         "scoreDelta": 15,
-        "carbonDelta": -12
+        "carbonDelta": -12,
+        "isGoodAnswer": true
       },
       {
         "id": "B",
         "label": "Poser une moquette épaisse",
         "requiredBefore": [],
         "scoreDelta": 0,
-        "carbonDelta": 5
+        "carbonDelta": 5,
+        "isGoodAnswer": false
       }
     ],
     "type": "cold"
@@ -267,21 +289,24 @@
         "label": "Installer des stores bannes extérieurs",
         "requiredBefore": [],
         "scoreDelta": 15,
-        "carbonDelta": -2
+        "carbonDelta": -2,
+        "isGoodAnswer": true
       },
       {
         "id": "B",
         "label": "Planter des arbres à feuilles caduques au sud",
         "requiredBefore": [],
         "scoreDelta": 20,
-        "carbonDelta": -10
+        "carbonDelta": -10,
+        "isGoodAnswer": true
       },
       {
         "id": "C",
         "label": "Installer une climatisation réversible",
         "requiredBefore": [],
         "scoreDelta": -10,
-        "carbonDelta": 30
+        "carbonDelta": 30,
+        "isGoodAnswer": false
       }
     ],
     "type": "hot"
@@ -298,14 +323,16 @@
         "label": "Choisir de la laine de mouton ou du chanvre",
         "requiredBefore": [],
         "scoreDelta": 25,
-        "carbonDelta": -20
+        "carbonDelta": -20,
+        "isGoodAnswer": true
       },
       {
         "id": "B",
         "label": "Utiliser du polystyrène (moins cher)",
         "requiredBefore": [],
         "scoreDelta": -15,
-        "carbonDelta": 15
+        "carbonDelta": 15,
+        "isGoodAnswer": false
       }
     ],
     "type": "humidity"
@@ -322,14 +349,16 @@
         "label": "Végétaliser la toiture",
         "requiredBefore": [],
         "scoreDelta": 30,
-        "carbonDelta": -15
+        "carbonDelta": -15,
+        "isGoodAnswer": true
       },
       {
         "id": "B",
         "label": "Peindre le toit en blanc (Cool Roof)",
         "requiredBefore": [],
         "scoreDelta": 15,
-        "carbonDelta": -5
+        "carbonDelta": -5,
+        "isGoodAnswer": true
       }
     ],
     "type": "hot"
@@ -346,14 +375,16 @@
         "label": "Installer un insert ou un poêle à bois",
         "requiredBefore": [],
         "scoreDelta": 25,
-        "carbonDelta": -25
+        "carbonDelta": -25,
+        "isGoodAnswer": true
       },
       {
         "id": "B",
         "label": "Faire ramoner et continuer ainsi",
         "requiredBefore": [],
         "scoreDelta": -10,
-        "carbonDelta": 15
+        "carbonDelta": 15,
+        "isGoodAnswer": false
       }
     ],
     "type": "cold"
@@ -370,14 +401,16 @@
         "label": "Installer des détecteurs de mouvement",
         "requiredBefore": [],
         "scoreDelta": 15,
-        "carbonDelta": -5
+        "carbonDelta": -5,
+        "isGoodAnswer": true
       },
       {
         "id": "B",
         "label": "Remplacer par des bornes solaires LED",
         "requiredBefore": [],
         "scoreDelta": 20,
-        "carbonDelta": -8
+        "carbonDelta": -8,
+        "isGoodAnswer": true
       }
     ],
     "type": "dry"
@@ -394,21 +427,24 @@
         "label": "Utiliser du bois français certifié PEFC",
         "requiredBefore": [],
         "scoreDelta": 20,
-        "carbonDelta": -15
+        "carbonDelta": -15,
+        "isGoodAnswer": true
       },
       {
         "id": "B",
         "label": "Choisir du bois exotique (Ipé/Teck)",
         "requiredBefore": [],
         "scoreDelta": -25,
-        "carbonDelta": 40
+        "carbonDelta": 40,
+        "isGoodAnswer": false
       },
       {
         "id": "C",
         "label": "Faire une dalle en béton brut",
         "requiredBefore": [],
         "scoreDelta": -10,
-        "carbonDelta": 20
+        "carbonDelta": 20,
+        "isGoodAnswer": false
       }
     ],
     "type": "dry"
@@ -425,14 +461,16 @@
         "label": "Installer des vannes thermostatiques connectées",
         "requiredBefore": [],
         "scoreDelta": 20,
-        "carbonDelta": -12
+        "carbonDelta": -12,
+        "isGoodAnswer": true
       },
       {
         "id": "B",
         "label": "Installer un thermostat d'ambiance central",
         "requiredBefore": [],
         "scoreDelta": 15,
-        "carbonDelta": -8
+        "carbonDelta": -8,
+        "isGoodAnswer": true
       }
     ],
     "type": "cold"
@@ -449,14 +487,16 @@
         "label": "Pratiquer la tonte différenciée",
         "requiredBefore": [],
         "scoreDelta": 15,
-        "carbonDelta": -5
+        "carbonDelta": -5,
+        "isGoodAnswer": true
       },
       {
         "id": "B",
         "label": "Planter une haie bocagère variée",
         "requiredBefore": [],
         "scoreDelta": 25,
-        "carbonDelta": -10
+        "carbonDelta": -10,
+        "isGoodAnswer": true
       }
     ],
     "type": "humidity"
@@ -473,14 +513,16 @@
         "label": "Installer un volet roulant solaire",
         "requiredBefore": [],
         "scoreDelta": 20,
-        "carbonDelta": -15
+        "carbonDelta": -15,
+        "isGoodAnswer": true
       },
       {
         "id": "B",
         "label": "Passer au traitement à l'ozone ou UV",
         "requiredBefore": [],
         "scoreDelta": 15,
-        "carbonDelta": -5
+        "carbonDelta": -5,
+        "isGoodAnswer": true
       }
     ],
     "type": "humidity"
@@ -497,14 +539,16 @@
         "label": "Utiliser des pavés drainants",
         "requiredBefore": [],
         "scoreDelta": 20,
-        "carbonDelta": -5
+        "carbonDelta": -5,
+        "isGoodAnswer": true
       },
       {
         "id": "B",
         "label": "Couler un enrobé de bitume",
         "requiredBefore": [],
         "scoreDelta": -20,
-        "carbonDelta": 15
+        "carbonDelta": 15,
+        "isGoodAnswer": false
       }
     ],
     "type": "humidity"
@@ -521,14 +565,16 @@
         "label": "Remplacer par un modèle classe A",
         "requiredBefore": [],
         "scoreDelta": 15,
-        "carbonDelta": -20
+        "carbonDelta": -20,
+        "isGoodAnswer": true
       },
       {
         "id": "B",
         "label": "Réparer les joints de porte",
         "requiredBefore": [],
         "scoreDelta": 10,
-        "carbonDelta": -5
+        "carbonDelta": -5,
+        "isGoodAnswer": true
       }
     ],
     "type": "dry"
@@ -545,14 +591,16 @@
         "label": "Réaliser des travaux de rénovation globale",
         "requiredBefore": [],
         "scoreDelta": 40,
-        "carbonDelta": -60
+        "carbonDelta": -60,
+        "isGoodAnswer": true
       },
       {
         "id": "B",
         "label": "Baisser le loyer sans faire de travaux",
         "requiredBefore": [],
         "scoreDelta": -30,
-        "carbonDelta": 10
+        "carbonDelta": 10,
+        "isGoodAnswer": false
       }
     ],
     "type": "cold"
@@ -569,14 +617,16 @@
         "label": "Choisir une peinture aux algues ou à la chaux",
         "requiredBefore": [],
         "scoreDelta": 20,
-        "carbonDelta": -10
+        "carbonDelta": -10,
+        "isGoodAnswer": true
       },
       {
         "id": "B",
         "label": "Prendre une peinture acrylique standard",
         "requiredBefore": [],
         "scoreDelta": -5,
-        "carbonDelta": 5
+        "carbonDelta": 5,
+        "isGoodAnswer": false
       }
     ],
     "type": "humidity"
@@ -593,14 +643,16 @@
         "label": "Installer un système de récupération d'eaux grises",
         "requiredBefore": [],
         "scoreDelta": 30,
-        "carbonDelta": -10
+        "carbonDelta": -10,
+        "isGoodAnswer": true
       },
       {
         "id": "B",
         "label": "Installer des robinets avec limiteurs de débit",
         "requiredBefore": [],
         "scoreDelta": 15,
-        "carbonDelta": -3
+        "carbonDelta": -3,
+        "isGoodAnswer": true
       }
     ],
     "type": "humidity"
@@ -617,14 +669,16 @@
         "label": "Construire un abri à bois ventilé",
         "requiredBefore": [],
         "scoreDelta": 15,
-        "carbonDelta": -15
+        "carbonDelta": -15,
+        "isGoodAnswer": true
       },
       {
         "id": "B",
         "label": "Acheter du bois déjà séché (label NF)",
         "requiredBefore": [],
         "scoreDelta": 10,
-        "carbonDelta": -10
+        "carbonDelta": -10,
+        "isGoodAnswer": true
       }
     ],
     "type": "humidity"
@@ -641,14 +695,16 @@
         "label": "Voter POUR les travaux d'isolation",
         "requiredBefore": [],
         "scoreDelta": 25,
-        "carbonDelta": -40
+        "carbonDelta": -40,
+        "isGoodAnswer": true
       },
       {
         "id": "B",
         "label": "Voter CONTRE pour économiser les charges",
         "requiredBefore": [],
         "scoreDelta": -20,
-        "carbonDelta": 30
+        "carbonDelta": 30,
+        "isGoodAnswer": false
       }
     ],
     "type": "cold"
@@ -665,14 +721,16 @@
         "label": "Concevoir une véranda bioclimatique",
         "requiredBefore": [],
         "scoreDelta": 20,
-        "carbonDelta": -10
+        "carbonDelta": -10,
+        "isGoodAnswer": true
       },
       {
         "id": "B",
         "label": "Installer un radiateur dans la véranda",
         "requiredBefore": [],
         "scoreDelta": -30,
-        "carbonDelta": 50
+        "carbonDelta": 50,
+        "isGoodAnswer": false
       }
     ],
     "type": "cold"
@@ -689,14 +747,16 @@
         "label": "Installer un silo à compost",
         "requiredBefore": [],
         "scoreDelta": 15,
-        "carbonDelta": -10
+        "carbonDelta": -10,
+        "isGoodAnswer": true
       },
       {
         "id": "B",
         "label": "Utiliser les tontes en paillage",
         "requiredBefore": [],
         "scoreDelta": 15,
-        "carbonDelta": -5
+        "carbonDelta": -5,
+        "isGoodAnswer": true
       }
     ],
     "type": "humidity"
@@ -713,14 +773,16 @@
         "label": "Faire appel à un Accompagnateur Rénov'",
         "requiredBefore": [],
         "scoreDelta": 20,
-        "carbonDelta": -5
+        "carbonDelta": -5,
+        "isGoodAnswer": true
       },
       {
         "id": "B",
         "label": "Changer un petit radiateur au hasard",
         "requiredBefore": [],
         "scoreDelta": 5,
-        "carbonDelta": -2
+        "carbonDelta": -2,
+        "isGoodAnswer": true
       }
     ],
     "type": "dry"
@@ -737,14 +799,16 @@
         "label": "Passer à une voiture électrique compacte",
         "requiredBefore": [],
         "scoreDelta": 25,
-        "carbonDelta": -100
+        "carbonDelta": -100,
+        "isGoodAnswer": true
       },
       {
         "id": "B",
         "label": "Vendre la voiture et acheter un vélo cargo",
         "requiredBefore": [],
         "scoreDelta": 40,
-        "carbonDelta": -150
+        "carbonDelta": -150,
+        "isGoodAnswer": true
       }
     ],
     "type": "dry"
@@ -761,7 +825,8 @@
         "label": "Faire un audit énergétique",
         "requiredBefore": [],
         "scoreDelta": 10,
-        "carbonDelta": -5
+        "carbonDelta": -5,
+        "isGoodAnswer": true
       },
       {
         "id": "B",
@@ -770,14 +835,16 @@
           "A"
         ],
         "scoreDelta": 30,
-        "carbonDelta": -25
+        "carbonDelta": -25,
+        "isGoodAnswer": true
       },
       {
         "id": "C",
         "label": "Ignorer",
         "requiredBefore": [],
         "scoreDelta": -10,
-        "carbonDelta": 20
+        "carbonDelta": 20,
+        "isGoodAnswer": false
       }
     ],
     "type": "cold"
@@ -794,7 +861,8 @@
         "label": "Demander un devis",
         "requiredBefore": [],
         "scoreDelta": 5,
-        "carbonDelta": -2
+        "carbonDelta": -2,
+        "isGoodAnswer": true
       },
       {
         "id": "B",
@@ -803,14 +871,16 @@
           "A"
         ],
         "scoreDelta": 25,
-        "carbonDelta": -20
+        "carbonDelta": -20,
+        "isGoodAnswer": true
       },
       {
         "id": "C",
         "label": "Mettre rideaux épais",
         "requiredBefore": [],
         "scoreDelta": 5,
-        "carbonDelta": -3
+        "carbonDelta": -3,
+        "isGoodAnswer": true
       }
     ],
     "type": "cold"
@@ -827,7 +897,8 @@
         "label": "Inspection toiture",
         "requiredBefore": [],
         "scoreDelta": 10,
-        "carbonDelta": -4
+        "carbonDelta": -4,
+        "isGoodAnswer": true
       },
       {
         "id": "B",
@@ -836,7 +907,8 @@
           "A"
         ],
         "scoreDelta": 30,
-        "carbonDelta": -22
+        "carbonDelta": -22,
+        "isGoodAnswer": true
       },
       {
         "id": "C",
@@ -845,7 +917,8 @@
           "A"
         ],
         "scoreDelta": 10,
-        "carbonDelta": -5
+        "carbonDelta": -5,
+        "isGoodAnswer": true
       }
     ],
     "type": "humidity"
@@ -862,7 +935,8 @@
         "label": "Diagnostiquer les ponts",
         "requiredBefore": [],
         "scoreDelta": 10,
-        "carbonDelta": -4
+        "carbonDelta": -4,
+        "isGoodAnswer": true
       },
       {
         "id": "B",
@@ -871,14 +945,16 @@
           "A"
         ],
         "scoreDelta": 25,
-        "carbonDelta": -20
+        "carbonDelta": -20,
+        "isGoodAnswer": true
       },
       {
         "id": "C",
         "label": "Ignorer",
         "requiredBefore": [],
         "scoreDelta": -10,
-        "carbonDelta": 15
+        "carbonDelta": 15,
+        "isGoodAnswer": false
       }
     ],
     "type": "cold"
@@ -895,7 +971,8 @@
         "label": "Faire un bilan",
         "requiredBefore": [],
         "scoreDelta": 5,
-        "carbonDelta": -2
+        "carbonDelta": -2,
+        "isGoodAnswer": true
       },
       {
         "id": "B",
@@ -904,14 +981,16 @@
           "A"
         ],
         "scoreDelta": 20,
-        "carbonDelta": -15
+        "carbonDelta": -15,
+        "isGoodAnswer": true
       },
       {
         "id": "C",
         "label": "Augmenter chauffage",
         "requiredBefore": [],
         "scoreDelta": -10,
-        "carbonDelta": 18
+        "carbonDelta": 18,
+        "isGoodAnswer": false
       }
     ],
     "type": "cold"
@@ -928,7 +1007,8 @@
         "label": "Installer thermostat",
         "requiredBefore": [],
         "scoreDelta": 20,
-        "carbonDelta": -15
+        "carbonDelta": -15,
+        "isGoodAnswer": true
       },
       {
         "id": "B",
@@ -937,14 +1017,16 @@
           "A"
         ],
         "scoreDelta": 10,
-        "carbonDelta": -5
+        "carbonDelta": -5,
+        "isGoodAnswer": true
       },
       {
         "id": "C",
         "label": "Régler manuellement",
         "requiredBefore": [],
         "scoreDelta": 3,
-        "carbonDelta": -1
+        "carbonDelta": -1,
+        "isGoodAnswer": true
       }
     ],
     "type": "cold"
@@ -961,7 +1043,8 @@
         "label": "Faire diagnostic",
         "requiredBefore": [],
         "scoreDelta": 5,
-        "carbonDelta": -2
+        "carbonDelta": -2,
+        "isGoodAnswer": true
       },
       {
         "id": "B",
@@ -970,7 +1053,8 @@
           "A"
         ],
         "scoreDelta": 25,
-        "carbonDelta": -20
+        "carbonDelta": -20,
+        "isGoodAnswer": true
       },
       {
         "id": "C",
@@ -979,7 +1063,8 @@
           "A"
         ],
         "scoreDelta": 10,
-        "carbonDelta": -5
+        "carbonDelta": -5,
+        "isGoodAnswer": true
       }
     ],
     "type": "dry"
@@ -996,7 +1081,8 @@
         "label": "Analyser facture",
         "requiredBefore": [],
         "scoreDelta": 10,
-        "carbonDelta": -3
+        "carbonDelta": -3,
+        "isGoodAnswer": true
       },
       {
         "id": "B",
@@ -1005,14 +1091,16 @@
           "A"
         ],
         "scoreDelta": 20,
-        "carbonDelta": -15
+        "carbonDelta": -15,
+        "isGoodAnswer": true
       },
       {
         "id": "C",
         "label": "Ignorer",
         "requiredBefore": [],
         "scoreDelta": -10,
-        "carbonDelta": 12
+        "carbonDelta": 12,
+        "isGoodAnswer": false
       }
     ],
     "type": "dry"
@@ -1029,7 +1117,8 @@
         "label": "Étudier faisabilité",
         "requiredBefore": [],
         "scoreDelta": 10,
-        "carbonDelta": -3
+        "carbonDelta": -3,
+        "isGoodAnswer": true
       },
       {
         "id": "B",
@@ -1038,14 +1127,16 @@
           "A"
         ],
         "scoreDelta": 30,
-        "carbonDelta": -25
+        "carbonDelta": -25,
+        "isGoodAnswer": true
       },
       {
         "id": "C",
         "label": "Ignorer",
         "requiredBefore": [],
         "scoreDelta": -5,
-        "carbonDelta": 5
+        "carbonDelta": 5,
+        "isGoodAnswer": false
       }
     ],
     "type": "dry"
@@ -1062,7 +1153,8 @@
         "label": "Faire un audit énergétique",
         "requiredBefore": [],
         "scoreDelta": 10,
-        "carbonDelta": -5
+        "carbonDelta": -5,
+        "isGoodAnswer": true
       },
       {
         "id": "B",
@@ -1071,14 +1163,16 @@
           "A"
         ],
         "scoreDelta": 25,
-        "carbonDelta": -20
+        "carbonDelta": -20,
+        "isGoodAnswer": true
       },
       {
         "id": "C",
         "label": "Ignorer et monter le chauffage",
         "requiredBefore": [],
         "scoreDelta": -15,
-        "carbonDelta": 30
+        "carbonDelta": 30,
+        "isGoodAnswer": false
       }
     ],
     "type": "cold"
@@ -1095,7 +1189,8 @@
         "label": "Appeler un technicien pour un diagnostic",
         "requiredBefore": [],
         "scoreDelta": 10,
-        "carbonDelta": -3
+        "carbonDelta": -3,
+        "isGoodAnswer": true
       },
       {
         "id": "B",
@@ -1104,7 +1199,8 @@
           "A"
         ],
         "scoreDelta": 30,
-        "carbonDelta": -25
+        "carbonDelta": -25,
+        "isGoodAnswer": true
       },
       {
         "id": "C",
@@ -1113,7 +1209,8 @@
           "A"
         ],
         "scoreDelta": 5,
-        "carbonDelta": 5
+        "carbonDelta": 5,
+        "isGoodAnswer": true
       }
     ],
     "type": "cold"
@@ -1130,7 +1227,8 @@
         "label": "Demander le DPE du logement au propriétaire",
         "requiredBefore": [],
         "scoreDelta": 10,
-        "carbonDelta": -2
+        "carbonDelta": -2,
+        "isGoodAnswer": true
       },
       {
         "id": "B",
@@ -1139,14 +1237,16 @@
           "A"
         ],
         "scoreDelta": 20,
-        "carbonDelta": -10
+        "carbonDelta": -10,
+        "isGoodAnswer": true
       },
       {
         "id": "C",
         "label": "Poser des rideaux épais et ignorer",
         "requiredBefore": [],
         "scoreDelta": -5,
-        "carbonDelta": 5
+        "carbonDelta": 5,
+        "isGoodAnswer": false
       }
     ],
     "type": "cold"
@@ -1163,21 +1263,24 @@
         "label": "Acheter un radiateur d'appoint au pétrole",
         "requiredBefore": [],
         "scoreDelta": -15,
-        "carbonDelta": 25
+        "carbonDelta": 25,
+        "isGoodAnswer": false
       },
       {
         "id": "B",
         "label": "Mettre un pull en laine et régler sur 19°C",
         "requiredBefore": [],
         "scoreDelta": 15,
-        "carbonDelta": -10
+        "carbonDelta": -10,
+        "isGoodAnswer": true
       },
       {
         "id": "C",
         "label": "Installer des films isolants sur les vitres",
         "requiredBefore": [],
         "scoreDelta": 20,
-        "carbonDelta": -15
+        "carbonDelta": -15,
+        "isGoodAnswer": true
       }
     ],
     "type": "cold"
@@ -1194,14 +1297,16 @@
         "label": "Installer un lombricomposteur en cuisine",
         "requiredBefore": [],
         "scoreDelta": 25,
-        "carbonDelta": -15
+        "carbonDelta": -15,
+        "isGoodAnswer": true
       },
       {
         "id": "B",
         "label": "Apporter ses restes au bac de quartier",
         "requiredBefore": [],
         "scoreDelta": 15,
-        "carbonDelta": -10
+        "carbonDelta": -10,
+        "isGoodAnswer": true
       }
     ],
     "type": "humidity"
@@ -1218,14 +1323,16 @@
         "label": "Installer un mousseur et un pommeau éco",
         "requiredBefore": [],
         "scoreDelta": 20,
-        "carbonDelta": -5
+        "carbonDelta": -5,
+        "isGoodAnswer": true
       },
       {
         "id": "B",
         "label": "Utiliser un sablier de douche (5 min max)",
         "requiredBefore": [],
         "scoreDelta": 25,
-        "carbonDelta": -8
+        "carbonDelta": -8,
+        "isGoodAnswer": true
       }
     ],
     "type": "humidity"
@@ -1242,14 +1349,16 @@
         "label": "Acheter un canapé de seconde main sur LeBonCoin",
         "requiredBefore": [],
         "scoreDelta": 30,
-        "carbonDelta": -40
+        "carbonDelta": -40,
+        "isGoodAnswer": true
       },
       {
         "id": "B",
         "label": "Commander un modèle neuf en kit",
         "requiredBefore": [],
         "scoreDelta": -10,
-        "carbonDelta": 50
+        "carbonDelta": 50,
+        "isGoodAnswer": false
       }
     ],
     "type": "dry"
@@ -1266,14 +1375,16 @@
         "label": "Remplacer tout par des ampoules LED",
         "requiredBefore": [],
         "scoreDelta": 15,
-        "carbonDelta": -10
+        "carbonDelta": -10,
+        "isGoodAnswer": true
       },
       {
         "id": "B",
         "label": "Attendre qu'elles grillent pour changer",
         "requiredBefore": [],
         "scoreDelta": 0,
-        "carbonDelta": 5
+        "carbonDelta": 5,
+        "isGoodAnswer": false
       }
     ],
     "type": "dry"
@@ -1290,21 +1401,24 @@
         "label": "Acheter un vélo d'occasion",
         "requiredBefore": [],
         "scoreDelta": 25,
-        "carbonDelta": -45
+        "carbonDelta": -45,
+        "isGoodAnswer": true
       },
       {
         "id": "B",
         "label": "Prendre un abonnement aux transports en commun",
         "requiredBefore": [],
         "scoreDelta": 20,
-        "carbonDelta": -35
+        "carbonDelta": -35,
+        "isGoodAnswer": true
       },
       {
         "id": "C",
         "label": "Continuer en voiture mais covoiturer",
         "requiredBefore": [],
         "scoreDelta": 10,
-        "carbonDelta": -15
+        "carbonDelta": -15,
+        "isGoodAnswer": true
       }
     ],
     "type": "dry"
@@ -1321,14 +1435,16 @@
         "label": "Acheter des pommes locales à la place",
         "requiredBefore": [],
         "scoreDelta": 15,
-        "carbonDelta": -20
+        "carbonDelta": -20,
+        "isGoodAnswer": true
       },
       {
         "id": "B",
         "label": "Acheter les fraises quand même",
         "requiredBefore": [],
         "scoreDelta": -15,
-        "carbonDelta": 30
+        "carbonDelta": 30,
+        "isGoodAnswer": false
       }
     ],
     "type": "cold"
@@ -1345,14 +1461,16 @@
         "label": "Ouvrir un compte dans une néo-banque verte",
         "requiredBefore": [],
         "scoreDelta": 30,
-        "carbonDelta": -60
+        "carbonDelta": -60,
+        "isGoodAnswer": true
       },
       {
         "id": "B",
         "label": "Interroger son conseiller sur les fonds ISR",
         "requiredBefore": [],
         "scoreDelta": 10,
-        "carbonDelta": -5
+        "carbonDelta": -5,
+        "isGoodAnswer": true
       }
     ],
     "type": "dry"
@@ -1369,14 +1487,16 @@
         "label": "Désinstaller l'application de shopping",
         "requiredBefore": [],
         "scoreDelta": 20,
-        "carbonDelta": -25
+        "carbonDelta": -25,
+        "isGoodAnswer": true
       },
       {
         "id": "B",
         "label": "Organiser un vide-dressing avec des amis",
         "requiredBefore": [],
         "scoreDelta": 25,
-        "carbonDelta": -15
+        "carbonDelta": -15,
+        "isGoodAnswer": true
       }
     ],
     "type": "dry"
@@ -1393,14 +1513,16 @@
         "label": "Attendre que le tambour soit plein",
         "requiredBefore": [],
         "scoreDelta": 15,
-        "carbonDelta": -10
+        "carbonDelta": -10,
+        "isGoodAnswer": true
       },
       {
         "id": "B",
         "label": "Laver à froid (30°C max)",
         "requiredBefore": [],
         "scoreDelta": 15,
-        "carbonDelta": -12
+        "carbonDelta": -12,
+        "isGoodAnswer": true
       }
     ],
     "type": "humidity"
@@ -1417,21 +1539,24 @@
         "label": "Faire changer la batterie chez un réparateur",
         "requiredBefore": [],
         "scoreDelta": 25,
-        "carbonDelta": -35
+        "carbonDelta": -35,
+        "isGoodAnswer": true
       },
       {
         "id": "B",
         "label": "Acheter un modèle reconditionné",
         "requiredBefore": [],
         "scoreDelta": 15,
-        "carbonDelta": -15
+        "carbonDelta": -15,
+        "isGoodAnswer": true
       },
       {
         "id": "C",
         "label": "Prendre le dernier cri avec un forfait",
         "requiredBefore": [],
         "scoreDelta": -20,
-        "carbonDelta": 45
+        "carbonDelta": 45,
+        "isGoodAnswer": false
       }
     ],
     "type": "dry"
@@ -1448,14 +1573,16 @@
         "label": "Passer en Wi-Fi plutôt qu'en 4G/5G",
         "requiredBefore": [],
         "scoreDelta": 10,
-        "carbonDelta": -5
+        "carbonDelta": -5,
+        "isGoodAnswer": true
       },
       {
         "id": "B",
         "label": "Régler la qualité par défaut sur 'Standard'",
         "requiredBefore": [],
         "scoreDelta": 15,
-        "carbonDelta": -10
+        "carbonDelta": -10,
+        "isGoodAnswer": true
       }
     ],
     "type": "dry"
@@ -1472,21 +1599,24 @@
         "label": "Tester le 'Lundi Vert' (sans viande)",
         "requiredBefore": [],
         "scoreDelta": 15,
-        "carbonDelta": -15
+        "carbonDelta": -15,
+        "isGoodAnswer": true
       },
       {
         "id": "B",
         "label": "Devenir flexitarien (viande 2 fois par semaine)",
         "requiredBefore": [],
         "scoreDelta": 30,
-        "carbonDelta": -50
+        "carbonDelta": -50,
+        "isGoodAnswer": true
       },
       {
         "id": "C",
         "label": "Remplacer le bœuf par du poulet",
         "requiredBefore": [],
         "scoreDelta": 10,
-        "carbonDelta": -20
+        "carbonDelta": -20,
+        "isGoodAnswer": true
       }
     ],
     "type": "dry"
@@ -1503,14 +1633,16 @@
         "label": "Dégivrer l'appareil immédiatement",
         "requiredBefore": [],
         "scoreDelta": 15,
-        "carbonDelta": -8
+        "carbonDelta": -8,
+        "isGoodAnswer": true
       },
       {
         "id": "B",
         "label": "Nettoyer la grille arrière de l'appareil",
         "requiredBefore": [],
         "scoreDelta": 10,
-        "carbonDelta": -2
+        "carbonDelta": -2,
+        "isGoodAnswer": true
       }
     ],
     "type": "cold"
@@ -1527,14 +1659,16 @@
         "label": "Prendre le train de nuit",
         "requiredBefore": [],
         "scoreDelta": 35,
-        "carbonDelta": -100
+        "carbonDelta": -100,
+        "isGoodAnswer": true
       },
       {
         "id": "B",
         "label": "Prendre l'avion (Low-Cost)",
         "requiredBefore": [],
         "scoreDelta": -40,
-        "carbonDelta": 150
+        "carbonDelta": 150,
+        "isGoodAnswer": false
       }
     ],
     "type": "dry"
@@ -1551,14 +1685,16 @@
         "label": "Passer au vinaigre blanc et savon noir",
         "requiredBefore": [],
         "scoreDelta": 20,
-        "carbonDelta": -10
+        "carbonDelta": -10,
+        "isGoodAnswer": true
       },
       {
         "id": "B",
         "label": "Acheter des recharges plutôt que des bidons",
         "requiredBefore": [],
         "scoreDelta": 10,
-        "carbonDelta": -5
+        "carbonDelta": -5,
+        "isGoodAnswer": true
       }
     ],
     "type": "dry"
@@ -1575,21 +1711,24 @@
         "label": "Acheter une climatisation mobile",
         "requiredBefore": [],
         "scoreDelta": -20,
-        "carbonDelta": 40
+        "carbonDelta": 40,
+        "isGoodAnswer": false
       },
       {
         "id": "B",
         "label": "Fermer les volets le jour, ouvrir la nuit",
         "requiredBefore": [],
         "scoreDelta": 15,
-        "carbonDelta": 0
+        "carbonDelta": 0,
+        "isGoodAnswer": true
       },
       {
         "id": "C",
         "label": "Investir dans un ventilateur performant",
         "requiredBefore": [],
         "scoreDelta": 10,
-        "carbonDelta": 5
+        "carbonDelta": 5,
+        "isGoodAnswer": true
       }
     ],
     "type": "hot"
@@ -1606,14 +1745,16 @@
         "label": "Souscrire à une offre d'électricité verte",
         "requiredBefore": [],
         "scoreDelta": 20,
-        "carbonDelta": -30
+        "carbonDelta": -30,
+        "isGoodAnswer": true
       },
       {
         "id": "B",
         "label": "Prendre une option 'Heures Creuses'",
         "requiredBefore": [],
         "scoreDelta": 5,
-        "carbonDelta": -2
+        "carbonDelta": -2,
+        "isGoodAnswer": true
       }
     ],
     "type": "dry"
@@ -1630,14 +1771,16 @@
         "label": "Faire une liste de courses précise",
         "requiredBefore": [],
         "scoreDelta": 15,
-        "carbonDelta": -10
+        "carbonDelta": -10,
+        "isGoodAnswer": true
       },
       {
         "id": "B",
         "label": "Cuisiner les restes en mode 'Touski'",
         "requiredBefore": [],
         "scoreDelta": 20,
-        "carbonDelta": -15
+        "carbonDelta": -15,
+        "isGoodAnswer": true
       }
     ],
     "type": "humidity"
@@ -1654,14 +1797,16 @@
         "label": "Acheter une gourde et une carafe filtrante",
         "requiredBefore": [],
         "scoreDelta": 25,
-        "carbonDelta": -40
+        "carbonDelta": -40,
+        "isGoodAnswer": true
       },
       {
         "id": "B",
         "label": "Acheter des bidons de 5L au lieu de bouteilles",
         "requiredBefore": [],
         "scoreDelta": 5,
-        "carbonDelta": -10
+        "carbonDelta": -10,
+        "isGoodAnswer": true
       }
     ],
     "type": "dry"
@@ -1678,14 +1823,16 @@
         "label": "Aller dans une épicerie de vrac avec ses bocaux",
         "requiredBefore": [],
         "scoreDelta": 25,
-        "carbonDelta": -20
+        "carbonDelta": -20,
+        "isGoodAnswer": true
       },
       {
         "id": "B",
         "label": "Privilégier les formats familiaux",
         "requiredBefore": [],
         "scoreDelta": 10,
-        "carbonDelta": -5
+        "carbonDelta": -5,
+        "isGoodAnswer": true
       }
     ],
     "type": "dry"
@@ -1702,14 +1849,16 @@
         "label": "Vendre sa voiture et utiliser l'autopartage",
         "requiredBefore": [],
         "scoreDelta": 40,
-        "carbonDelta": -120
+        "carbonDelta": -120,
+        "isGoodAnswer": true
       },
       {
         "id": "B",
         "label": "Louer sa propre voiture à des voisins",
         "requiredBefore": [],
         "scoreDelta": 15,
-        "carbonDelta": -20
+        "carbonDelta": -20,
+        "isGoodAnswer": true
       }
     ],
     "type": "dry"
@@ -1726,14 +1875,16 @@
         "label": "Nettoyer sa boîte mail et se désabonner des pubs",
         "requiredBefore": [],
         "scoreDelta": 10,
-        "carbonDelta": -2
+        "carbonDelta": -2,
+        "isGoodAnswer": true
       },
       {
         "id": "B",
         "label": "Utiliser un moteur de recherche éco-responsable",
         "requiredBefore": [],
         "scoreDelta": 5,
-        "carbonDelta": -1
+        "carbonDelta": -1,
+        "isGoodAnswer": true
       }
     ],
     "type": "dry"
@@ -1750,14 +1901,16 @@
         "label": "Installer des joints d'étanchéité adhésifs",
         "requiredBefore": [],
         "scoreDelta": 15,
-        "carbonDelta": -5
+        "carbonDelta": -5,
+        "isGoodAnswer": true
       },
       {
         "id": "B",
         "label": "Placer un boudin de porte épais",
         "requiredBefore": [],
         "scoreDelta": 10,
-        "carbonDelta": -3
+        "carbonDelta": -3,
+        "isGoodAnswer": true
       }
     ],
     "type": "cold"
@@ -1774,14 +1927,16 @@
         "label": "Passer à une cafetière italienne ou à piston",
         "requiredBefore": [],
         "scoreDelta": 20,
-        "carbonDelta": -15
+        "carbonDelta": -15,
+        "isGoodAnswer": true
       },
       {
         "id": "B",
         "label": "Acheter des dosettes réutilisables en inox",
         "requiredBefore": [],
         "scoreDelta": 15,
-        "carbonDelta": -10
+        "carbonDelta": -10,
+        "isGoodAnswer": true
       }
     ],
     "type": "dry"
@@ -1798,14 +1953,16 @@
         "label": "Offrir des places de concert ou de théâtre",
         "requiredBefore": [],
         "scoreDelta": 20,
-        "carbonDelta": -15
+        "carbonDelta": -15,
+        "isGoodAnswer": true
       },
       {
         "id": "B",
         "label": "Acheter des cadeaux d'occasion (livres, jeux)",
         "requiredBefore": [],
         "scoreDelta": 15,
-        "carbonDelta": -20
+        "carbonDelta": -20,
+        "isGoodAnswer": true
       }
     ],
     "type": "cold"
@@ -1822,14 +1979,16 @@
         "label": "Installer une multiprise à interrupteur",
         "requiredBefore": [],
         "scoreDelta": 15,
-        "carbonDelta": -8
+        "carbonDelta": -8,
+        "isGoodAnswer": true
       },
       {
         "id": "B",
         "label": "Débrancher la box lors des départs en vacances",
         "requiredBefore": [],
         "scoreDelta": 10,
-        "carbonDelta": -4
+        "carbonDelta": -4,
+        "isGoodAnswer": true
       }
     ],
     "type": "dry"
@@ -1846,14 +2005,16 @@
         "label": "Utiliser systématiquement un couvercle",
         "requiredBefore": [],
         "scoreDelta": 10,
-        "carbonDelta": -2
+        "carbonDelta": -2,
+        "isGoodAnswer": true
       },
       {
         "id": "B",
         "label": "Utiliser une bouilloire électrique avant la casserole",
         "requiredBefore": [],
         "scoreDelta": 5,
-        "carbonDelta": -1
+        "carbonDelta": -1,
+        "isGoodAnswer": true
       }
     ],
     "type": "dry"
@@ -1870,14 +2031,16 @@
         "label": "Aller chercher son plat avec ses propres contenants",
         "requiredBefore": [],
         "scoreDelta": 20,
-        "carbonDelta": -15
+        "carbonDelta": -15,
+        "isGoodAnswer": true
       },
       {
         "id": "B",
         "label": "Cuisiner une 'batch-cook' le dimanche",
         "requiredBefore": [],
         "scoreDelta": 30,
-        "carbonDelta": -25
+        "carbonDelta": -25,
+        "isGoodAnswer": true
       }
     ],
     "type": "dry"
@@ -1894,7 +2057,8 @@
         "label": "Demander le DPE du logement au propriétaire",
         "requiredBefore": [],
         "scoreDelta": 10,
-        "carbonDelta": -2
+        "carbonDelta": -2,
+        "isGoodAnswer": true
       },
       {
         "id": "B",
@@ -1903,14 +2067,16 @@
           "A"
         ],
         "scoreDelta": 20,
-        "carbonDelta": -10
+        "carbonDelta": -10,
+        "isGoodAnswer": true
       },
       {
         "id": "C",
         "label": "Poser des rideaux épais et ignorer",
         "requiredBefore": [],
         "scoreDelta": -5,
-        "carbonDelta": 5
+        "carbonDelta": 5,
+        "isGoodAnswer": false
       }
     ],
     "type": "cold"
@@ -1927,7 +2093,8 @@
         "label": "Vérifier l'étiquette énergie des appareils",
         "requiredBefore": [],
         "scoreDelta": 5,
-        "carbonDelta": -2
+        "carbonDelta": -2,
+        "isGoodAnswer": true
       },
       {
         "id": "B",
@@ -1936,14 +2103,16 @@
           "A"
         ],
         "scoreDelta": 20,
-        "carbonDelta": -18
+        "carbonDelta": -18,
+        "isGoodAnswer": true
       },
       {
         "id": "C",
         "label": "Acheter d'occasion sans vérifier la classe",
         "requiredBefore": [],
         "scoreDelta": 2,
-        "carbonDelta": 8
+        "carbonDelta": 8,
+        "isGoodAnswer": true
       }
     ],
     "type": "dry"
@@ -1960,7 +2129,8 @@
         "label": "Réaliser un audit de consommation",
         "requiredBefore": [],
         "scoreDelta": 10,
-        "carbonDelta": -3
+        "carbonDelta": -3,
+        "isGoodAnswer": true
       },
       {
         "id": "B",
@@ -1969,14 +2139,16 @@
           "A"
         ],
         "scoreDelta": 25,
-        "carbonDelta": -22
+        "carbonDelta": -22,
+        "isGoodAnswer": true
       },
       {
         "id": "C",
         "label": "Éteindre manuellement en partant",
         "requiredBefore": [],
         "scoreDelta": 5,
-        "carbonDelta": -5
+        "carbonDelta": -5,
+        "isGoodAnswer": true
       }
     ],
     "type": "dry"
@@ -1993,7 +2165,8 @@
         "label": "Calculer l'empreinte carbone de la flotte",
         "requiredBefore": [],
         "scoreDelta": 10,
-        "carbonDelta": -3
+        "carbonDelta": -3,
+        "isGoodAnswer": true
       },
       {
         "id": "B",
@@ -2002,7 +2175,8 @@
           "A"
         ],
         "scoreDelta": 15,
-        "carbonDelta": -10
+        "carbonDelta": -10,
+        "isGoodAnswer": true
       },
       {
         "id": "C",
@@ -2012,14 +2186,16 @@
           "B"
         ],
         "scoreDelta": 30,
-        "carbonDelta": -35
+        "carbonDelta": -35,
+        "isGoodAnswer": true
       },
       {
         "id": "D",
         "label": "Continuer en diesel, trop coûteux",
         "requiredBefore": [],
         "scoreDelta": -20,
-        "carbonDelta": 40
+        "carbonDelta": 40,
+        "isGoodAnswer": false
       }
     ],
     "type": "dry"
@@ -2036,21 +2212,24 @@
         "label": "Baisser le chauffage à 19°C",
         "requiredBefore": [],
         "scoreDelta": 10,
-        "carbonDelta": -8
+        "carbonDelta": -8,
+        "isGoodAnswer": true
       },
       {
         "id": "B",
         "label": "Éteindre toutes les veilles",
         "requiredBefore": [],
         "scoreDelta": 8,
-        "carbonDelta": -5
+        "carbonDelta": -5,
+        "isGoodAnswer": true
       },
       {
         "id": "C",
         "label": "Ignorer, le confort prime",
         "requiredBefore": [],
         "scoreDelta": -10,
-        "carbonDelta": 15
+        "carbonDelta": 15,
+        "isGoodAnswer": false
       }
     ],
     "type": "cold"
@@ -2067,21 +2246,24 @@
         "label": "Passer de 10 à 5 minutes par douche",
         "requiredBefore": [],
         "scoreDelta": 12,
-        "carbonDelta": -5
+        "carbonDelta": -5,
+        "isGoodAnswer": true
       },
       {
         "id": "B",
         "label": "Installer un pommeau éco-mousseur",
         "requiredBefore": [],
         "scoreDelta": 15,
-        "carbonDelta": -7
+        "carbonDelta": -7,
+        "isGoodAnswer": true
       },
       {
         "id": "C",
         "label": "Prendre un bain moussant le dimanche",
         "requiredBefore": [],
         "scoreDelta": -10,
-        "carbonDelta": 12
+        "carbonDelta": 12,
+        "isGoodAnswer": false
       }
     ],
     "type": "humidity"
@@ -2098,14 +2280,16 @@
         "label": "Remplacer toutes les ampoules par des LED",
         "requiredBefore": [],
         "scoreDelta": 18,
-        "carbonDelta": -10
+        "carbonDelta": -10,
+        "isGoodAnswer": true
       },
       {
         "id": "B",
         "label": "Éteindre systématiquement en sortant",
         "requiredBefore": [],
         "scoreDelta": 8,
-        "carbonDelta": -3
+        "carbonDelta": -3,
+        "isGoodAnswer": true
       }
     ],
     "type": "dry"
@@ -2122,14 +2306,16 @@
         "label": "Utiliser systématiquement des couvercles",
         "requiredBefore": [],
         "scoreDelta": 10,
-        "carbonDelta": -4
+        "carbonDelta": -4,
+        "isGoodAnswer": true
       },
       {
         "id": "B",
         "label": "Chauffer l'eau à la bouilloire avant",
         "requiredBefore": [],
         "scoreDelta": 5,
-        "carbonDelta": -2
+        "carbonDelta": -2,
+        "isGoodAnswer": true
       }
     ],
     "type": "dry"
@@ -2146,14 +2332,16 @@
         "label": "Se désabonner des newsletters inutiles",
         "requiredBefore": [],
         "scoreDelta": 12,
-        "carbonDelta": -3
+        "carbonDelta": -3,
+        "isGoodAnswer": true
       },
       {
         "id": "B",
         "label": "Supprimer les pièces jointes lourdes",
         "requiredBefore": [],
         "scoreDelta": 10,
-        "carbonDelta": -2
+        "carbonDelta": -2,
+        "isGoodAnswer": true
       }
     ],
     "type": "dry"
@@ -2170,14 +2358,16 @@
         "label": "Passer les cycles quotidiens à 30°C",
         "requiredBefore": [],
         "scoreDelta": 15,
-        "carbonDelta": -8
+        "carbonDelta": -8,
+        "isGoodAnswer": true
       },
       {
         "id": "B",
         "label": "Utiliser le mode 'Eco' de la machine",
         "requiredBefore": [],
         "scoreDelta": 12,
-        "carbonDelta": -6
+        "carbonDelta": -6,
+        "isGoodAnswer": true
       }
     ],
     "type": "humidity"
@@ -2194,14 +2384,16 @@
         "label": "Dégivrer l'appareil immédiatement",
         "requiredBefore": [],
         "scoreDelta": 20,
-        "carbonDelta": -12
+        "carbonDelta": -12,
+        "isGoodAnswer": true
       },
       {
         "id": "B",
         "label": "Régler le thermostat sur la position max",
         "requiredBefore": [],
         "scoreDelta": -15,
-        "carbonDelta": 18
+        "carbonDelta": 18,
+        "isGoodAnswer": false
       }
     ],
     "type": "cold"
@@ -2218,14 +2410,16 @@
         "label": "Acheter en ressourcerie ou occasion",
         "requiredBefore": [],
         "scoreDelta": 25,
-        "carbonDelta": -35
+        "carbonDelta": -35,
+        "isGoodAnswer": true
       },
       {
         "id": "B",
         "label": "Commander un kit neuf premier prix",
         "requiredBefore": [],
         "scoreDelta": -10,
-        "carbonDelta": 40
+        "carbonDelta": 40,
+        "isGoodAnswer": false
       }
     ],
     "type": "dry"
@@ -2242,14 +2436,16 @@
         "label": "Installer un lombricomposteur",
         "requiredBefore": [],
         "scoreDelta": 22,
-        "carbonDelta": -15
+        "carbonDelta": -15,
+        "isGoodAnswer": true
       },
       {
         "id": "B",
         "label": "Trouver un bac de compost partagé",
         "requiredBefore": [],
         "scoreDelta": 18,
-        "carbonDelta": -12
+        "carbonDelta": -12,
+        "isGoodAnswer": true
       }
     ],
     "type": "humidity"
@@ -2266,14 +2462,16 @@
         "label": "Passer systématiquement en Wi-Fi",
         "requiredBefore": [],
         "scoreDelta": 10,
-        "carbonDelta": -4
+        "carbonDelta": -4,
+        "isGoodAnswer": true
       },
       {
         "id": "B",
         "label": "Réduire la résolution de 4K à HD",
         "requiredBefore": [],
         "scoreDelta": 15,
-        "carbonDelta": -8
+        "carbonDelta": -8,
+        "isGoodAnswer": true
       }
     ],
     "type": "dry"
@@ -2290,14 +2488,16 @@
         "label": "Adopter un régime flexitarien",
         "requiredBefore": [],
         "scoreDelta": 25,
-        "carbonDelta": -50
+        "carbonDelta": -50,
+        "isGoodAnswer": true
       },
       {
         "id": "B",
         "label": "Instaurer deux jours végétariens",
         "requiredBefore": [],
         "scoreDelta": 15,
-        "carbonDelta": -20
+        "carbonDelta": -20,
+        "isGoodAnswer": true
       }
     ],
     "type": "dry"
@@ -2314,14 +2514,16 @@
         "label": "Marcher ou pédaler pour < 3km",
         "requiredBefore": [],
         "scoreDelta": 20,
-        "carbonDelta": -45
+        "carbonDelta": -45,
+        "isGoodAnswer": true
       },
       {
         "id": "B",
         "label": "Utiliser les transports en commun",
         "requiredBefore": [],
         "scoreDelta": 15,
-        "carbonDelta": -30
+        "carbonDelta": -30,
+        "isGoodAnswer": true
       }
     ],
     "type": "dry"
@@ -2338,14 +2540,16 @@
         "label": "Utiliser une carafe filtrante ou gourde",
         "requiredBefore": [],
         "scoreDelta": 20,
-        "carbonDelta": -25
+        "carbonDelta": -25,
+        "isGoodAnswer": true
       },
       {
         "id": "B",
         "label": "Laisser l'eau décanter au frais",
         "requiredBefore": [],
         "scoreDelta": 12,
-        "carbonDelta": -20
+        "carbonDelta": -20,
+        "isGoodAnswer": true
       }
     ],
     "type": "dry"
@@ -2362,14 +2566,16 @@
         "label": "Acheter en friperie / Vinted",
         "requiredBefore": [],
         "scoreDelta": 22,
-        "carbonDelta": -40
+        "carbonDelta": -40,
+        "isGoodAnswer": true
       },
       {
         "id": "B",
         "label": "Réparer ses vêtements abîmés",
         "requiredBefore": [],
         "scoreDelta": 18,
-        "carbonDelta": -10
+        "carbonDelta": -10,
+        "isGoodAnswer": true
       }
     ],
     "type": "dry"
@@ -2386,14 +2592,16 @@
         "label": "Passer au vinaigre et bicarbonate",
         "requiredBefore": [],
         "scoreDelta": 15,
-        "carbonDelta": -8
+        "carbonDelta": -8,
+        "isGoodAnswer": true
       },
       {
         "id": "B",
         "label": "Acheter des recharges grand format",
         "requiredBefore": [],
         "scoreDelta": 8,
-        "carbonDelta": -3
+        "carbonDelta": -3,
+        "isGoodAnswer": true
       }
     ],
     "type": "dry"
@@ -2410,21 +2618,24 @@
         "label": "Aller dans un Repair Café",
         "requiredBefore": [],
         "scoreDelta": 25,
-        "carbonDelta": -15
+        "carbonDelta": -15,
+        "isGoodAnswer": true
       },
       {
         "id": "B",
         "label": "Suivre un tutoriel de réparation",
         "requiredBefore": [],
         "scoreDelta": 20,
-        "carbonDelta": -12
+        "carbonDelta": -12,
+        "isGoodAnswer": true
       },
       {
         "id": "C",
         "label": "Jeter et acheter un neuf",
         "requiredBefore": [],
         "scoreDelta": -20,
-        "carbonDelta": 35
+        "carbonDelta": 35,
+        "isGoodAnswer": false
       }
     ],
     "type": "dry"
@@ -2441,14 +2652,16 @@
         "label": "Consommer des légumes de saison",
         "requiredBefore": [],
         "scoreDelta": 18,
-        "carbonDelta": -25
+        "carbonDelta": -25,
+        "isGoodAnswer": true
       },
       {
         "id": "B",
         "label": "S'inscrire à une AMAP locale",
         "requiredBefore": [],
         "scoreDelta": 25,
-        "carbonDelta": -35
+        "carbonDelta": -35,
+        "isGoodAnswer": true
       }
     ],
     "type": "cold"
@@ -2465,14 +2678,16 @@
         "label": "Transférer vers une banque éthique",
         "requiredBefore": [],
         "scoreDelta": 30,
-        "carbonDelta": -80
+        "carbonDelta": -80,
+        "isGoodAnswer": true
       },
       {
         "id": "B",
         "label": "Investir dans un livret durable (LDDS)",
         "requiredBefore": [],
         "scoreDelta": 15,
-        "carbonDelta": -20
+        "carbonDelta": -20,
+        "isGoodAnswer": true
       }
     ],
     "type": "dry"
@@ -2489,14 +2704,16 @@
         "label": "Placer un boudin de porte épais",
         "requiredBefore": [],
         "scoreDelta": 12,
-        "carbonDelta": -6
+        "carbonDelta": -6,
+        "isGoodAnswer": true
       },
       {
         "id": "B",
         "label": "Installer des joints aux fenêtres",
         "requiredBefore": [],
         "scoreDelta": 15,
-        "carbonDelta": -9
+        "carbonDelta": -9,
+        "isGoodAnswer": true
       }
     ],
     "type": "cold"
@@ -2513,21 +2730,24 @@
         "label": "Prendre le train (Intercités/TGV)",
         "requiredBefore": [],
         "scoreDelta": 35,
-        "carbonDelta": -120
+        "carbonDelta": -120,
+        "isGoodAnswer": true
       },
       {
         "id": "B",
         "label": "Choisir le covoiturage",
         "requiredBefore": [],
         "scoreDelta": 20,
-        "carbonDelta": -60
+        "carbonDelta": -60,
+        "isGoodAnswer": true
       },
       {
         "id": "C",
         "label": "Prendre un vol low-cost",
         "requiredBefore": [],
         "scoreDelta": -40,
-        "carbonDelta": 180
+        "carbonDelta": 180,
+        "isGoodAnswer": false
       }
     ],
     "type": "dry"
@@ -2544,14 +2764,16 @@
         "label": "Acheter des denrées sèches en vrac",
         "requiredBefore": [],
         "scoreDelta": 20,
-        "carbonDelta": -15
+        "carbonDelta": -15,
+        "isGoodAnswer": true
       },
       {
         "id": "B",
         "label": "Utiliser des sacs à vrac réutilisables",
         "requiredBefore": [],
         "scoreDelta": 12,
-        "carbonDelta": -8
+        "carbonDelta": -8,
+        "isGoodAnswer": true
       }
     ],
     "type": "dry"
@@ -2568,14 +2790,16 @@
         "label": "Remplacer la batterie uniquement",
         "requiredBefore": [],
         "scoreDelta": 25,
-        "carbonDelta": -30
+        "carbonDelta": -30,
+        "isGoodAnswer": true
       },
       {
         "id": "B",
         "label": "Acheter un modèle reconditionné",
         "requiredBefore": [],
         "scoreDelta": 15,
-        "carbonDelta": -15
+        "carbonDelta": -15,
+        "isGoodAnswer": true
       }
     ],
     "type": "dry"
@@ -2592,14 +2816,16 @@
         "label": "Fermer volets et fenêtres le jour",
         "requiredBefore": [],
         "scoreDelta": 15,
-        "carbonDelta": 0
+        "carbonDelta": 0,
+        "isGoodAnswer": true
       },
       {
         "id": "B",
         "label": "Installer une climatisation mobile",
         "requiredBefore": [],
         "scoreDelta": -25,
-        "carbonDelta": 45
+        "carbonDelta": 45,
+        "isGoodAnswer": false
       }
     ],
     "type": "hot"
@@ -2616,14 +2842,16 @@
         "label": "Faire une liste de courses précise",
         "requiredBefore": [],
         "scoreDelta": 18,
-        "carbonDelta": -15
+        "carbonDelta": -15,
+        "isGoodAnswer": true
       },
       {
         "id": "B",
         "label": "Organiser son frigo (DLC devant)",
         "requiredBefore": [],
         "scoreDelta": 12,
-        "carbonDelta": -10
+        "carbonDelta": -10,
+        "isGoodAnswer": true
       }
     ],
     "type": "humidity"
@@ -2640,14 +2868,16 @@
         "label": "Offrir des expériences/spectacles",
         "requiredBefore": [],
         "scoreDelta": 22,
-        "carbonDelta": -30
+        "carbonDelta": -30,
+        "isGoodAnswer": true
       },
       {
         "id": "B",
         "label": "Privilégier les cadeaux d'occasion",
         "requiredBefore": [],
         "scoreDelta": 20,
-        "carbonDelta": -25
+        "carbonDelta": -25,
+        "isGoodAnswer": true
       }
     ],
     "type": "cold"
@@ -2664,14 +2894,16 @@
         "label": "Installer une multiprise à interrupteur",
         "requiredBefore": [],
         "scoreDelta": 15,
-        "carbonDelta": -7
+        "carbonDelta": -7,
+        "isGoodAnswer": true
       },
       {
         "id": "B",
         "label": "Tout débrancher lors de déplacements",
         "requiredBefore": [],
         "scoreDelta": 10,
-        "carbonDelta": -4
+        "carbonDelta": -4,
+        "isGoodAnswer": true
       }
     ],
     "type": "dry"
@@ -2688,14 +2920,16 @@
         "label": "Remplir les bacs de l'évier",
         "requiredBefore": [],
         "scoreDelta": 14,
-        "carbonDelta": -3
+        "carbonDelta": -3,
+        "isGoodAnswer": true
       },
       {
         "id": "B",
         "label": "Utiliser un lave-vaisselle (cycle éco)",
         "requiredBefore": [],
         "scoreDelta": 16,
-        "carbonDelta": -5
+        "carbonDelta": -5,
+        "isGoodAnswer": true
       }
     ],
     "type": "humidity"
@@ -2712,14 +2946,16 @@
         "label": "Régler à 19°C et mettre un pull",
         "requiredBefore": [],
         "scoreDelta": 18,
-        "carbonDelta": -15
+        "carbonDelta": -15,
+        "isGoodAnswer": true
       },
       {
         "id": "B",
         "label": "Fermer les volets dès la nuit tombée",
         "requiredBefore": [],
         "scoreDelta": 10,
-        "carbonDelta": -5
+        "carbonDelta": -5,
+        "isGoodAnswer": true
       }
     ],
     "type": "cold"
@@ -2736,14 +2972,16 @@
         "label": "Passer aux piles rechargeables",
         "requiredBefore": [],
         "scoreDelta": 15,
-        "carbonDelta": -10
+        "carbonDelta": -10,
+        "isGoodAnswer": true
       },
       {
         "id": "B",
         "label": "Rapporter les piles usagées au tri",
         "requiredBefore": [],
         "scoreDelta": 8,
-        "carbonDelta": -2
+        "carbonDelta": -2,
+        "isGoodAnswer": true
       }
     ],
     "type": "dry"
@@ -2760,14 +2998,16 @@
         "label": "Rejoindre un jardin partagé",
         "requiredBefore": [],
         "scoreDelta": 20,
-        "carbonDelta": -10
+        "carbonDelta": -10,
+        "isGoodAnswer": true
       },
       {
         "id": "B",
         "label": "Cultiver des aromates sur le balcon",
         "requiredBefore": [],
         "scoreDelta": 12,
-        "carbonDelta": -5
+        "carbonDelta": -5,
+        "isGoodAnswer": true
       }
     ],
     "type": "humidity"
@@ -2784,14 +3024,16 @@
         "label": "Coller un 'Stop Pub'",
         "requiredBefore": [],
         "scoreDelta": 15,
-        "carbonDelta": -12
+        "carbonDelta": -12,
+        "isGoodAnswer": true
       },
       {
         "id": "B",
         "label": "Passer aux factures dématérialisées",
         "requiredBefore": [],
         "scoreDelta": 10,
-        "carbonDelta": -5
+        "carbonDelta": -5,
+        "isGoodAnswer": true
       }
     ],
     "type": "dry"
