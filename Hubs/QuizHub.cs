@@ -1,4 +1,5 @@
 using Backend.Catalog.Models;
+using Backend.Controllers;
 using Backend.Domains;
 using Backend.Dto.Action;
 using Backend.Dto.Debrief;
@@ -59,7 +60,7 @@ public class QuizHub(
         await Clients.Caller.SendAsync("GameStartedHost", new GameStartedHostDto(
             EndsAtUnix: endsAt.ToUnixTimeSeconds(),
             Players: room.Players.Values.Select(p => new PlayerSummaryDto(
-                p.ConnectionId, p.Username, p.Profile, p.Score, p.CarbonLevel)),
+                p.ConnectionId, p.Username, p.Profile.ToString().ToLowerInvariant(), p.Score, p.CarbonLevel)),
             GlobalCarbon: room.GlobalCarbon
         ));
 
@@ -72,7 +73,7 @@ public class QuizHub(
             await Clients.Client(connectionId).SendAsync("GameStartedPlayer", new GameStartedPlayerDto(
                 HouseState: player.Score,
                 Carbon: player.CarbonLevel,
-                Profile: player.Profile
+                Profile: player.Profile.ToString().ToLowerInvariant()
             ), cancellationToken: cts.Token);
 
             await SendNextEventToPlayer(roomId, connectionId);
@@ -111,7 +112,9 @@ public class QuizHub(
             return;
         }
 
-        roomManager.AddPlayer(roomId, Context.ConnectionId, username, profile);
+        Enum.TryParse<Profile>(profile, ignoreCase: true, out var profileEnum);
+
+        roomManager.AddPlayer(roomId, Context.ConnectionId, username, profileEnum);
         await Groups.AddToGroupAsync(Context.ConnectionId, roomId);
 
         logger.LogInformation("Player {Username} ({Profile}) a rejoint {RoomId}",
@@ -149,7 +152,7 @@ public class QuizHub(
         await Clients.Client(room.HostConnectionId).SendAsync("VillageUpdate", new VillageUpdateDto(
             ConnectionId: player.ConnectionId,
             Username: player.Username,
-            Profile: player.Profile,
+            Profile: player.Profile.ToString().ToLowerInvariant(),
             IsGoodMove: result.IsGoodMove,
             GlobalCarbon: roomManager.GetGlobalCarbon(roomId),
             PlayerScore: newScore
@@ -161,7 +164,7 @@ public class QuizHub(
             PrerequisitesMet: result.PrerequisitesMet,
             NewScore: newScore,
             EducationalNote: gameEvent.EducationalNote,
-            HasNextEvent: roomManager.HasMoreEventsForPlayer(roomId, Context.ConnectionId, player.Profile)
+            HasNextEvent: roomManager.HasMoreEventsForPlayer(roomId, Context.ConnectionId, player.Profile.ToString().ToLowerInvariant())
         ));
 
         await SendNextEventToPlayer(roomId, Context.ConnectionId);
@@ -208,7 +211,7 @@ public class QuizHub(
         if (room == null) return;
         if (!room.Players.TryGetValue(connectionId, out var player)) return;
 
-        var nextEvent = roomManager.GetNextEventForPlayer(roomId, connectionId, player.Profile);
+        var nextEvent = roomManager.GetNextEventForPlayer(roomId, connectionId, player.Profile.ToString().ToLowerInvariant());
 
         if (nextEvent == null)
         {
@@ -288,12 +291,12 @@ public class QuizHub(
                 .Select((p, i) => new LeaderboardEntryDto(
                     Rank: i + 1,
                     Username: p.Username,
-                    Profile: p.Profile,
+                    Profile: p.Profile.ToString().ToLowerInvariant(),
                     Score: p.Score)),
             StatsByProfile: players
                 .GroupBy(p => p.Profile)
                 .Select(g => new ProfileStatsDto(
-                    Profile: g.Key,
+                    Profile: g.Key.ToString().ToLowerInvariant(),
                     PlayerCount: g.Count(),
                     AvgScore: g.Average(p => p.Score),
                     AvgAccuracy: g.Average(p =>

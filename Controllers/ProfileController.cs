@@ -21,7 +21,7 @@ public class ProfileController : ControllerBase
         return Ok(profiles);
     }
 
-    private static string ToImage(Profile profile) => profile switch
+    public static string ToImage(Profile profile) => profile switch
     {
         Profile.Proprietaire => "house",
         Profile.Locataire => "flat",
@@ -29,7 +29,7 @@ public class ProfileController : ControllerBase
         _ => "unknown"
     };
 
-    private static string ToLabel(Profile profile) => profile switch
+    public static string ToLabel(Profile profile) => profile switch
     {
         Profile.Proprietaire => "Propriétaire",
         Profile.Locataire => "Locataire",

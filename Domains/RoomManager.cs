@@ -51,7 +51,7 @@ public class RoomManager
 
     // ── Players ────────────────────────────────────────────
 
-    public void AddPlayer(string roomId, string connectionId, string username, string profile = "")
+    public void AddPlayer(string roomId, string connectionId, string username, Profile profile)
     {
         var room = GetRoom(roomId);
         if (room == null) return;
@@ -129,13 +129,14 @@ public class RoomManager
             room.PlayerEventIndex.TryGetValue(player.ConnectionId, out var index);
 
             var eligibleCount = room.EventQueue
-                .Count(e => string.IsNullOrEmpty(e.ProfileFilter) || e.ProfileFilter == player.Profile);
+                .Count(e => string.IsNullOrEmpty(e.ProfileFilter) ||
+                            e.ProfileFilter == player.Profile.ToString().ToLowerInvariant());
 
             return index >= eligibleCount;
         });
     }
 
-    public GameEvent? GetCurrentEventForPlayer(string roomId, string connectionId, string profile)
+    public GameEvent? GetCurrentEventForPlayer(string roomId, string connectionId, Profile profile)
     {
         var room = GetRoom(roomId);
         if (room == null) return null;
@@ -144,7 +145,7 @@ public class RoomManager
         var currentIndex = index - 1;
 
         var eligibleEvents = room.EventQueue
-            .Where(e => string.IsNullOrEmpty(e.ProfileFilter) || e.ProfileFilter == profile)
+            .Where(e => string.IsNullOrEmpty(e.ProfileFilter) || e.ProfileFilter == profile.ToString())
             .ToList();
 
         if (currentIndex < 0 || currentIndex >= eligibleEvents.Count)
