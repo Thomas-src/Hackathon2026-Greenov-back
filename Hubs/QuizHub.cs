@@ -86,7 +86,7 @@ public class QuizHub(
 
         var room = roomManager.GetRoom(roomId);
         if (room is not { IsStarted: true }) return;
-
+        
         await EndGame(roomId, "forced");
     }
 

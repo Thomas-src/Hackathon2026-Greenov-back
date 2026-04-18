@@ -12,6 +12,9 @@ public class EventCatalogEntry
 
     [JsonPropertyName("description")]
     public string Description { get; init; } = "";
+    
+    [JsonPropertyName("type")]
+    public string Type { get; init; } = "";
 
     [JsonPropertyName("profileFilter")]
     public string ProfileFilter { get; init; } = ""; // "" = tous

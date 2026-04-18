@@ -4,7 +4,7 @@
     "title": "Isolation des combles absente",
     "description": "Vos combles ne sont pas isolés. La chaleur s'échappe massivement en hiver et s'accumule en été.",
     "profileFilter": "proprietaire",
-    "educationalNote": "Les combles représentent jusqu’à 30% des pertes thermiques d'une maison non isolée.",
+    "educationalNote": "Les combles représentent jusqu'à 30% des pertes thermiques d'une maison non isolée.",
     "actions": [
       {
         "id": "A",
@@ -29,7 +29,8 @@
         "scoreDelta": -10,
         "carbonDelta": 20
       }
-    ]
+    ],
+    "type": "cold"
   },
   {
     "id": "evt_chaudiere_fioul",
@@ -59,7 +60,8 @@
         "scoreDelta": -15,
         "carbonDelta": 10
       }
-    ]
+    ],
+    "type": "cold"
   },
   {
     "id": "evt_fenetres_vitrage",
@@ -82,7 +84,8 @@
         "scoreDelta": 12,
         "carbonDelta": -8
       }
-    ]
+    ],
+    "type": "cold"
   },
   {
     "id": "evt_chauffe_eau_solaire",
@@ -105,7 +108,8 @@
         "scoreDelta": 30,
         "carbonDelta": -25
       }
-    ]
+    ],
+    "type": "dry"
   },
   {
     "id": "evt_vMC_ventilation",
@@ -128,7 +132,8 @@
         "scoreDelta": 25,
         "carbonDelta": -12
       }
-    ]
+    ],
+    "type": "humidity"
   },
   {
     "id": "evt_panneaux_photovoltaiques",
@@ -151,7 +156,8 @@
         "scoreDelta": 20,
         "carbonDelta": -30
       }
-    ]
+    ],
+    "type": "dry"
   },
   {
     "id": "evt_recuperateur_eau",
@@ -174,7 +180,8 @@
         "scoreDelta": 15,
         "carbonDelta": -2
       }
-    ]
+    ],
+    "type": "humidity"
   },
   {
     "id": "evt_isolation_exterieure",
@@ -197,7 +204,8 @@
         "scoreDelta": -5,
         "carbonDelta": 10
       }
-    ]
+    ],
+    "type": "cold"
   },
   {
     "id": "evt_borne_electrique",
@@ -220,7 +228,8 @@
         "scoreDelta": 10,
         "carbonDelta": -15
       }
-    ]
+    ],
+    "type": "dry"
   },
   {
     "id": "evt_plancher_bas",
@@ -243,7 +252,8 @@
         "scoreDelta": 0,
         "carbonDelta": 5
       }
-    ]
+    ],
+    "type": "cold"
   },
   {
     "id": "evt_climatisation_passive",
@@ -273,7 +283,8 @@
         "scoreDelta": -10,
         "carbonDelta": 30
       }
-    ]
+    ],
+    "type": "hot"
   },
   {
     "id": "evt_matériaux_biosources",
@@ -296,7 +307,8 @@
         "scoreDelta": -15,
         "carbonDelta": 15
       }
-    ]
+    ],
+    "type": "humidity"
   },
   {
     "id": "evt_toiture_vegetalisee",
@@ -319,7 +331,8 @@
         "scoreDelta": 15,
         "carbonDelta": -5
       }
-    ]
+    ],
+    "type": "hot"
   },
   {
     "id": "evt_chauffage_bois",
@@ -342,7 +355,8 @@
         "scoreDelta": -10,
         "carbonDelta": 15
       }
-    ]
+    ],
+    "type": "cold"
   },
   {
     "id": "evt_eclairage_exterieur",
@@ -365,7 +379,8 @@
         "scoreDelta": 20,
         "carbonDelta": -8
       }
-    ]
+    ],
+    "type": "dry"
   },
   {
     "id": "evt_terrasse_durable",
@@ -395,7 +410,8 @@
         "scoreDelta": -10,
         "carbonDelta": 20
       }
-    ]
+    ],
+    "type": "dry"
   },
   {
     "id": "evt_vannes_thermostatiques",
@@ -418,7 +434,8 @@
         "scoreDelta": 15,
         "carbonDelta": -8
       }
-    ]
+    ],
+    "type": "cold"
   },
   {
     "id": "evt_biodiversite_jardin",
@@ -441,7 +458,8 @@
         "scoreDelta": 25,
         "carbonDelta": -10
       }
-    ]
+    ],
+    "type": "humidity"
   },
   {
     "id": "evt_piscine_eco",
@@ -464,7 +482,8 @@
         "scoreDelta": 15,
         "carbonDelta": -5
       }
-    ]
+    ],
+    "type": "humidity"
   },
   {
     "id": "evt_sol_permeable",
@@ -487,7 +506,8 @@
         "scoreDelta": -20,
         "carbonDelta": 15
       }
-    ]
+    ],
+    "type": "humidity"
   },
   {
     "id": "evt_electromenager_classe",
@@ -510,7 +530,8 @@
         "scoreDelta": 10,
         "carbonDelta": -5
       }
-    ]
+    ],
+    "type": "dry"
   },
   {
     "id": "evt_diagnostics_immobiliers",
@@ -533,7 +554,8 @@
         "scoreDelta": -30,
         "carbonDelta": 10
       }
-    ]
+    ],
+    "type": "cold"
   },
   {
     "id": "evt_peinture_interieure",
@@ -556,7 +578,8 @@
         "scoreDelta": -5,
         "carbonDelta": 5
       }
-    ]
+    ],
+    "type": "humidity"
   },
   {
     "id": "evt_recup_eaux_grises",
@@ -579,7 +602,8 @@
         "scoreDelta": 15,
         "carbonDelta": -3
       }
-    ]
+    ],
+    "type": "humidity"
   },
   {
     "id": "evt_bois_chauffage_stock",
@@ -602,7 +626,8 @@
         "scoreDelta": 10,
         "carbonDelta": -10
       }
-    ]
+    ],
+    "type": "humidity"
   },
   {
     "id": "evt_copropriete_isolation",
@@ -625,7 +650,8 @@
         "scoreDelta": -20,
         "carbonDelta": 30
       }
-    ]
+    ],
+    "type": "cold"
   },
   {
     "id": "evt_veranda_thermique",
@@ -648,7 +674,8 @@
         "scoreDelta": -30,
         "carbonDelta": 50
       }
-    ]
+    ],
+    "type": "cold"
   },
   {
     "id": "evt_composteur_collectif",
@@ -671,7 +698,8 @@
         "scoreDelta": 15,
         "carbonDelta": -5
       }
-    ]
+    ],
+    "type": "humidity"
   },
   {
     "id": "evt_audit_energetique",
@@ -694,7 +722,8 @@
         "scoreDelta": 5,
         "carbonDelta": -2
       }
-    ]
+    ],
+    "type": "dry"
   },
   {
     "id": "evt_voiture_occasion",
@@ -717,14 +746,15 @@
         "scoreDelta": 40,
         "carbonDelta": -150
       }
-    ]
+    ],
+    "type": "dry"
   },
   {
     "id": "evt_proprietaire_1",
     "title": "Isolation des combles absente",
     "description": "Vos combles ne sont pas isolés.",
     "profileFilter": "proprietaire",
-    "educationalNote": "Les combles représentent jusqu’à 30% des pertes thermiques.",
+    "educationalNote": "Les combles représentent jusqu'à 30% des pertes thermiques.",
     "actions": [
       {
         "id": "A",
@@ -749,7 +779,8 @@
         "scoreDelta": -10,
         "carbonDelta": 20
       }
-    ]
+    ],
+    "type": "cold"
   },
   {
     "id": "evt_proprietaire_2",
@@ -781,7 +812,8 @@
         "scoreDelta": 5,
         "carbonDelta": -3
       }
-    ]
+    ],
+    "type": "cold"
   },
   {
     "id": "evt_proprietaire_3",
@@ -815,14 +847,15 @@
         "scoreDelta": 10,
         "carbonDelta": -5
       }
-    ]
+    ],
+    "type": "humidity"
   },
   {
     "id": "evt_proprietaire_4",
     "title": "Ponts thermiques",
     "description": "Des zones froides apparaissent sur vos murs.",
     "profileFilter": "proprietaire",
-    "educationalNote": "Les ponts thermiques augmentent les pertes d’énergie.",
+    "educationalNote": "Les ponts thermiques augmentent les pertes d'énergie.",
     "actions": [
       {
         "id": "A",
@@ -847,7 +880,8 @@
         "scoreDelta": -10,
         "carbonDelta": 15
       }
-    ]
+    ],
+    "type": "cold"
   },
   {
     "id": "evt_proprietaire_5",
@@ -879,12 +913,13 @@
         "scoreDelta": -10,
         "carbonDelta": 18
       }
-    ]
+    ],
+    "type": "cold"
   },
   {
     "id": "evt_proprietaire_6",
     "title": "Absence de thermostat",
-    "description": "Votre chauffage n’est pas régulé.",
+    "description": "Votre chauffage n'est pas régulé.",
     "profileFilter": "proprietaire",
     "educationalNote": "Un thermostat permet jusqu'à 15% d'économie.",
     "actions": [
@@ -911,11 +946,12 @@
         "scoreDelta": 3,
         "carbonDelta": -1
       }
-    ]
+    ],
+    "type": "cold"
   },
   {
     "id": "evt_proprietaire_7",
-    "title": "Ballon d’eau chaude ancien",
+    "title": "Ballon d'eau chaude ancien",
     "description": "Votre chauffe-eau consomme beaucoup.",
     "profileFilter": "proprietaire",
     "educationalNote": "Les modèles récents sont plus efficaces.",
@@ -945,7 +981,8 @@
         "scoreDelta": 10,
         "carbonDelta": -5
       }
-    ]
+    ],
+    "type": "dry"
   },
   {
     "id": "evt_proprietaire_8",
@@ -977,7 +1014,8 @@
         "scoreDelta": -10,
         "carbonDelta": 12
       }
-    ]
+    ],
+    "type": "dry"
   },
   {
     "id": "evt_proprietaire_9",
@@ -1009,7 +1047,8 @@
         "scoreDelta": -5,
         "carbonDelta": 5
       }
-    ]
+    ],
+    "type": "dry"
   },
   {
     "id": "evt_isolation",
@@ -1041,7 +1080,8 @@
         "scoreDelta": -15,
         "carbonDelta": 30
       }
-    ]
+    ],
+    "type": "cold"
   },
   {
     "id": "evt_chaudiere",
@@ -1075,7 +1115,8 @@
         "scoreDelta": 5,
         "carbonDelta": 5
       }
-    ]
+    ],
+    "type": "cold"
   },
   {
     "id": "evt_loyer_charges",
@@ -1107,7 +1148,8 @@
         "scoreDelta": -5,
         "carbonDelta": 5
       }
-    ]
+    ],
+    "type": "cold"
   },
   {
     "id": "evt_chauffage_hiver",
@@ -1137,7 +1179,8 @@
         "scoreDelta": 20,
         "carbonDelta": -15
       }
-    ]
+    ],
+    "type": "cold"
   },
   {
     "id": "evt_compost_urbain",
@@ -1160,7 +1203,8 @@
         "scoreDelta": 15,
         "carbonDelta": -10
       }
-    ]
+    ],
+    "type": "humidity"
   },
   {
     "id": "evt_eau_douche",
@@ -1183,7 +1227,8 @@
         "scoreDelta": 25,
         "carbonDelta": -8
       }
-    ]
+    ],
+    "type": "humidity"
   },
   {
     "id": "evt_mobilier_occasion",
@@ -1206,7 +1251,8 @@
         "scoreDelta": -10,
         "carbonDelta": 50
       }
-    ]
+    ],
+    "type": "dry"
   },
   {
     "id": "evt_eclairage_led",
@@ -1229,7 +1275,8 @@
         "scoreDelta": 0,
         "carbonDelta": 5
       }
-    ]
+    ],
+    "type": "dry"
   },
   {
     "id": "evt_transport_boulot",
@@ -1259,7 +1306,8 @@
         "scoreDelta": 10,
         "carbonDelta": -15
       }
-    ]
+    ],
+    "type": "dry"
   },
   {
     "id": "evt_alimentation_saison",
@@ -1282,7 +1330,8 @@
         "scoreDelta": -15,
         "carbonDelta": 30
       }
-    ]
+    ],
+    "type": "cold"
   },
   {
     "id": "evt_banque_ethique",
@@ -1305,7 +1354,8 @@
         "scoreDelta": 10,
         "carbonDelta": -5
       }
-    ]
+    ],
+    "type": "dry"
   },
   {
     "id": "evt_vêtements_neufs",
@@ -1328,7 +1378,8 @@
         "scoreDelta": 25,
         "carbonDelta": -15
       }
-    ]
+    ],
+    "type": "dry"
   },
   {
     "id": "evt_lave_linge_eco",
@@ -1351,7 +1402,8 @@
         "scoreDelta": 15,
         "carbonDelta": -12
       }
-    ]
+    ],
+    "type": "humidity"
   },
   {
     "id": "evt_numerique_sobriete",
@@ -1381,7 +1433,8 @@
         "scoreDelta": -20,
         "carbonDelta": 45
       }
-    ]
+    ],
+    "type": "dry"
   },
   {
     "id": "evt_streaming_video",
@@ -1404,7 +1457,8 @@
         "scoreDelta": 15,
         "carbonDelta": -10
       }
-    ]
+    ],
+    "type": "dry"
   },
   {
     "id": "evt_viande_rouge",
@@ -1434,7 +1488,8 @@
         "scoreDelta": 10,
         "carbonDelta": -20
       }
-    ]
+    ],
+    "type": "dry"
   },
   {
     "id": "evt_frigo_entretien",
@@ -1457,7 +1512,8 @@
         "scoreDelta": 10,
         "carbonDelta": -2
       }
-    ]
+    ],
+    "type": "cold"
   },
   {
     "id": "evt_voyage_vacances",
@@ -1480,7 +1536,8 @@
         "scoreDelta": -40,
         "carbonDelta": 150
       }
-    ]
+    ],
+    "type": "dry"
   },
   {
     "id": "evt_produits_entretien",
@@ -1503,7 +1560,8 @@
         "scoreDelta": 10,
         "carbonDelta": -5
       }
-    ]
+    ],
+    "type": "dry"
   },
   {
     "id": "evt_clim_ete",
@@ -1533,7 +1591,8 @@
         "scoreDelta": 10,
         "carbonDelta": 5
       }
-    ]
+    ],
+    "type": "hot"
   },
   {
     "id": "evt_abonnement_elec",
@@ -1556,7 +1615,8 @@
         "scoreDelta": 5,
         "carbonDelta": -2
       }
-    ]
+    ],
+    "type": "dry"
   },
   {
     "id": "evt_gaspillage_alimentaire",
@@ -1579,7 +1639,8 @@
         "scoreDelta": 20,
         "carbonDelta": -15
       }
-    ]
+    ],
+    "type": "humidity"
   },
   {
     "id": "evt_bouteilles_plastique",
@@ -1602,7 +1663,8 @@
         "scoreDelta": 5,
         "carbonDelta": -10
       }
-    ]
+    ],
+    "type": "dry"
   },
   {
     "id": "evt_emballages_vrac",
@@ -1625,7 +1687,8 @@
         "scoreDelta": 10,
         "carbonDelta": -5
       }
-    ]
+    ],
+    "type": "dry"
   },
   {
     "id": "evt_voiture_partage",
@@ -1648,7 +1711,8 @@
         "scoreDelta": 15,
         "carbonDelta": -20
       }
-    ]
+    ],
+    "type": "dry"
   },
   {
     "id": "evt_recherche_internet",
@@ -1671,7 +1735,8 @@
         "scoreDelta": 5,
         "carbonDelta": -1
       }
-    ]
+    ],
+    "type": "dry"
   },
   {
     "id": "evt_isolation_fenetres",
@@ -1694,7 +1759,8 @@
         "scoreDelta": 10,
         "carbonDelta": -3
       }
-    ]
+    ],
+    "type": "cold"
   },
   {
     "id": "evt_cafe_dosettes",
@@ -1717,7 +1783,8 @@
         "scoreDelta": 15,
         "carbonDelta": -10
       }
-    ]
+    ],
+    "type": "dry"
   },
   {
     "id": "evt_cadeaux_noel",
@@ -1740,7 +1807,8 @@
         "scoreDelta": 15,
         "carbonDelta": -20
       }
-    ]
+    ],
+    "type": "cold"
   },
   {
     "id": "evt_veille_appareils",
@@ -1763,7 +1831,8 @@
         "scoreDelta": 10,
         "carbonDelta": -4
       }
-    ]
+    ],
+    "type": "dry"
   },
   {
     "id": "evt_cuisson_energie",
@@ -1786,7 +1855,8 @@
         "scoreDelta": 5,
         "carbonDelta": -1
       }
-    ]
+    ],
+    "type": "dry"
   },
   {
     "id": "evt_fast_food",
@@ -1809,7 +1879,8 @@
         "scoreDelta": 30,
         "carbonDelta": -25
       }
-    ]
+    ],
+    "type": "dry"
   },
   {
     "id": "evt_loyer_charges",
@@ -1841,7 +1912,8 @@
         "scoreDelta": -5,
         "carbonDelta": 5
       }
-    ]
+    ],
+    "type": "cold"
   },
   {
     "id": "evt_appareils_locataire",
@@ -1873,7 +1945,8 @@
         "scoreDelta": 2,
         "carbonDelta": 8
       }
-    ]
+    ],
+    "type": "dry"
   },
   {
     "id": "evt_eclairage_bureau",
@@ -1905,7 +1978,8 @@
         "scoreDelta": 5,
         "carbonDelta": -5
       }
-    ]
+    ],
+    "type": "dry"
   },
   {
     "id": "evt_flotte_vehicules",
@@ -1947,7 +2021,8 @@
         "scoreDelta": -20,
         "carbonDelta": 40
       }
-    ]
+    ],
+    "type": "dry"
   },
   {
     "id": "evt_gestes_quotidiens",
@@ -1977,7 +2052,8 @@
         "scoreDelta": -10,
         "carbonDelta": 15
       }
-    ]
+    ],
+    "type": "cold"
   },
   {
     "id": "evt_eau_douche",
@@ -2007,7 +2083,8 @@
         "scoreDelta": -10,
         "carbonDelta": 12
       }
-    ]
+    ],
+    "type": "humidity"
   },
   {
     "id": "evt_eclairage_led",
@@ -2030,7 +2107,8 @@
         "scoreDelta": 8,
         "carbonDelta": -3
       }
-    ]
+    ],
+    "type": "dry"
   },
   {
     "id": "evt_cuisson_couvercle",
@@ -2053,7 +2131,8 @@
         "scoreDelta": 5,
         "carbonDelta": -2
       }
-    ]
+    ],
+    "type": "dry"
   },
   {
     "id": "evt_numerique_mail",
@@ -2076,7 +2155,8 @@
         "scoreDelta": 10,
         "carbonDelta": -2
       }
-    ]
+    ],
+    "type": "dry"
   },
   {
     "id": "evt_linge_froid",
@@ -2099,7 +2179,8 @@
         "scoreDelta": 12,
         "carbonDelta": -6
       }
-    ]
+    ],
+    "type": "humidity"
   },
   {
     "id": "evt_frigo_givre",
@@ -2122,7 +2203,8 @@
         "scoreDelta": -15,
         "carbonDelta": 18
       }
-    ]
+    ],
+    "type": "cold"
   },
   {
     "id": "evt_mobilier_occasion",
@@ -2145,7 +2227,8 @@
         "scoreDelta": -10,
         "carbonDelta": 40
       }
-    ]
+    ],
+    "type": "dry"
   },
   {
     "id": "evt_compost_balcon",
@@ -2168,7 +2251,8 @@
         "scoreDelta": 18,
         "carbonDelta": -12
       }
-    ]
+    ],
+    "type": "humidity"
   },
   {
     "id": "evt_streaming_wifi",
@@ -2191,7 +2275,8 @@
         "scoreDelta": 15,
         "carbonDelta": -8
       }
-    ]
+    ],
+    "type": "dry"
   },
   {
     "id": "evt_viande_rouge",
@@ -2214,7 +2299,8 @@
         "scoreDelta": 15,
         "carbonDelta": -20
       }
-    ]
+    ],
+    "type": "dry"
   },
   {
     "id": "evt_transport_proximite",
@@ -2237,7 +2323,8 @@
         "scoreDelta": 15,
         "carbonDelta": -30
       }
-    ]
+    ],
+    "type": "dry"
   },
   {
     "id": "evt_eau_robinet",
@@ -2260,7 +2347,8 @@
         "scoreDelta": 12,
         "carbonDelta": -20
       }
-    ]
+    ],
+    "type": "dry"
   },
   {
     "id": "evt_vetements_neufs",
@@ -2283,7 +2371,8 @@
         "scoreDelta": 18,
         "carbonDelta": -10
       }
-    ]
+    ],
+    "type": "dry"
   },
   {
     "id": "evt_produits_entretien",
@@ -2306,7 +2395,8 @@
         "scoreDelta": 8,
         "carbonDelta": -3
       }
-    ]
+    ],
+    "type": "dry"
   },
   {
     "id": "evt_objets_panne",
@@ -2336,7 +2426,8 @@
         "scoreDelta": -20,
         "carbonDelta": 35
       }
-    ]
+    ],
+    "type": "dry"
   },
   {
     "id": "evt_alimentation_saison",
@@ -2359,7 +2450,8 @@
         "scoreDelta": 25,
         "carbonDelta": -35
       }
-    ]
+    ],
+    "type": "cold"
   },
   {
     "id": "evt_banque_epargne",
@@ -2382,7 +2474,8 @@
         "scoreDelta": 15,
         "carbonDelta": -20
       }
-    ]
+    ],
+    "type": "dry"
   },
   {
     "id": "evt_isolation_boudin",
@@ -2405,7 +2498,8 @@
         "scoreDelta": 15,
         "carbonDelta": -9
       }
-    ]
+    ],
+    "type": "cold"
   },
   {
     "id": "evt_vacances_train",
@@ -2435,7 +2529,8 @@
         "scoreDelta": -40,
         "carbonDelta": 180
       }
-    ]
+    ],
+    "type": "dry"
   },
   {
     "id": "evt_vrac_emballage",
@@ -2458,7 +2553,8 @@
         "scoreDelta": 12,
         "carbonDelta": -8
       }
-    ]
+    ],
+    "type": "dry"
   },
   {
     "id": "evt_smartphone_duree",
@@ -2481,7 +2577,8 @@
         "scoreDelta": 15,
         "carbonDelta": -15
       }
-    ]
+    ],
+    "type": "dry"
   },
   {
     "id": "evt_canicule_volets",
@@ -2504,7 +2601,8 @@
         "scoreDelta": -25,
         "carbonDelta": 45
       }
-    ]
+    ],
+    "type": "hot"
   },
   {
     "id": "evt_gaspillage_liste",
@@ -2527,7 +2625,8 @@
         "scoreDelta": 12,
         "carbonDelta": -10
       }
-    ]
+    ],
+    "type": "humidity"
   },
   {
     "id": "evt_cadeaux_noel",
@@ -2550,7 +2649,8 @@
         "scoreDelta": 20,
         "carbonDelta": -25
       }
-    ]
+    ],
+    "type": "cold"
   },
   {
     "id": "evt_multiprise_inter",
@@ -2573,7 +2673,8 @@
         "scoreDelta": 10,
         "carbonDelta": -4
       }
-    ]
+    ],
+    "type": "dry"
   },
   {
     "id": "evt_eau_vaisselle",
@@ -2596,7 +2697,8 @@
         "scoreDelta": 16,
         "carbonDelta": -5
       }
-    ]
+    ],
+    "type": "humidity"
   },
   {
     "id": "evt_chauffage_pull",
@@ -2619,7 +2721,8 @@
         "scoreDelta": 10,
         "carbonDelta": -5
       }
-    ]
+    ],
+    "type": "cold"
   },
   {
     "id": "evt_piles_recharge",
@@ -2642,7 +2745,8 @@
         "scoreDelta": 8,
         "carbonDelta": -2
       }
-    ]
+    ],
+    "type": "dry"
   },
   {
     "id": "evt_jardin_partage",
@@ -2665,7 +2769,8 @@
         "scoreDelta": 12,
         "carbonDelta": -5
       }
-    ]
+    ],
+    "type": "humidity"
   },
   {
     "id": "evt_tri_papier",
@@ -2688,6 +2793,7 @@
         "scoreDelta": 10,
         "carbonDelta": -5
       }
-    ]
+    ],
+    "type": "dry"
   }
 ]

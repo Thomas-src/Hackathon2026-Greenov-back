@@ -4,6 +4,7 @@ public class GameEvent
 {
     public string Id { get; init; } = "";
     public string Title { get; init; } = "";
+    public string Type { get; init; } = "";
     public string Description { get; init; } = "";
     public string ProfileFilter { get; init; } = "";
     public string EducationalNote { get; init; } = "";

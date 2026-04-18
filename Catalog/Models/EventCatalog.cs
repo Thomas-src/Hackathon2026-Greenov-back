@@ -31,6 +31,7 @@ public class EventCatalog
     {
         Id = e.Id,
         Title = e.Title,
+        Type = e.Type,
         Description = e.Description,
         ProfileFilter = e.ProfileFilter,
         EducationalNote = e.EducationalNote,
