@@ -27,5 +27,6 @@ var app = builder.Build();
 app.UseCors();
 
 app.MapHub<QuizHub>("/hub");
+app.MapFallback(() => Results.NotFound());
 
 app.Run();

@@ -5,7 +5,7 @@ namespace Backend.Catalog.Models;
 
 public class EventCatalog
 {
-    private readonly List<GameEvent> _events = [];
+    private readonly List<GameEvent> _events;
 
     public EventCatalog(IWebHostEnvironment env)
     {

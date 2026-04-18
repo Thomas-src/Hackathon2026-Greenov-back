@@ -6,131 +6,152 @@ using Microsoft.AspNetCore.SignalR;
 
 namespace Backend.Hubs;
 
-public class QuizHub : Hub
+public class QuizHub(
+    RoomManager roomManager,
+    ActionEngine actionEngine,
+    EventCatalog eventCatalog,
+    ILogger<QuizHub> logger)
+    : Hub
 {
-    private readonly ActionEngine _actionEngine;
-    private readonly EventCatalog _eventCatalog;
-    private readonly RoomManager _roomManager;
+    // ── HOST ───────────────────────────────────────────────
 
-    public QuizHub(RoomManager roomManager, ActionEngine actionEngine, EventCatalog eventCatalog)
-    {
-        _roomManager = roomManager;
-        _actionEngine = actionEngine;
-        _eventCatalog = eventCatalog;
-    }
-
-    // HOST crée room
-    public async Task<string> CreateRoom()
+    public async Task<string> CreateRoom(int durationMinutes)
     {
         var roomId = RoomIdGenerator.Generate();
+        roomManager.CreateRoom(Context.ConnectionId, roomId);
 
-        _roomManager.CreateRoom(Context.ConnectionId, roomId);
+        var allEvents = eventCatalog.GetAll();
+        roomManager.ConfigureRoom(roomId, durationMinutes, allEvents);
 
         await Groups.AddToGroupAsync(Context.ConnectionId, roomId);
+
+        var room = roomManager.GetRoom(roomId)!;
+        logger.LogInformation("Room {RoomId} créée — {Duration} min — {Total} events",
+            roomId, durationMinutes, room.TotalEvents);
 
         return roomId;
     }
 
-    // PLAYER join
-    public async Task JoinRoom(string roomId, string username)
+    public async Task StartGame(string roomId)
     {
-        var room = _roomManager.GetRoom(roomId);
+        if (!roomManager.IsHost(roomId, Context.ConnectionId)) return;
+
+        var room = roomManager.GetRoom(roomId);
+        if (room == null || room.IsStarted) return;
+
+        roomManager.StartRoom(roomId);
+
+        await Clients.Group(roomId).SendAsync("GameStarted", new
+        {
+            DurationMinutes = room.DurationMinutes,
+            TotalEvents = room.TotalEvents,
+            PlayerCount = room.Players.Count,
+        });
+
+        var cts = new CancellationTokenSource();
+        roomManager.SetTimerCts(roomId, cts);
+        _ = RunGameTimerAsync(roomId, room.DurationMinutes, cts.Token);
+
+        // Premier event envoyé individuellement à chaque joueur
+        foreach (var connectionId in room.Players.Keys)
+            await SendNextEventToPlayer(roomId, connectionId);
+    }
+
+    public async Task GetGlobalDebrief(string roomId)
+    {
+        if (!roomManager.IsHost(roomId, Context.ConnectionId)) return;
+
+        var players = roomManager.GetAllPlayers(roomId);
+
+        var debrief = players.Select(p => new
+        {
+            p.Username,
+            p.Profile,
+            p.Score,
+            p.CarbonLevel,
+            Accuracy = p.ActionHistory.Count == 0
+                ? 0
+                : (double)p.ActionHistory.Count(r => r.IsGoodMove) / p.ActionHistory.Count * 100,
+            History = p.ActionHistory,
+        });
+
+        await Clients.Caller.SendAsync("GlobalDebrief", debrief);
+    }
+
+    public async Task ForceEndGame(string roomId)
+    {
+        if (!roomManager.IsHost(roomId, Context.ConnectionId)) return;
+
+        var room = roomManager.GetRoom(roomId);
+        if (room == null || !room.IsStarted) return;
+
+        await EndGame(roomId, "forced");
+    }
+
+    // ── PLAYER ─────────────────────────────────────────────
+
+    public async Task JoinRoom(string roomId, string username, string profile)
+    {
+        var room = roomManager.GetRoom(roomId);
         if (room == null) return;
 
-        _roomManager.AddPlayer(roomId, Context.ConnectionId, username);
-
+        roomManager.AddPlayer(roomId, Context.ConnectionId, username, profile);
         await Groups.AddToGroupAsync(Context.ConnectionId, roomId);
 
-        // notify room
-        await Clients.Group(roomId)
-            .SendAsync("PlayerJoined", username);
-    }
+        logger.LogInformation("Player {Username} ({Profile}) a rejoint {RoomId}", username, profile, roomId);
 
-    // HOST broadcast question
-    public async Task SendQuestion(string roomId, string question)
-    {
-        if (!_roomManager.IsHost(roomId, Context.ConnectionId))
-            return;
-
-        await Clients.Group(roomId)
-            .SendAsync("NewQuestion", question);
-    }
-
-    // PLAYER answer
-    public async Task SubmitAnswer(string roomId, string answer)
-    {
-        var room = _roomManager.GetRoom(roomId);
-        if (room == null) return;
-
-        if (!room.Players.TryGetValue(Context.ConnectionId, out var player))
-            return;
-
-        // broadcast answer to host only
-        await Clients.Client(room.HostConnectionId)
-            .SendAsync("ReceiveAnswer", player.Username, answer);
-    }
-
-    // HOST envoie un événement aux joueurs
-    public async Task SendEvent(string roomId, string eventId)
-    {
-        if (!_roomManager.IsHost(roomId, Context.ConnectionId)) return;
-
-        var gameEvent = _eventCatalog.Get(eventId);
-        if (gameEvent == null) return;
-
-        _roomManager.SetActiveEvent(roomId, gameEvent);
-
-        await Clients.Group(roomId).SendAsync("NewEvent", new
+        await Clients.Group(roomId).SendAsync("PlayerJoined", new
         {
-            gameEvent.Id,
-            gameEvent.Title,
-            gameEvent.Description,
-            Actions = gameEvent.Actions.Select(a => new { a.Id, a.Label })
-            // Ne pas envoyer RequiredBefore au client !
+            Username = username,
+            Profile = profile,
+            PlayerCount = room.Players.Count,
         });
     }
 
-    // Dans QuizHub.cs
-
     public async Task SubmitAction(string roomId, string actionId)
     {
-        var room = _roomManager.GetRoom(roomId);
-        if (room == null) return;
+        var room = roomManager.GetRoom(roomId);
+        if (room == null || !room.IsStarted) return;
         if (!room.Players.TryGetValue(Context.ConnectionId, out var player)) return;
 
-        var gameEvent = _roomManager.GetActiveEvent(roomId);
+        var gameEvent = roomManager.GetCurrentEventForPlayer(roomId, Context.ConnectionId, player.Profile);
         var action = gameEvent?.Actions.FirstOrDefault(a => a.Id == actionId);
         if (action == null || gameEvent == null) return;
 
-        var history = _roomManager.GetPlayerActionHistory(roomId, Context.ConnectionId, gameEvent.Id);
-        var result = _actionEngine.Evaluate(action, history, gameEvent);
+        var history = roomManager.GetPlayerActionHistory(roomId, Context.ConnectionId, gameEvent.Id);
+        var result = actionEngine.Evaluate(action, history, gameEvent);
 
-        // Persistance du parcours joueur
-        _roomManager.RecordAction(roomId, Context.ConnectionId, gameEvent, action, result);
-        _roomManager.ApplyScore(roomId, Context.ConnectionId, result.ScoreApplied);
-        _roomManager.ApplyCarbonGlobal(roomId, result.CarbonApplied);
+        roomManager.RecordAction(roomId, Context.ConnectionId, gameEvent, action, result);
+        roomManager.ApplyScore(roomId, Context.ConnectionId, result.ScoreApplied);
+        roomManager.ApplyCarbonGlobal(roomId, result.CarbonApplied);
+
+        var newScore = roomManager.GetScore(roomId, Context.ConnectionId);
+
+        await Clients.Client(room.HostConnectionId).SendAsync("VillageUpdate", new
+        {
+            player.Username,
+            player.Profile,
+            result.IsGoodMove,
+            GlobalCarbon = roomManager.GetGlobalCarbon(roomId),
+            PlayerScore = newScore,
+        });
 
         await Clients.Caller.SendAsync("ActionFeedback", new
         {
             result.ActionId,
             result.IsGoodMove,
             result.PrerequisitesMet,
-            NewScore = _roomManager.GetScore(roomId, Context.ConnectionId),
+            NewScore = newScore,
+            EducationalNote = gameEvent.EducationalNote,
+            HasNextEvent = roomManager.HasMoreEventsForPlayer(roomId, Context.ConnectionId, player.Profile),
         });
 
-        await Clients.Group(roomId).SendAsync("VillageUpdate", new
-        {
-            player.Username,
-            result.IsGoodMove,
-            GlobalCarbon = _roomManager.GetGlobalCarbon(roomId),
-            PlayerScore = _roomManager.GetScore(roomId, Context.ConnectionId),
-        });
+        await SendNextEventToPlayer(roomId, Context.ConnectionId);
     }
 
-// Appelé par le client en fin de partie pour son bilan individuel
     public async Task GetMyDebrief(string roomId)
     {
-        var history = _roomManager.GetPlayerHistory(roomId, Context.ConnectionId);
+        var history = roomManager.GetPlayerHistory(roomId, Context.ConnectionId);
 
         var debrief = new
         {
@@ -152,31 +173,156 @@ public class QuizHub : Hub
         await Clients.Caller.SendAsync("Debrief", debrief);
     }
 
-    // Appelé par l'host pour le bilan global (graphiques par profil)
-    public async Task GetGlobalDebrief(string roomId)
-    {
-        if (!_roomManager.IsHost(roomId, Context.ConnectionId)) return;
-
-        var players = _roomManager.GetAllPlayers(roomId);
-
-        var debrief = players.Select(p => new
-        {
-            p.Username,
-            p.Profile,
-            p.Score,
-            p.CarbonLevel,
-            Accuracy = p.ActionHistory.Count == 0
-                ? 0
-                : (double)p.ActionHistory.Count(r => r.IsGoodMove) / p.ActionHistory.Count * 100,
-            History = p.ActionHistory,
-        });
-
-        await Clients.Caller.SendAsync("GlobalDebrief", debrief);
-    }
+    // ── Déconnexion ────────────────────────────────────────
 
     public override async Task OnDisconnectedAsync(Exception? exception)
     {
-        _roomManager.RemovePlayer(Context.ConnectionId);
+        roomManager.RemovePlayer(Context.ConnectionId);
         await base.OnDisconnectedAsync(exception);
+    }
+
+    // ── Privé ──────────────────────────────────────────────
+
+    private async Task SendNextEventToPlayer(string roomId, string connectionId)
+    {
+        var room = roomManager.GetRoom(roomId);
+        if (room == null) return;
+
+        if (!room.Players.TryGetValue(connectionId, out var player)) return;
+
+        var nextEvent = roomManager.GetNextEventForPlayer(roomId, connectionId, player.Profile);
+        if (nextEvent == null)
+        {
+            // Ce joueur n'a plus d'events — il attend les autres
+            await Clients.Client(connectionId).SendAsync("WaitingForOthers", new
+            {
+                Message = "Tu as terminé toutes tes tâches !",
+                Score = roomManager.GetScore(roomId, connectionId),
+            });
+
+            if (roomManager.AllPlayersFinished(roomId))
+                await EndGame(roomId, "completed");
+
+            return;
+        }
+
+        room.PlayerEventIndex.TryGetValue(connectionId, out var index);
+
+        await Clients.Client(connectionId).SendAsync("NewEvent", new
+        {
+            nextEvent.Id,
+            nextEvent.Title,
+            nextEvent.Description,
+            EventNumber = index,
+            TotalEvents = room.TotalEvents,
+            Actions = nextEvent.Actions.Select(a => new { a.Id, a.Label })
+        });
+    }
+
+    private async Task RunGameTimerAsync(string roomId, int durationMinutes, CancellationToken ct)
+    {
+        var totalSeconds = durationMinutes * 60;
+        var elapsed = 0;
+
+        try
+        {
+            while (elapsed < totalSeconds && !ct.IsCancellationRequested)
+            {
+                await Task.Delay(1000, ct);
+                elapsed++;
+
+                var remaining = totalSeconds - elapsed;
+
+                if (remaining % 5 == 0 || remaining <= 10)
+                {
+                    await Clients.Group(roomId).SendAsync("TimerTick", new
+                    {
+                        Remaining = remaining,
+                        Total = totalSeconds,
+                    });
+                }
+            }
+
+            if (!ct.IsCancellationRequested)
+                await EndGame(roomId, "timeout");
+        }
+        catch (TaskCanceledException)
+        {
+        }
+    }
+
+    private async Task EndGame(string roomId, string reason)
+    {
+        roomManager.CancelTimer(roomId);
+
+        var players = roomManager.GetAllPlayers(roomId);
+
+        // Debrief individuel → chaque joueur reçoit son propre résumé
+        foreach (var player in players)
+        {
+            var history = roomManager.GetPlayerHistory(roomId, player.ConnectionId);
+
+            await Clients.Client(player.ConnectionId).SendAsync("Debrief", new
+            {
+                TotalScore = history.Sum(r => r.ScoreApplied),
+                TotalCarbon = history.Sum(r => r.CarbonApplied),
+                GoodMoves = history.Count(r => r.IsGoodMove),
+                BadMoves = history.Count(r => !r.IsGoodMove),
+                Mistakes = history
+                    .Where(r => !r.IsGoodMove)
+                    .Select(r => new
+                    {
+                        r.EventTitle,
+                        r.ActionLabel,
+                        r.PrerequisitesMet,
+                        r.EducationalNote,
+                    }),
+            });
+        }
+
+        // Recap global → host uniquement
+        var room = roomManager.GetRoom(roomId);
+        var statsByProfile = players
+            .GroupBy(p => p.Profile)
+            .Select(g => new
+            {
+                Profile = g.Key,
+                PlayerCount = g.Count(),
+                AvgScore = g.Average(p => p.Score),
+                AvgAccuracy = g.Average(p =>
+                    p.ActionHistory.Count == 0
+                        ? 0
+                        : (double)p.ActionHistory.Count(r => r.IsGoodMove) / p.ActionHistory.Count * 100),
+                // Erreurs les plus fréquentes pour ce profil
+                TopMistakes = g
+                    .SelectMany(p => p.ActionHistory.Where(r => !r.IsGoodMove))
+                    .GroupBy(r => r.EventTitle)
+                    .OrderByDescending(eg => eg.Count())
+                    .Take(3)
+                    .Select(eg => new
+                    {
+                        EventTitle = eg.Key,
+                        Count = eg.Count(),
+                        EducationalNote = eg.First().EducationalNote,
+                    }),
+            });
+
+        await Clients.Client(room!.HostConnectionId).SendAsync("GlobalDebrief", new
+        {
+            Reason = reason,
+            GlobalCarbon = roomManager.GetGlobalCarbon(roomId),
+            Leaderboard = players
+                .OrderByDescending(p => p.Score)
+                .Select((p, i) => new
+                {
+                    Rank = i + 1,
+                    p.Username,
+                    p.Profile,
+                    p.Score,
+                }),
+            StatsByProfile = statsByProfile,
+        });
+
+        logger.LogInformation("Room {RoomId} terminée — raison: {Reason}", roomId, reason);
     }
 }

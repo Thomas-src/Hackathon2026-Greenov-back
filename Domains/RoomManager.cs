@@ -1,11 +1,11 @@
 namespace Backend.Domains;
 
-// Domains/RoomManager.cs
 public class RoomManager
 {
     private readonly Dictionary<string, Room> _rooms = new();
 
     // ── Rooms ──────────────────────────────────────────────
+
     public Room CreateRoom(string hostConnectionId, string roomId)
     {
         var room = new Room
@@ -25,7 +25,26 @@ public class RoomManager
         return room != null && room.HostConnectionId == connectionId;
     }
 
+    public void ConfigureRoom(string roomId, int durationMinutes, List<GameEvent> eventQueue)
+    {
+        var room = GetRoom(roomId);
+        if (room == null) return;
+
+        room.DurationMinutes = durationMinutes;
+        room.TotalEvents = (durationMinutes * 60) / 20;
+        room.EventQueue = eventQueue.Take(room.TotalEvents).ToList();
+    }
+
+    public void StartRoom(string roomId)
+    {
+        var room = GetRoom(roomId);
+        if (room == null) return;
+        room.IsStarted = true;
+        room.StartedAt = DateTime.UtcNow;
+    }
+
     // ── Players ────────────────────────────────────────────
+
     public void AddPlayer(string roomId, string connectionId, string username, string profile = "")
     {
         var room = GetRoom(roomId);
@@ -51,17 +70,81 @@ public class RoomManager
         }
     }
 
-    // ── Events ─────────────────────────────────────────────
-    public void SetActiveEvent(string roomId, GameEvent evt)
+    public List<Player> GetAllPlayers(string roomId) =>
+        GetRoom(roomId)?.Players.Values.ToList() ?? [];
+
+    // ── Progression par joueur ─────────────────────────────
+
+    public GameEvent? GetNextEventForPlayer(string roomId, string connectionId, string profile)
     {
         var room = GetRoom(roomId);
-        if (room != null) room.ActiveEvent = evt;
+        if (room == null) return null;
+
+        room.PlayerEventIndex.TryGetValue(connectionId, out var index);
+
+        // Cherche le prochain event compatible avec le profil à partir de l'index actuel
+        var eligibleEvents = room.EventQueue
+            .Where(e => string.IsNullOrEmpty(e.ProfileFilter) || e.ProfileFilter == profile)
+            .ToList();
+
+        if (index >= eligibleEvents.Count)
+            return null;
+
+        var evt = eligibleEvents[index];
+        room.PlayerEventIndex[connectionId] = index + 1;
+        return evt;
     }
 
-    public GameEvent? GetActiveEvent(string roomId) =>
-        GetRoom(roomId)?.ActiveEvent;
+    public bool HasMoreEventsForPlayer(string roomId, string connectionId, string profile)
+    {
+        var room = GetRoom(roomId);
+        if (room == null) return false;
+
+        room.PlayerEventIndex.TryGetValue(connectionId, out var index);
+
+        var eligibleCount = room.EventQueue
+            .Count(e => string.IsNullOrEmpty(e.ProfileFilter) || e.ProfileFilter == profile);
+
+        return index < eligibleCount;
+    }
+
+    public bool AllPlayersFinished(string roomId)
+    {
+        var room = GetRoom(roomId);
+        if (room == null) return false;
+
+        return room.Players.Values.All(player =>
+        {
+            room.PlayerEventIndex.TryGetValue(player.ConnectionId, out var index);
+
+            var eligibleCount = room.EventQueue
+                .Count(e => string.IsNullOrEmpty(e.ProfileFilter) || e.ProfileFilter == player.Profile);
+
+            return index >= eligibleCount;
+        });
+    }
+
+// Récupère l'event courant du joueur (après GetNextEventForPlayer, index déjà avancé)
+    public GameEvent? GetCurrentEventForPlayer(string roomId, string connectionId, string profile)
+    {
+        var room = GetRoom(roomId);
+        if (room == null) return null;
+
+        room.PlayerEventIndex.TryGetValue(connectionId, out var index);
+        var currentIndex = index - 1;
+
+        var eligibleEvents = room.EventQueue
+            .Where(e => string.IsNullOrEmpty(e.ProfileFilter) || e.ProfileFilter == profile)
+            .ToList();
+
+        if (currentIndex < 0 || currentIndex >= eligibleEvents.Count)
+            return null;
+
+        return eligibleEvents[currentIndex];
+    }
 
     // ── Action history ─────────────────────────────────────
+
     public List<string> GetPlayerActionHistory(string roomId, string connectionId, string eventId)
     {
         var room = GetRoom(roomId);
@@ -94,6 +177,7 @@ public class RoomManager
     }
 
     // ── Scores & carbon ────────────────────────────────────
+
     public void ApplyScore(string roomId, string connectionId, int delta)
     {
         var room = GetRoom(roomId);
@@ -118,6 +202,7 @@ public class RoomManager
         GetRoom(roomId)?.GlobalCarbon ?? 0;
 
     // ── Bilan ──────────────────────────────────────────────
+
     public List<PlayerActionRecord> GetPlayerHistory(string roomId, string connectionId)
     {
         var room = GetRoom(roomId);
@@ -125,6 +210,17 @@ public class RoomManager
         return player.ActionHistory;
     }
 
-    public List<Player> GetAllPlayers(string roomId) =>
-        GetRoom(roomId)?.Players.Values.ToList() ?? [];
+    // ── Timer ──────────────────────────────────────────────
+
+    public void SetTimerCts(string roomId, CancellationTokenSource cts)
+    {
+        var room = GetRoom(roomId);
+        if (room != null) room.TimerCts = cts;
+    }
+
+    public void CancelTimer(string roomId)
+    {
+        var room = GetRoom(roomId);
+        room?.TimerCts?.Cancel();
+    }
 }
