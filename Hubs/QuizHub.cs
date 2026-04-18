@@ -236,6 +236,7 @@ public class QuizHub(
         await Clients.Client(connectionId).SendAsync("NewEvent", new NewEventDto(
             Id: nextEvent.Id,
             Title: nextEvent.Title,
+            Type: nextEvent.Type,
             Description: nextEvent.Description,
             EventNumber: index,
             TotalEvents: room.TotalEvents,
