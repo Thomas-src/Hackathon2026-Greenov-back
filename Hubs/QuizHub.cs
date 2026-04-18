@@ -188,6 +188,13 @@ public class QuizHub(
                 Username: player.Username,
                 PlayerCount: roomManager.Count(roomId)
             ));
+
+            var room = roomManager.GetRoom(roomId);
+            if (room is { IsStarted: true } && roomManager.IsRoomEmpty(roomId))
+            {
+                roomManager.DeleteRoom(roomId);
+                logger.LogInformation("Room {RoomId} supprimée — plus aucun joueur connecté", roomId);
+            }
         }
 
         await base.OnDisconnectedAsync(exception);

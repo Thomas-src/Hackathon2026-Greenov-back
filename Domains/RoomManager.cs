@@ -17,6 +17,12 @@ public class RoomManager
         return room;
     }
 
+    public bool IsRoomEmpty(string roomId) =>
+        GetRoom(roomId)?.Players.Count == 0;
+
+    public void DeleteRoom(string roomId) =>
+        _rooms.Remove(roomId);
+
     public Room? GetRoom(string roomId) => _rooms.GetValueOrDefault(roomId);
 
     public bool IsHost(string roomId, string connectionId)
