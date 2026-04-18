@@ -6,6 +6,42 @@ using Microsoft.AspNetCore.SignalR;
 
 namespace Backend.Hubs;
 
+/// <summary>
+/// Hub SignalR principal gérant le déroulement d’une partie de quiz en temps réel.
+///
+/// ── Méthodes Host ─────────────────────────────────────────
+/// CreateRoom(int durationMinutes)
+/// → Crée une room avec une durée donnée et initialise les événements.
+///
+/// StartGame(string roomId)
+/// → Démarre la partie, lance le timer global et envoie le premier event aux joueurs.
+///
+/// GetGlobalDebrief(string roomId)
+/// → Retourne un résumé global de la partie (scores, stats, historique) au host.
+///
+/// ForceEndGame(string roomId)
+/// → Force la fin de la partie (interruption manuelle).
+///
+/// ── Méthodes Player ───────────────────────────────────────
+/// JoinRoom(string roomId, string username, string profile)
+/// → Permet à un joueur de rejoindre une room avec un profil donné.
+///
+/// SubmitAction(string roomId, string actionId)
+/// → Soumet une action pour l’event courant et applique score/carbone.
+///
+/// GetMyDebrief(string roomId)
+/// → Retourne le résumé individuel du joueur (score, erreurs, stats).
+///
+/// ── Cycle de vie ──────────────────────────────────────────
+/// OnDisconnectedAsync(Exception? exception)
+/// → Gère la déconnexion d’un joueur et le retire de la room.
+///
+/// ── Comportement interne ──────────────────────────────────
+/// - Gestion des rooms, joueurs et état via RoomManager
+/// - Évaluation des actions via ActionEngine
+/// - Distribution des événements via EventCatalog
+/// - Communication temps réel via SignalR (clients ciblés et groupes)
+/// </summary>
 public class QuizHub(
     RoomManager roomManager,
     ActionEngine actionEngine,
