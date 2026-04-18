@@ -119,7 +119,7 @@ public class QuizHub(
         if (action == null || gameEvent == null) return;
 
         var history = roomManager.GetPlayerActionHistory(roomId, Context.ConnectionId, gameEvent.Id);
-        var result = actionEngine.Evaluate(action, history, gameEvent);
+        var result = actionEngine.Evaluate(action, history);
 
         roomManager.RecordAction(roomId, Context.ConnectionId, gameEvent, action, result);
         roomManager.ApplyScore(roomId, Context.ConnectionId, result.ScoreApplied);

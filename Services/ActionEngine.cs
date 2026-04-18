@@ -4,7 +4,7 @@ namespace Backend.Services;
 
 public class ActionEngine
 {
-    public ActionResult Evaluate(GameAction action, List<string> playerHistory, GameEvent gameEvent)
+    public ActionResult Evaluate(GameAction action, List<string> playerHistory)
     {
         var prereqsMet = action.RequiredBefore.All(playerHistory.Contains);
 
