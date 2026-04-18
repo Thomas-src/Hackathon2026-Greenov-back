@@ -14,10 +14,19 @@ public class ProfileController : ControllerBase
         {
             Id = p,
             Label = ToLabel(p),
+            Image = ToImage(p)
         });
 
         return Ok(profiles);
     }
+
+    private static string ToImage(string profile) => profile switch
+    {
+        ProfileType.Proprietaire => "house",
+        ProfileType.Locataire => "flat",
+        ProfileType.Entreprise => "company",
+        _ => profile,
+    };
 
     private static string ToLabel(string profile) => profile switch
     {
