@@ -1,0 +1,219 @@
+[
+  {
+    "id": "evt_isolation",
+    "title": "Isolation insuffisante",
+    "description": "Vos murs sont mal isolés, la chaleur s'échappe et votre facture explose.",
+    "profileFilter": "proprietaire",
+    "educationalNote": "L'isolation des murs représente jusqu'à 25% des pertes de chaleur. Une bonne isolation réduit la facture énergétique de 30%.",
+    "actions": [
+      {
+        "id": "A",
+        "label": "Faire un audit énergétique",
+        "requiredBefore": [],
+        "scoreDelta": 10,
+        "carbonDelta": -5
+      },
+      {
+        "id": "B",
+        "label": "Poser une isolation par l'extérieur",
+        "requiredBefore": ["A"],
+        "scoreDelta": 25,
+        "carbonDelta": -20
+      },
+      {
+        "id": "C",
+        "label": "Ignorer et monter le chauffage",
+        "requiredBefore": [],
+        "scoreDelta": -15,
+        "carbonDelta": 30
+      }
+    ]
+  },
+  {
+    "id": "evt_chaudiere",
+    "title": "Chaudière en fin de vie",
+    "description": "Votre chaudière a 20 ans et consomme beaucoup trop.",
+    "profileFilter": "proprietaire",
+    "educationalNote": "Une pompe à chaleur consomme 3 à 4 fois moins d'énergie qu'une chaudière gaz. Le retour sur investissement est de 5 à 8 ans.",
+    "actions": [
+      {
+        "id": "A",
+        "label": "Appeler un technicien pour un diagnostic",
+        "requiredBefore": [],
+        "scoreDelta": 10,
+        "carbonDelta": -3
+      },
+      {
+        "id": "B",
+        "label": "Remplacer par une pompe à chaleur",
+        "requiredBefore": ["A"],
+        "scoreDelta": 30,
+        "carbonDelta": -25
+      },
+      {
+        "id": "C",
+        "label": "Faire une simple réparation temporaire",
+        "requiredBefore": ["A"],
+        "scoreDelta": 5,
+        "carbonDelta": 5
+      }
+    ]
+  },
+  {
+    "id": "evt_loyer_charges",
+    "title": "Charges énergétiques trop élevées",
+    "description": "Votre propriétaire refuse de rénover. Vos charges représentent 40% de votre loyer.",
+    "profileFilter": "locataire",
+    "educationalNote": "Un locataire peut demander un DPE à son propriétaire et saisir la commission départementale en cas de logement énergivore classé F ou G.",
+    "actions": [
+      {
+        "id": "A",
+        "label": "Demander le DPE du logement au propriétaire",
+        "requiredBefore": [],
+        "scoreDelta": 10,
+        "carbonDelta": -2
+      },
+      {
+        "id": "B",
+        "label": "Saisir la commission départementale",
+        "requiredBefore": ["A"],
+        "scoreDelta": 20,
+        "carbonDelta": -10
+      },
+      {
+        "id": "C",
+        "label": "Poser des rideaux épais et ignorer",
+        "requiredBefore": [],
+        "scoreDelta": -5,
+        "carbonDelta": 5
+      }
+    ]
+  },
+  {
+    "id": "evt_appareils_locataire",
+    "title": "Appareils électroménagers énergivores",
+    "description": "Votre frigo et votre lave-linge datent des années 2000 et consomment énormément.",
+    "profileFilter": "locataire",
+    "educationalNote": "Passer d'un appareil classe D à classe A peut réduire sa consommation de 60%. Les éco-chèques permettent de financer le remplacement.",
+    "actions": [
+      {
+        "id": "A",
+        "label": "Vérifier l'étiquette énergie des appareils",
+        "requiredBefore": [],
+        "scoreDelta": 5,
+        "carbonDelta": -2
+      },
+      {
+        "id": "B",
+        "label": "Remplacer par des appareils classe A",
+        "requiredBefore": ["A"],
+        "scoreDelta": 20,
+        "carbonDelta": -18
+      },
+      {
+        "id": "C",
+        "label": "Acheter d'occasion sans vérifier la classe",
+        "requiredBefore": [],
+        "scoreDelta": 2,
+        "carbonDelta": 8
+      }
+    ]
+  },
+  {
+    "id": "evt_eclairage_bureau",
+    "title": "Éclairage du bureau énergivore",
+    "description": "Les néons du bureau tournent 12h/jour, 5 jours par semaine.",
+    "profileFilter": "entreprise",
+    "educationalNote": "Remplacer des néons par des LED avec détecteur de présence réduit la consommation d'éclairage de 70% et l'amortissement est inférieur à 2 ans.",
+    "actions": [
+      {
+        "id": "A",
+        "label": "Réaliser un audit de consommation",
+        "requiredBefore": [],
+        "scoreDelta": 10,
+        "carbonDelta": -3
+      },
+      {
+        "id": "B",
+        "label": "Installer des LED avec détecteurs de présence",
+        "requiredBefore": ["A"],
+        "scoreDelta": 25,
+        "carbonDelta": -22
+      },
+      {
+        "id": "C",
+        "label": "Éteindre manuellement en partant",
+        "requiredBefore": [],
+        "scoreDelta": 5,
+        "carbonDelta": -5
+      }
+    ]
+  },
+  {
+    "id": "evt_flotte_vehicules",
+    "title": "Flotte de véhicules thermiques",
+    "description": "Vos 10 véhicules de fonction roulent au diesel et parcourent 30 000 km/an chacun.",
+    "profileFilter": "entreprise",
+    "educationalNote": "Électrifier une flotte d'entreprise réduit les émissions de CO₂ de 60 à 80% selon le mix énergétique. Les bornes de recharge sont éligibles à des aides CEE.",
+    "actions": [
+      {
+        "id": "A",
+        "label": "Calculer l'empreinte carbone de la flotte",
+        "requiredBefore": [],
+        "scoreDelta": 10,
+        "carbonDelta": -3
+      },
+      {
+        "id": "B",
+        "label": "Installer des bornes de recharge",
+        "requiredBefore": ["A"],
+        "scoreDelta": 15,
+        "carbonDelta": -10
+      },
+      {
+        "id": "C",
+        "label": "Remplacer progressivement par des véhicules électriques",
+        "requiredBefore": ["A", "B"],
+        "scoreDelta": 30,
+        "carbonDelta": -35
+      },
+      {
+        "id": "D",
+        "label": "Continuer en diesel, trop coûteux",
+        "requiredBefore": [],
+        "scoreDelta": -20,
+        "carbonDelta": 40
+      }
+    ]
+  },
+  {
+    "id": "evt_gestes_quotidiens",
+    "title": "Gestes quotidiens",
+    "description": "De petits changements d'habitudes peuvent réduire significativement votre consommation.",
+    "profileFilter": "",
+    "educationalNote": "Baisser le chauffage d'1°C réduit la facture de 7%. Éteindre les veilles représente jusqu'à 10% de la consommation électrique d'un foyer.",
+    "actions": [
+      {
+        "id": "A",
+        "label": "Baisser le chauffage à 19°C",
+        "requiredBefore": [],
+        "scoreDelta": 10,
+        "carbonDelta": -8
+      },
+      {
+        "id": "B",
+        "label": "Éteindre toutes les veilles",
+        "requiredBefore": [],
+        "scoreDelta": 8,
+        "carbonDelta": -5
+      },
+      {
+        "id": "C",
+        "label": "Ignorer, le confort prime",
+        "requiredBefore": [],
+        "scoreDelta": -10,
+        "carbonDelta": 15
+      }
+    ]
+  }
+]

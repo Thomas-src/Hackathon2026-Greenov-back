@@ -1,3 +1,5 @@
+using Backend.Catalog.Models;
+using Backend.Domains;
 using Backend.Hubs;
 using Backend.Services;
 
@@ -16,12 +18,15 @@ builder.Services.AddCors(options =>
     });
 });
 
-builder.Services.AddSingleton<RoomService>();
+builder.Services.AddSingleton<RoomManager>();
+builder.Services.AddSingleton<EventCatalog>();
+builder.Services.AddSingleton<ActionEngine>();
 
 var app = builder.Build();
 
 app.UseCors();
 
-app.MapHub<QuizHub>("/quizhub");
+app.MapHub<QuizHub>("/hub");
+app.MapFallback(() => Results.NotFound());
 
 app.Run();
