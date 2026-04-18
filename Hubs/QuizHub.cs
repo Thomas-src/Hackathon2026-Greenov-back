@@ -1,52 +1,72 @@
-using Backend.Services;
+using Backend.Domains;
+using Backend.Utils;
 using Microsoft.AspNetCore.SignalR;
 
 namespace Backend.Hubs;
 
 public class QuizHub : Hub
 {
-    private readonly RoomService _roomService;
+    private readonly RoomManager _roomManager;
 
-    public QuizHub(RoomService roomService)
+    public QuizHub(RoomManager roomManager)
     {
-        _roomService = roomService;
+        _roomManager = roomManager;
     }
 
-    // HOST crée une room
-    public async Task CreateRoom(string roomId)
+    // HOST crée room
+    public async Task<string> CreateRoom()
     {
-        _roomService.SetHost(roomId, Context.ConnectionId);
+        var roomId = RoomIdGenerator.Generate();
+
+        _roomManager.CreateRoom(Context.ConnectionId, roomId);
 
         await Groups.AddToGroupAsync(Context.ConnectionId, roomId);
 
-        await Clients.Caller.SendAsync("RoomCreated", roomId);
+        return roomId;
     }
 
-    // PLAYER rejoint une room
+    // PLAYER join
     public async Task JoinRoom(string roomId, string username)
     {
+        var room = _roomManager.GetRoom(roomId);
+        if (room == null) return;
+
+        _roomManager.AddPlayer(roomId, Context.ConnectionId, username);
+
         await Groups.AddToGroupAsync(Context.ConnectionId, roomId);
 
+        // notify room
         await Clients.Group(roomId)
-            .SendAsync("UserJoined", username);
+            .SendAsync("PlayerJoined", username);
     }
 
-    // HOST lance le quiz
-    public async Task StartQuiz(string roomId)
+    // HOST broadcast question
+    public async Task SendQuestion(string roomId, string question)
     {
-        var host = _roomService.GetHost(roomId);
-
-        if (host != Context.ConnectionId)
-            return; // sécurité simple
+        if (!_roomManager.IsHost(roomId, Context.ConnectionId))
+            return;
 
         await Clients.Group(roomId)
-            .SendAsync("QuizStarted");
+            .SendAsync("NewQuestion", question);
     }
 
-    // PLAYER répond
-    public async Task SubmitAnswer(string roomId, string username, string answer)
+    // PLAYER answer
+    public async Task SubmitAnswer(string roomId, string answer)
     {
-        await Clients.Group(roomId)
-            .SendAsync("ReceiveAnswer", username, answer);
+        var room = _roomManager.GetRoom(roomId);
+        if (room == null) return;
+
+        if (!room.Players.TryGetValue(Context.ConnectionId, out var player))
+            return;
+
+        // broadcast answer to host only
+        await Clients.Client(room.HostConnectionId)
+            .SendAsync("ReceiveAnswer", player.Username, answer);
+    }
+
+    public override async Task OnDisconnectedAsync(Exception? exception)
+    {
+        _roomManager.RemovePlayer(Context.ConnectionId);
+        await base.OnDisconnectedAsync(exception);
     }
 }

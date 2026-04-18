@@ -22,6 +22,6 @@ var app = builder.Build();
 
 app.UseCors();
 
-app.MapHub<QuizHub>("/quizhub");
+app.MapHub<QuizHub>("/hub");
 
 app.Run();
