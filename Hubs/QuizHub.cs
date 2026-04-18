@@ -14,7 +14,7 @@ namespace Backend.Hubs;
 /// → Crée une room avec une durée donnée et initialise les événements.
 ///
 /// StartGame(string roomId)
-/// → Démarre la partie, lance le timer global et envoie le premier event aux joueurs.
+/// → Démarre la partie, lance le timer global et envoie le premier event aux joueurs + les données à l'host.
 ///
 /// GetGlobalDebrief(string roomId)
 /// → Retourne un résumé global de la partie (scores, stats, historique) au host.
@@ -86,7 +86,7 @@ public class QuizHub(
         var time = new DateTimeOffset((room.StartedAt ?? DateTime.Now + TimeSpan.FromMinutes(room.DurationMinutes)).ToUniversalTime());
 
         // host
-        await Clients.Caller.SendAsync("GameStarted", new
+        await Clients.Caller.SendAsync("GameStartedHost", new
         {
             Remaining = time.ToUnixTimeSeconds(),
             Players = room.Players.Values,
@@ -100,7 +100,7 @@ public class QuizHub(
         // Premier event envoyé individuellement à chaque joueur
         foreach (var (connectionId, player) in room.Players)
         {
-            await Clients.Client(connectionId).SendAsync("GameStarted", new
+            await Clients.Client(connectionId).SendAsync("GameStartedPlayer", new
             {
                 HouseState = player.Score,
                 Carbon = player.CarbonLevel
