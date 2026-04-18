@@ -1,13 +1,17 @@
 ﻿FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /src
+
 COPY . .
-RUN dotnet publish -c Release -o /app/publish
+
+RUN dotnet restore Backend.csproj
+RUN dotnet publish Backend.csproj -c Release -o /app/publish
+RUN ls -R /app/publish
 
 FROM mcr.microsoft.com/dotnet/aspnet:8.0
 WORKDIR /app
-COPY --from=build /app/publish .
 
+COPY --from=build /app/publish .
 EXPOSE 8080
 ENV ASPNETCORE_URLS=http://+:8080
 
-ENTRYPOINT ["dotnet", "*.dll"]
+ENTRYPOINT ["dotnet", "Backend.dll"]
