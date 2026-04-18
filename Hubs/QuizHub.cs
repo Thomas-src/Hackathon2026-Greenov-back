@@ -103,7 +103,8 @@ public class QuizHub(
             await Clients.Client(connectionId).SendAsync("GameStartedPlayer", new
             {
                 HouseState = player.Score,
-                Carbon = player.CarbonLevel
+                Carbon = player.CarbonLevel,
+                Profile = player.Profile
             }, cancellationToken: cts.Token);
 
             await SendNextEventToPlayer(roomId, connectionId);
