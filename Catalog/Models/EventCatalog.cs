@@ -7,7 +7,7 @@ public class EventCatalog
 {
     private readonly List<GameEvent> _events;
 
-    public EventCatalog(IWebHostEnvironment env)
+    public EventCatalog(IWebHostEnvironment env, ILogger<EventCatalog> logger)
     {
         var path = Path.Combine(env.ContentRootPath, "Catalog", "events.json");
         var json = File.ReadAllText(path);
@@ -16,6 +16,7 @@ public class EventCatalog
                       ?? throw new InvalidOperationException("events.json invalide ou vide");
 
         _events = entries.Select(MapToDomain).ToList();
+        logger.LogInformation("Loaded {count} event catalog entries.", _events.Count);
     }
 
     public GameEvent? Get(string id) =>
@@ -25,7 +26,7 @@ public class EventCatalog
 
     public List<GameEvent> GetForProfile(string profile) =>
         _events.Where(e => string.IsNullOrEmpty(e.ProfileFilter)
-                           || e.ProfileFilter == profile).ToList();
+                           || e.ProfileFilter.Equals(profile, StringComparison.InvariantCultureIgnoreCase)).ToList();
 
     private static GameEvent MapToDomain(EventCatalogEntry e) => new()
     {

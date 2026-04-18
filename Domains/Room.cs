@@ -10,8 +10,8 @@ public class Room
 
     public int DurationMinutes { get; set; }
     public int TotalEvents { get; set; }
-    public List<GameEvent> EventQueue { get; set; } = [];
     public bool IsStarted { get; set; } = false;
+    public Dictionary<string, List<GameEvent>> EventQueueByProfile { get; set; } = new();
     public DateTime? StartedAt { get; set; }
     public CancellationTokenSource? TimerCts { get; set; }
 }

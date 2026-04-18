@@ -2201,10 +2201,1294 @@
     "type": "dry"
   },
   {
+    "id": "evt_chauffage_locaux",
+    "title": "Système de chauffage obsolète",
+    "description": "Vos bureaux de 500m² sont chauffés par une vieille chaudière au fioul énergivore.",
+    "profileFilter": "entreprise",
+    "educationalNote": "Le chauffage représente environ 50% de la consommation énergétique des bureaux. Passer à une PAC ou au réseau de chaleur urbain est prioritaire.",
+    "actions": [
+      {
+        "id": "A",
+        "label": "Réaliser un audit énergétique",
+        "requiredBefore": [],
+        "scoreDelta": 10,
+        "carbonDelta": -2,
+        "isGoodAnswer": true
+      },
+      {
+        "id": "B",
+        "label": "Installer une pompe à chaleur (PAC)",
+        "requiredBefore": [
+          "A"
+        ],
+        "scoreDelta": 25,
+        "carbonDelta": -30,
+        "isGoodAnswer": true
+      },
+      {
+        "id": "C",
+        "label": "Isoler les combles et changer les fenêtres",
+        "requiredBefore": [
+          "A"
+        ],
+        "scoreDelta": 20,
+        "carbonDelta": -15,
+        "isGoodAnswer": true
+      },
+      {
+        "id": "D",
+        "label": "Ne rien changer et augmenter le budget énergie",
+        "requiredBefore": [],
+        "scoreDelta": -15,
+        "carbonDelta": 20,
+        "isGoodAnswer": false
+      }
+    ],
+    "type": "dry"
+  },
+  {
+    "id": "evt_dechets_papier",
+    "title": "Gestion des consommables de bureau",
+    "description": "Votre entreprise consomme 500 ramettes de papier par an, dont seulement 10% sont recyclées.",
+    "profileFilter": "entreprise",
+    "educationalNote": "La fabrication de papier est gourmande en eau et chimie. La numérisation et le recyclage systématique réduisent l'impact biodiversité.",
+    "actions": [
+      {
+        "id": "A",
+        "label": "Passer au zéro papier (GED)",
+        "requiredBefore": [],
+        "scoreDelta": 20,
+        "carbonDelta": -5,
+        "isGoodAnswer": true
+      },
+      {
+        "id": "B",
+        "label": "Installer des bacs de tri certifiés",
+        "requiredBefore": [],
+        "scoreDelta": 10,
+        "carbonDelta": -2,
+        "isGoodAnswer": true
+      },
+      {
+        "id": "C",
+        "label": "Acheter uniquement du papier recyclé",
+        "requiredBefore": [],
+        "scoreDelta": 15,
+        "carbonDelta": -3,
+        "isGoodAnswer": true
+      },
+      {
+        "id": "D",
+        "label": "Tout jeter en poubelle résiduelle",
+        "requiredBefore": [],
+        "scoreDelta": -10,
+        "carbonDelta": 5,
+        "isGoodAnswer": false
+      }
+    ],
+    "type": "dry"
+  },
+  {
+    "id": "evt_deplacement_domicile_travail",
+    "title": "Mobilité douce des salariés",
+    "description": "80% de vos employés viennent travailler seuls dans leur voiture personnelle.",
+    "profileFilter": "entreprise",
+    "educationalNote": "Le Forfait Mobilités Durables (FMD) permet d'exonérer de cotisations sociales les aides aux trajets en vélo ou covoiturage.",
+    "actions": [
+      {
+        "id": "A",
+        "label": "Mettre en place le Forfait Mobilités Durables",
+        "requiredBefore": [],
+        "scoreDelta": 20,
+        "carbonDelta": -12,
+        "isGoodAnswer": true
+      },
+      {
+        "id": "B",
+        "label": "Installer un local vélo sécurisé et des douches",
+        "requiredBefore": [],
+        "scoreDelta": 15,
+        "carbonDelta": -8,
+        "isGoodAnswer": true
+      },
+      {
+        "id": "C",
+        "label": "Créer une plateforme de covoiturage interne",
+        "requiredBefore": [],
+        "scoreDelta": 10,
+        "carbonDelta": -5,
+        "isGoodAnswer": true
+      },
+      {
+        "id": "D",
+        "label": "Agrandir le parking voiture",
+        "requiredBefore": [],
+        "scoreDelta": -20,
+        "carbonDelta": 15,
+        "isGoodAnswer": false
+      }
+    ],
+    "type": "dry"
+  },
+  {
+    "id": "evt_materiel_informatique",
+    "title": "Renouvellement du parc IT",
+    "description": "Vos 50 ordinateurs arrivent en fin de garantie. Vous envisagez de les remplacer.",
+    "profileFilter": "entreprise",
+    "educationalNote": "75% de l'empreinte carbone d'un ordinateur provient de sa fabrication. Le reconditionné prolonge la durée d'usage.",
+    "actions": [
+      {
+        "id": "A",
+        "label": "Acheter du matériel reconditionné",
+        "requiredBefore": [],
+        "scoreDelta": 25,
+        "carbonDelta": -20,
+        "isGoodAnswer": true
+      },
+      {
+        "id": "B",
+        "label": "Donner l'ancien matériel à une association",
+        "requiredBefore": [],
+        "scoreDelta": 15,
+        "carbonDelta": -5,
+        "isGoodAnswer": true
+      },
+      {
+        "id": "C",
+        "label": "Augmenter la RAM pour prolonger la vie",
+        "requiredBefore": [],
+        "scoreDelta": 10,
+        "carbonDelta": -10,
+        "isGoodAnswer": true
+      },
+      {
+        "id": "D",
+        "label": "Acheter du neuf haut de gamme tous les 3 ans",
+        "requiredBefore": [],
+        "scoreDelta": -15,
+        "carbonDelta": 25,
+        "isGoodAnswer": false
+      }
+    ],
+    "type": "dry"
+  },
+  {
+    "id": "evt_serveurs_cloud",
+    "title": "Hébergement des données",
+    "description": "Vos données sont stockées sur des serveurs locaux non optimisés thermiquement.",
+    "profileFilter": "entreprise",
+    "educationalNote": "Les centres de données 'Green IT' utilisent du refroidissement passif et des énergies renouvelables.",
+    "actions": [
+      {
+        "id": "A",
+        "label": "Migrer vers un cloud certifié éco-responsable",
+        "requiredBefore": [],
+        "scoreDelta": 15,
+        "carbonDelta": -10,
+        "isGoodAnswer": true
+      },
+      {
+        "id": "B",
+        "label": "Nettoyer les données (supprimer les doublons)",
+        "requiredBefore": [],
+        "scoreDelta": 10,
+        "carbonDelta": -3,
+        "isGoodAnswer": true
+      },
+      {
+        "id": "C",
+        "label": "Installer un système de récupération de chaleur",
+        "requiredBefore": [],
+        "scoreDelta": 20,
+        "carbonDelta": -12,
+        "isGoodAnswer": true
+      },
+      {
+        "id": "D",
+        "label": "Laisser tourner la climatisation à 18°C",
+        "requiredBefore": [],
+        "scoreDelta": -20,
+        "carbonDelta": 15,
+        "isGoodAnswer": false
+      }
+    ],
+    "type": "dry"
+  },
+  {
+    "id": "evt_fournisseur_energie",
+    "title": "Contrat d'électricité",
+    "description": "Votre contrat actuel repose sur le mix énergétique standard (majorité nucléaire/gaz).",
+    "profileFilter": "entreprise",
+    "educationalNote": "Choisir un fournisseur 'Vert' garantit que l'équivalent de votre consommation est réinjecté en énergies renouvelables sur le réseau.",
+    "actions": [
+      {
+        "id": "A",
+        "label": "Passer à un fournisseur 100% renouvelable",
+        "requiredBefore": [],
+        "scoreDelta": 20,
+        "carbonDelta": -25,
+        "isGoodAnswer": true
+      },
+      {
+        "id": "B",
+        "label": "Installer des panneaux solaires en autoconsommation",
+        "requiredBefore": [],
+        "scoreDelta": 30,
+        "carbonDelta": -15,
+        "isGoodAnswer": true
+      },
+      {
+        "id": "C",
+        "label": "Souscrire à une option 'Énergie Verte'",
+        "requiredBefore": [],
+        "scoreDelta": 10,
+        "carbonDelta": -5,
+        "isGoodAnswer": true
+      },
+      {
+        "id": "D",
+        "label": "Chercher uniquement le tarif le plus bas",
+        "requiredBefore": [],
+        "scoreDelta": -5,
+        "carbonDelta": 10,
+        "isGoodAnswer": false
+      }
+    ],
+    "type": "dry"
+  },
+  {
+    "id": "evt_climatisation",
+    "title": "Canicule et confort d'été",
+    "description": "En été, vos bureaux montent à 28°C. Vos salariés réclament la climatisation.",
+    "profileFilter": "entreprise",
+    "educationalNote": "Le rafraîchissement passif (stores, isolation, ventilation nocturne) est bien moins polluant que la climatisation active.",
+    "actions": [
+      {
+        "id": "A",
+        "label": "Installer des brise-soleil extérieurs",
+        "requiredBefore": [],
+        "scoreDelta": 15,
+        "carbonDelta": -8,
+        "isGoodAnswer": true
+      },
+      {
+        "id": "B",
+        "label": "Peindre le toit en blanc (Cool Roofing)",
+        "requiredBefore": [],
+        "scoreDelta": 20,
+        "carbonDelta": -12,
+        "isGoodAnswer": true
+      },
+      {
+        "id": "C",
+        "label": "Remplacer la clim par des brasseurs d'air",
+        "requiredBefore": [],
+        "scoreDelta": 10,
+        "carbonDelta": -15,
+        "isGoodAnswer": true
+      },
+      {
+        "id": "D",
+        "label": "Installer des climatiseurs individuels",
+        "requiredBefore": [],
+        "scoreDelta": -25,
+        "carbonDelta": 30,
+        "isGoodAnswer": false
+      }
+    ],
+    "type": "dry"
+  },
+  {
+    "id": "evt_voyages_affaires",
+    "title": "Déplacements commerciaux à l'étranger",
+    "description": "Votre équipe commerciale prend l'avion 4 fois par mois pour des réunions de 2h en Europe.",
+    "profileFilter": "entreprise",
+    "educationalNote": "L'avion émet jusqu'à 50 fois plus de CO₂ que le train sur des trajets européens.",
+    "actions": [
+      {
+        "id": "A",
+        "label": "Imposer le train pour tout trajet < 6h",
+        "requiredBefore": [],
+        "scoreDelta": 20,
+        "carbonDelta": -25,
+        "isGoodAnswer": true
+      },
+      {
+        "id": "B",
+        "label": "Investir dans une salle de visioconférence HD",
+        "requiredBefore": [],
+        "scoreDelta": 15,
+        "carbonDelta": -15,
+        "isGoodAnswer": true
+      },
+      {
+        "id": "C",
+        "label": "Limiter les déplacements à 1 par trimestre",
+        "requiredBefore": [],
+        "scoreDelta": 10,
+        "carbonDelta": -10,
+        "isGoodAnswer": true
+      },
+      {
+        "id": "D",
+        "label": "Prendre des vols 'Low Cost' sans restriction",
+        "requiredBefore": [],
+        "scoreDelta": -20,
+        "carbonDelta": 40,
+        "isGoodAnswer": false
+      }
+    ],
+    "type": "dry"
+  },
+  {
+    "id": "evt_cantine_entreprise",
+    "title": "Restauration collective",
+    "description": "Le plateau repas type de votre cafétéria contient systématiquement de la viande rouge et des produits emballés.",
+    "profileFilter": "entreprise",
+    "educationalNote": "L'alimentation représente 1/4 de l'empreinte carbone d'un français. Le bœuf est l'aliment le plus émetteur.",
+    "actions": [
+      {
+        "id": "A",
+        "label": "Proposer une alternative végétarienne quotidienne",
+        "requiredBefore": [],
+        "scoreDelta": 20,
+        "carbonDelta": -15,
+        "isGoodAnswer": true
+      },
+      {
+        "id": "B",
+        "label": "Supprimer la vaisselle jetable",
+        "requiredBefore": [],
+        "scoreDelta": 15,
+        "carbonDelta": -5,
+        "isGoodAnswer": true
+      },
+      {
+        "id": "C",
+        "label": "S'approvisionner à 50% en circuits courts/Bio",
+        "requiredBefore": [],
+        "scoreDelta": 15,
+        "carbonDelta": -8,
+        "isGoodAnswer": true
+      },
+      {
+        "id": "D",
+        "label": "Privilégier le moins cher (importation)",
+        "requiredBefore": [],
+        "scoreDelta": -10,
+        "carbonDelta": 10,
+        "isGoodAnswer": false
+      }
+    ],
+    "type": "dry"
+  },
+  {
+    "id": "evt_eau_sanitaires",
+    "title": "Consommation d'eau",
+    "description": "Vos factures d'eau sont stables mais élevées. Aucune gestion spécifique n'est en place.",
+    "profileFilter": "entreprise",
+    "educationalNote": "Des mousseurs sur les robinets peuvent réduire la consommation de 30 à 50% sans perte de confort.",
+    "actions": [
+      {
+        "id": "A",
+        "label": "Installer des mousseurs et chasses d'eau doubles",
+        "requiredBefore": [],
+        "scoreDelta": 15,
+        "carbonDelta": -2,
+        "isGoodAnswer": true
+      },
+      {
+        "id": "B",
+        "label": "Récupérer l'eau de pluie pour les sanitaires/arrosage",
+        "requiredBefore": [],
+        "scoreDelta": 20,
+        "carbonDelta": -5,
+        "isGoodAnswer": true
+      },
+      {
+        "id": "C",
+        "label": "Réparer les fuites immédiatement (détection)",
+        "requiredBefore": [],
+        "scoreDelta": 10,
+        "carbonDelta": -1,
+        "isGoodAnswer": true
+      },
+      {
+        "id": "D",
+        "label": "Ne rien faire, l'eau n'est pas chère",
+        "requiredBefore": [],
+        "scoreDelta": -10,
+        "carbonDelta": 0,
+        "isGoodAnswer": false
+      }
+    ],
+    "type": "dry"
+  },
+  {
+    "id": "evt_eclairage_bureaux",
+    "title": "Modernisation de l'éclairage",
+    "description": "Vos bureaux utilisent encore des tubes néons classiques restant allumés 24h/24 par sécurité.",
+    "profileFilter": "entreprise",
+    "educationalNote": "Les LED consomment 80% de moins que les ampoules classiques et durent 10 fois plus longtemps.",
+    "actions": [
+      {
+        "id": "A",
+        "label": "Passer au 100% LED",
+        "requiredBefore": [],
+        "scoreDelta": 15,
+        "carbonDelta": -8,
+        "isGoodAnswer": true
+      },
+      {
+        "id": "B",
+        "label": "Installer des détecteurs de présence",
+        "requiredBefore": [],
+        "scoreDelta": 20,
+        "carbonDelta": -12,
+        "isGoodAnswer": true
+      },
+      {
+        "id": "C",
+        "label": "Asservir l'éclairage à la luminosité naturelle",
+        "requiredBefore": [
+          "A"
+        ],
+        "scoreDelta": 10,
+        "carbonDelta": -5,
+        "isGoodAnswer": true
+      },
+      {
+        "id": "D",
+        "label": "Laisser allumé pour 'simuler une présence'",
+        "requiredBefore": [],
+        "scoreDelta": -15,
+        "carbonDelta": 15,
+        "isGoodAnswer": false
+      }
+    ],
+    "type": "dry"
+  },
+  {
+    "id": "evt_formation_salaries",
+    "title": "Sensibilisation interne",
+    "description": "Vos employés ne sont pas formés aux enjeux climatiques et aux éco-gestes.",
+    "profileFilter": "entreprise",
+    "educationalNote": "La 'Fresque du Climat' est un atelier collaboratif puissant pour engager les équipes dans la transition.",
+    "actions": [
+      {
+        "id": "A",
+        "label": "Organiser une Fresque du Climat pour tous",
+        "requiredBefore": [],
+        "scoreDelta": 25,
+        "carbonDelta": -5,
+        "isGoodAnswer": true
+      },
+      {
+        "id": "B",
+        "label": "Nommer des référents RSE par service",
+        "requiredBefore": [
+          "A"
+        ],
+        "scoreDelta": 15,
+        "carbonDelta": -3,
+        "isGoodAnswer": true
+      },
+      {
+        "id": "C",
+        "label": "Publier un guide des éco-gestes au bureau",
+        "requiredBefore": [],
+        "scoreDelta": 10,
+        "carbonDelta": -2,
+        "isGoodAnswer": true
+      },
+      {
+        "id": "D",
+        "label": "Considérer cela comme une perte de temps",
+        "requiredBefore": [],
+        "scoreDelta": -20,
+        "carbonDelta": 5,
+        "isGoodAnswer": false
+      }
+    ],
+    "type": "dry"
+  },
+  {
+    "id": "evt_fournisseurs_achats",
+    "title": "Politique d'achats responsables",
+    "description": "Votre service achat choisit ses fournisseurs uniquement sur le critère du prix.",
+    "profileFilter": "entreprise",
+    "educationalNote": "L'analyse du cycle de vie (ACV) permet d'évaluer l'impact global d'un produit, de l'extraction au déchet.",
+    "actions": [
+      {
+        "id": "A",
+        "label": "Intégrer 30% de critères RSE dans les appels d'offres",
+        "requiredBefore": [],
+        "scoreDelta": 20,
+        "carbonDelta": -15,
+        "isGoodAnswer": true
+      },
+      {
+        "id": "B",
+        "label": "Privilégier les fournisseurs locaux (<100km)",
+        "requiredBefore": [],
+        "scoreDelta": 15,
+        "carbonDelta": -10,
+        "isGoodAnswer": true
+      },
+      {
+        "id": "C",
+        "label": "Auditer les pratiques sociales des fournisseurs",
+        "requiredBefore": [],
+        "scoreDelta": 15,
+        "carbonDelta": -2,
+        "isGoodAnswer": true
+      },
+      {
+        "id": "D",
+        "label": "Maintenir le 'Moins-Disant' financier",
+        "requiredBefore": [],
+        "scoreDelta": -15,
+        "carbonDelta": 20,
+        "isGoodAnswer": false
+      }
+    ],
+    "type": "dry"
+  },
+  {
+    "id": "evt_teletravail",
+    "title": "Organisation du travail",
+    "description": "La direction est réticente au télétravail et impose le présentiel 5j/7.",
+    "profileFilter": "entreprise",
+    "educationalNote": "2 jours de télétravail par semaine réduisent les émissions liées au transport de 30% environ.",
+    "actions": [
+      {
+        "id": "A",
+        "label": "Autoriser 2 jours de télétravail par semaine",
+        "requiredBefore": [],
+        "scoreDelta": 20,
+        "carbonDelta": -15,
+        "isGoodAnswer": true
+      },
+      {
+        "id": "B",
+        "label": "Réduire la surface des bureaux (Flex-office)",
+        "requiredBefore": [
+          "A"
+        ],
+        "scoreDelta": 25,
+        "carbonDelta": -20,
+        "isGoodAnswer": true
+      },
+      {
+        "id": "C",
+        "label": "Fournir des équipements ergonomiques à domicile",
+        "requiredBefore": [
+          "A"
+        ],
+        "scoreDelta": 10,
+        "carbonDelta": -2,
+        "isGoodAnswer": true
+      },
+      {
+        "id": "D",
+        "label": "Interdire le télétravail pour 'contrôler'",
+        "requiredBefore": [],
+        "scoreDelta": -15,
+        "carbonDelta": 15,
+        "isGoodAnswer": false
+      }
+    ],
+    "type": "dry"
+  },
+  {
+    "id": "evt_publicite_marketing",
+    "title": "Communication et Marketing",
+    "description": "Vous envoyez 100 000 catalogues papier par an et utilisez des encarts publicitaires massifs.",
+    "profileFilter": "entreprise",
+    "educationalNote": "La publicité numérique a aussi un impact (serveurs). La sobriété éditoriale est la clé.",
+    "actions": [
+      {
+        "id": "A",
+        "label": "Passer au catalogue 100% numérique",
+        "requiredBefore": [],
+        "scoreDelta": 15,
+        "carbonDelta": -10,
+        "isGoodAnswer": true
+      },
+      {
+        "id": "B",
+        "label": "Utiliser des encres végétales et papier certifié",
+        "requiredBefore": [],
+        "scoreDelta": 10,
+        "carbonDelta": -5,
+        "isGoodAnswer": true
+      },
+      {
+        "id": "C",
+        "label": "Adopter une charte contre le Greenwashing",
+        "requiredBefore": [],
+        "scoreDelta": 20,
+        "carbonDelta": -2,
+        "isGoodAnswer": true
+      },
+      {
+        "id": "D",
+        "label": "Augmenter le grammage du papier pour faire 'Luxe'",
+        "requiredBefore": [],
+        "scoreDelta": -10,
+        "carbonDelta": 12,
+        "isGoodAnswer": false
+      }
+    ],
+    "type": "dry"
+  },
+  {
+    "id": "evt_finance_durable",
+    "title": "Placement de la trésorerie",
+    "description": "Votre trésorerie dort sur des comptes courants de banques finançant massivement les énergies fossiles.",
+    "profileFilter": "entreprise",
+    "educationalNote": "Le choix de la banque est l'un des leviers les plus puissants : certaines banques émettent 8 fois plus de CO₂ que d'autres via leurs investissements.",
+    "actions": [
+      {
+        "id": "A",
+        "label": "Transférer les fonds vers une banque éthique",
+        "requiredBefore": [],
+        "scoreDelta": 30,
+        "carbonDelta": -40,
+        "isGoodAnswer": true
+      },
+      {
+        "id": "B",
+        "label": "Investir dans des fonds labellisés ISR",
+        "requiredBefore": [],
+        "scoreDelta": 20,
+        "carbonDelta": -20,
+        "isGoodAnswer": true
+      },
+      {
+        "id": "C",
+        "label": "Demander un bilan carbone de vos placements",
+        "requiredBefore": [],
+        "scoreDelta": 10,
+        "carbonDelta": -5,
+        "isGoodAnswer": true
+      },
+      {
+        "id": "D",
+        "label": "Chercher le rendement maximal sans critère",
+        "requiredBefore": [],
+        "scoreDelta": -10,
+        "carbonDelta": 30,
+        "isGoodAnswer": false
+      }
+    ],
+    "type": "dry"
+  },
+  {
+    "id": "evt_biodiversite_site",
+    "title": "Aménagement des espaces extérieurs",
+    "description": "Votre siège dispose d'une pelouse tonte rase et de parkings bitumés.",
+    "profileFilter": "entreprise",
+    "educationalNote": "Désimperméabiliser les sols permet de lutter contre les îlots de chaleur et de favoriser la biodiversité.",
+    "actions": [
+      {
+        "id": "A",
+        "label": "Transformer la pelouse en prairie fleurie",
+        "requiredBefore": [],
+        "scoreDelta": 15,
+        "carbonDelta": -5,
+        "isGoodAnswer": true
+      },
+      {
+        "id": "B",
+        "label": "Remplacer le bitume par des pavés drainants",
+        "requiredBefore": [],
+        "scoreDelta": 20,
+        "carbonDelta": -2,
+        "isGoodAnswer": true
+      },
+      {
+        "id": "C",
+        "label": "Installer des nichoirs et hôtels à insectes",
+        "requiredBefore": [
+          "A"
+        ],
+        "scoreDelta": 10,
+        "carbonDelta": -1,
+        "isGoodAnswer": true
+      },
+      {
+        "id": "D",
+        "label": "Utiliser des désherbants chimiques (propre)",
+        "requiredBefore": [],
+        "scoreDelta": -30,
+        "carbonDelta": 5,
+        "isGoodAnswer": false
+      }
+    ],
+    "type": "dry"
+  },
+  {
+    "id": "evt_packaging_produit",
+    "title": "Emballage de vos produits",
+    "description": "Vos produits sont vendus dans des boîtes en plastique avec un suremballage inutile.",
+    "profileFilter": "entreprise",
+    "educationalNote": "L'éco-conception vise à réduire la matière à la source. Moins de poids = moins de CO₂ transporté.",
+    "actions": [
+      {
+        "id": "A",
+        "label": "Passer au carton recyclé et monomatériau",
+        "requiredBefore": [],
+        "scoreDelta": 20,
+        "carbonDelta": -15,
+        "isGoodAnswer": true
+      },
+      {
+        "id": "B",
+        "label": "Supprimer le plastique à usage unique",
+        "requiredBefore": [],
+        "scoreDelta": 25,
+        "carbonDelta": -10,
+        "isGoodAnswer": true
+      },
+      {
+        "id": "C",
+        "label": "Optimiser le vide dans les colis (Logistique)",
+        "requiredBefore": [],
+        "scoreDelta": 15,
+        "carbonDelta": -12,
+        "isGoodAnswer": true
+      },
+      {
+        "id": "D",
+        "label": "Ajouter du plastique brillant pour le marketing",
+        "requiredBefore": [],
+        "scoreDelta": -15,
+        "carbonDelta": 10,
+        "isGoodAnswer": false
+      }
+    ],
+    "type": "dry"
+  },
+  {
+    "id": "evt_climatisation_data_center",
+    "title": "Data Center interne",
+    "description": "Vos serveurs chauffent une pièce qui est refroidie par une climatisation énergivore.",
+    "profileFilter": "entreprise",
+    "educationalNote": "La chaleur fatale des serveurs peut être récupérée pour chauffer l'eau sanitaire ou les bureaux.",
+    "actions": [
+      {
+        "id": "A",
+        "label": "Installer un récupérateur de chaleur",
+        "requiredBefore": [],
+        "scoreDelta": 25,
+        "carbonDelta": -20,
+        "isGoodAnswer": true
+      },
+      {
+        "id": "B",
+        "label": "Augmenter la température de consigne à 24°C",
+        "requiredBefore": [],
+        "scoreDelta": 10,
+        "carbonDelta": -8,
+        "isGoodAnswer": true
+      },
+      {
+        "id": "C",
+        "label": "Passer au 'Free Cooling' (air extérieur)",
+        "requiredBefore": [],
+        "scoreDelta": 20,
+        "carbonDelta": -15,
+        "isGoodAnswer": true
+      },
+      {
+        "id": "D",
+        "label": "Maintenir la salle à 16°C constants",
+        "requiredBefore": [],
+        "scoreDelta": -15,
+        "carbonDelta": 20,
+        "isGoodAnswer": false
+      }
+    ],
+    "type": "dry"
+  },
+  {
+    "id": "evt_evenementiel_interne",
+    "title": "Séminaire annuel",
+    "description": "Vous organisez un séminaire pour 100 personnes à Marrakech (vol + hôtel climatisé).",
+    "profileFilter": "entreprise",
+    "educationalNote": "L'impact d'un événement se joue sur le transport (80%) et l'alimentation.",
+    "actions": [
+      {
+        "id": "A",
+        "label": "Relocaliser le séminaire en France (accès Train)",
+        "requiredBefore": [],
+        "scoreDelta": 30,
+        "carbonDelta": -50,
+        "isGoodAnswer": true
+      },
+      {
+        "id": "B",
+        "label": "Choisir un traiteur 100% local et zéro déchet",
+        "requiredBefore": [],
+        "scoreDelta": 15,
+        "carbonDelta": -10,
+        "isGoodAnswer": true
+      },
+      {
+        "id": "C",
+        "label": "Compenser les émissions restantes (reboisement)",
+        "requiredBefore": [
+          "A"
+        ],
+        "scoreDelta": 10,
+        "carbonDelta": -5,
+        "isGoodAnswer": true
+      },
+      {
+        "id": "D",
+        "label": "Offrir des 'Goodies' électroniques en plastique",
+        "requiredBefore": [],
+        "scoreDelta": -20,
+        "carbonDelta": 15,
+        "isGoodAnswer": false
+      }
+    ],
+    "type": "dry"
+  },
+  {
+    "id": "evt_maintenance_batiment",
+    "title": "Entretien des toitures",
+    "description": "Votre entrepôt de 2000m² a une toiture sombre qui accumule la chaleur.",
+    "profileFilter": "entreprise",
+    "educationalNote": "La végétalisation de toiture améliore l'isolation thermique et phonique tout en protégeant la membrane d'étanchéité.",
+    "actions": [
+      {
+        "id": "A",
+        "label": "Végétaliser la toiture",
+        "requiredBefore": [],
+        "scoreDelta": 25,
+        "carbonDelta": -15,
+        "isGoodAnswer": true
+      },
+      {
+        "id": "B",
+        "label": "Installer des panneaux photovoltaïques",
+        "requiredBefore": [],
+        "scoreDelta": 30,
+        "carbonDelta": -40,
+        "isGoodAnswer": true
+      },
+      {
+        "id": "C",
+        "label": "Appliquer une peinture réflective (Cool Roof)",
+        "requiredBefore": [],
+        "scoreDelta": 15,
+        "carbonDelta": -10,
+        "isGoodAnswer": true
+      },
+      {
+        "id": "D",
+        "label": "Refaire l'étanchéité au goudron noir",
+        "requiredBefore": [],
+        "scoreDelta": -10,
+        "carbonDelta": 10,
+        "isGoodAnswer": false
+      }
+    ],
+    "type": "dry"
+  },
+  {
+    "id": "evt_gouvernance_partagee",
+    "title": "Engagement des collaborateurs",
+    "description": "Les décisions stratégiques sont prises uniquement par le comité de direction.",
+    "profileFilter": "entreprise",
+    "educationalNote": "Les entreprises 'à mission' ou avec une gouvernance partagée affichent une meilleure résilience et rétention des talents.",
+    "actions": [
+      {
+        "id": "A",
+        "label": "Devenir 'Entreprise à Mission' (Loi Pacte)",
+        "requiredBefore": [],
+        "scoreDelta": 25,
+        "carbonDelta": -5,
+        "isGoodAnswer": true
+      },
+      {
+        "id": "B",
+        "label": "Créer un comité de salariés pour l'écologie",
+        "requiredBefore": [],
+        "scoreDelta": 20,
+        "carbonDelta": -8,
+        "isGoodAnswer": true
+      },
+      {
+        "id": "C",
+        "label": "Ouvrir le capital aux salariés",
+        "requiredBefore": [],
+        "scoreDelta": 15,
+        "carbonDelta": 0,
+        "isGoodAnswer": true
+      },
+      {
+        "id": "D",
+        "label": "Ignorer les remontées terrain des salariés",
+        "requiredBefore": [],
+        "scoreDelta": -20,
+        "carbonDelta": 5,
+        "isGoodAnswer": false
+      }
+    ],
+    "type": "dry"
+  },
+  {
+    "id": "evt_gestion_invendus",
+    "title": "Invendus et rebuts",
+    "description": "Vous jetez 5% de votre production à cause de défauts esthétiques mineurs.",
+    "profileFilter": "entreprise",
+    "educationalNote": "La loi AGEC interdit l'élimination des invendus non alimentaires. Le don ou le recyclage sont obligatoires.",
+    "actions": [
+      {
+        "id": "A",
+        "label": "Créer une gamme 'Second choix' (Outlet)",
+        "requiredBefore": [],
+        "scoreDelta": 20,
+        "carbonDelta": -15,
+        "isGoodAnswer": true
+      },
+      {
+        "id": "B",
+        "label": "Donner les produits à des associations",
+        "requiredBefore": [],
+        "scoreDelta": 25,
+        "carbonDelta": -10,
+        "isGoodAnswer": true
+      },
+      {
+        "id": "C",
+        "label": "Réintégrer les matières dans la production",
+        "requiredBefore": [],
+        "scoreDelta": 20,
+        "carbonDelta": -12,
+        "isGoodAnswer": true
+      },
+      {
+        "id": "D",
+        "label": "Détruire les stocks pour protéger l'image",
+        "requiredBefore": [],
+        "scoreDelta": -40,
+        "carbonDelta": 35,
+        "isGoodAnswer": false
+      }
+    ],
+    "type": "dry"
+  },
+  {
+    "id": "evt_machine_cafe",
+    "title": "Espace détente",
+    "description": "Votre machine à café utilise des capsules en aluminium jetables.",
+    "profileFilter": "entreprise",
+    "educationalNote": "Une machine à grain réduit les déchets de 90% et coûte moins cher à l'usage sur le long terme.",
+    "actions": [
+      {
+        "id": "A",
+        "label": "Installer une machine à grain (sans capsules)",
+        "requiredBefore": [],
+        "scoreDelta": 15,
+        "carbonDelta": -8,
+        "isGoodAnswer": true
+      },
+      {
+        "id": "B",
+        "label": "Supprimer les gobelets jetables (Mug obligatoire)",
+        "requiredBefore": [],
+        "scoreDelta": 10,
+        "carbonDelta": -5,
+        "isGoodAnswer": true
+      },
+      {
+        "id": "C",
+        "label": "Collecter le marc de café pour compostage",
+        "requiredBefore": [
+          "A"
+        ],
+        "scoreDelta": 10,
+        "carbonDelta": -2,
+        "isGoodAnswer": true
+      },
+      {
+        "id": "D",
+        "label": "Prendre un abonnement capsules 'Premium'",
+        "requiredBefore": [],
+        "scoreDelta": -10,
+        "carbonDelta": 12,
+        "isGoodAnswer": false
+      }
+    ],
+    "type": "dry"
+  },
+  {
+    "id": "evt_logistique_dernier_kilometre",
+    "title": "Livraisons clients",
+    "description": "Vos livraisons urbaines sont effectuées par des camions diesel de 12 tonnes.",
+    "profileFilter": "entreprise",
+    "educationalNote": "Le dernier kilomètre représente 20% du coût total et une part massive de la pollution urbaine.",
+    "actions": [
+      {
+        "id": "A",
+        "label": "Passer à la livraison en vélo-cargo en ville",
+        "requiredBefore": [],
+        "scoreDelta": 25,
+        "carbonDelta": -30,
+        "isGoodAnswer": true
+      },
+      {
+        "id": "B",
+        "label": "Mutualiser les livraisons avec d'autres boîtes",
+        "requiredBefore": [],
+        "scoreDelta": 20,
+        "carbonDelta": -15,
+        "isGoodAnswer": true
+      },
+      {
+        "id": "C",
+        "label": "Installer des points relais de proximité",
+        "requiredBefore": [],
+        "scoreDelta": 15,
+        "carbonDelta": -10,
+        "isGoodAnswer": true
+      },
+      {
+        "id": "D",
+        "label": "Multiplier les passages pour livrer plus vite",
+        "requiredBefore": [],
+        "scoreDelta": -20,
+        "carbonDelta": 25,
+        "isGoodAnswer": false
+      }
+    ],
+    "type": "dry"
+  },
+  {
+    "id": "evt_bilan_carbone_complet",
+    "title": "Stratégie Bas Carbone",
+    "description": "Vous n'avez aucune vision précise de votre impact global (Scope 1, 2 et 3).",
+    "profileFilter": "entreprise",
+    "educationalNote": "Le Scope 3 (émissions indirectes) représente souvent 80% de l'empreinte d'une entreprise.",
+    "actions": [
+      {
+        "id": "A",
+        "label": "Réaliser un Bilan Carbone® complet",
+        "requiredBefore": [],
+        "scoreDelta": 30,
+        "carbonDelta": -5,
+        "isGoodAnswer": true
+      },
+      {
+        "id": "B",
+        "label": "Définir une trajectoire de réduction (SBTi)",
+        "requiredBefore": [
+          "A"
+        ],
+        "scoreDelta": 25,
+        "carbonDelta": -40,
+        "isGoodAnswer": true
+      },
+      {
+        "id": "C",
+        "label": "Publier les résultats en toute transparence",
+        "requiredBefore": [
+          "A"
+        ],
+        "scoreDelta": 15,
+        "carbonDelta": 0,
+        "isGoodAnswer": true
+      },
+      {
+        "id": "D",
+        "label": "Se fier à une estimation vague sur Excel",
+        "requiredBefore": [],
+        "scoreDelta": -10,
+        "carbonDelta": 5,
+        "isGoodAnswer": false
+      }
+    ],
+    "type": "dry"
+  },
+  {
+    "id": "evt_publicite_numérique",
+    "title": "Campagnes publicitaires web",
+    "description": "Vous diffusez des vidéos haute résolution en lecture automatique sur les réseaux.",
+    "profileFilter": "entreprise",
+    "educationalNote": "Le numérique émet 4% des gaz à effet de serre mondiaux. La sobriété numérique s'applique aussi au marketing.",
+    "actions": [
+      {
+        "id": "A",
+        "label": "Compresser les assets et supprimer l'autostart",
+        "requiredBefore": [],
+        "scoreDelta": 15,
+        "carbonDelta": -8,
+        "isGoodAnswer": true
+      },
+      {
+        "id": "B",
+        "label": "Cibler précisément pour éviter l'envoi inutile",
+        "requiredBefore": [],
+        "scoreDelta": 10,
+        "carbonDelta": -5,
+        "isGoodAnswer": true
+      },
+      {
+        "id": "C",
+        "label": "Privilégier les formats statiques (image/texte)",
+        "requiredBefore": [],
+        "scoreDelta": 10,
+        "carbonDelta": -10,
+        "isGoodAnswer": true
+      },
+      {
+        "id": "D",
+        "label": "Diffuser en 4K sur tous les supports",
+        "requiredBefore": [],
+        "scoreDelta": -15,
+        "carbonDelta": 15,
+        "isGoodAnswer": false
+      }
+    ],
+    "type": "dry"
+  },
+  {
+    "id": "evt_reparabilite_produit",
+    "title": "Conception de produit",
+    "description": "Votre produit phare est difficile à démonter et les pièces ne sont pas vendues séparément.",
+    "profileFilter": "entreprise",
+    "educationalNote": "L'indice de réparabilité devient un critère d'achat majeur pour les consommateurs et les pros.",
+    "actions": [
+      {
+        "id": "A",
+        "label": "Vendre des pièces détachées et des guides",
+        "requiredBefore": [],
+        "scoreDelta": 25,
+        "carbonDelta": -20,
+        "isGoodAnswer": true
+      },
+      {
+        "id": "B",
+        "label": "Garantir le produit 10 ans",
+        "requiredBefore": [],
+        "scoreDelta": 20,
+        "carbonDelta": -15,
+        "isGoodAnswer": true
+      },
+      {
+        "id": "C",
+        "label": "Standardiser les composants (visserie, etc.)",
+        "requiredBefore": [],
+        "scoreDelta": 15,
+        "carbonDelta": -5,
+        "isGoodAnswer": true
+      },
+      {
+        "id": "D",
+        "label": "Pratiquer l'obsolescence programmée",
+        "requiredBefore": [],
+        "scoreDelta": -50,
+        "carbonDelta": 40,
+        "isGoodAnswer": false
+      }
+    ],
+    "type": "dry"
+  },
+  {
+    "id": "evt_mixite_inclusion",
+    "title": "Responsabilité Sociale (Diversité)",
+    "description": "Votre équipe technique est 100% masculine et votre index égalité est faible.",
+    "profileFilter": "entreprise",
+    "educationalNote": "La diversité en entreprise améliore l'innovation et la performance économique globale.",
+    "actions": [
+      {
+        "id": "A",
+        "label": "Lancer un plan de recrutement inclusif",
+        "requiredBefore": [],
+        "scoreDelta": 20,
+        "carbonDelta": 0,
+        "isGoodAnswer": true
+      },
+      {
+        "id": "B",
+        "label": "Égaliser les salaires Hommes-Femmes",
+        "requiredBefore": [],
+        "scoreDelta": 25,
+        "carbonDelta": 0,
+        "isGoodAnswer": true
+      },
+      {
+        "id": "C",
+        "label": "Former les managers aux biais cognitifs",
+        "requiredBefore": [],
+        "scoreDelta": 15,
+        "carbonDelta": 0,
+        "isGoodAnswer": true
+      },
+      {
+        "id": "D",
+        "label": "Favoriser le cooptage entre amis (entre-soi)",
+        "requiredBefore": [],
+        "scoreDelta": -20,
+        "carbonDelta": 0,
+        "isGoodAnswer": false
+      }
+    ],
+    "type": "dry"
+  },
+  {
+    "id": "evt_dechets_chantier_prod",
+    "title": "Gestion des déchets industriels",
+    "description": "Vos déchets de production (DIB) sont envoyés en centre d'enfouissement sans tri.",
+    "profileFilter": "entreprise",
+    "educationalNote": "Le recyclage des métaux et plastiques industriels permet d'économiser jusqu'à 95% d'énergie par rapport au neuf.",
+    "actions": [
+      {
+        "id": "A",
+        "label": "Mettre en place le tri 7 flux",
+        "requiredBefore": [],
+        "scoreDelta": 20,
+        "carbonDelta": -25,
+        "isGoodAnswer": true
+      },
+      {
+        "id": "B",
+        "label": "Valoriser les déchets en combustible (CSR)",
+        "requiredBefore": [
+          "A"
+        ],
+        "scoreDelta": 15,
+        "carbonDelta": -10,
+        "isGoodAnswer": true
+      },
+      {
+        "id": "C",
+        "label": "Réduire les chutes de matière (Optimisation)",
+        "requiredBefore": [],
+        "scoreDelta": 20,
+        "carbonDelta": -15,
+        "isGoodAnswer": true
+      },
+      {
+        "id": "D",
+        "label": "Mélanger tous les déchets pour payer moins cher",
+        "requiredBefore": [],
+        "scoreDelta": -30,
+        "carbonDelta": 30,
+        "isGoodAnswer": false
+      }
+    ],
+    "type": "dry"
+  },
+  {
     "id": "evt_gestes_quotidiens",
     "title": "Gestes quotidiens",
     "description": "De petits changements d'habitudes peuvent réduire significativement votre consommation.",
-    "profileFilter": "",
+    "profileFilter": "locataire",
     "educationalNote": "Baisser le chauffage d'1°C réduit la facture de 7%. Éteindre les veilles représente jusqu'à 10% de la consommation électrique d'un foyer.",
     "actions": [
       {

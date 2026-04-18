@@ -55,7 +55,7 @@ public class QuizHub(
         var startAt = (room.StartedAt ??= DateTime.UtcNow);
         var endsAt = startAt.AddMinutes(room.DurationMinutes);
         var endsAtUnix = new DateTimeOffset(endsAt).ToUnixTimeSeconds();
-        
+
         logger.LogInformation("EndAt {}: , startAt: {}, time {}", endsAt, startAt, room.DurationMinutes);
         await Clients.Caller.SendAsync("GameStartedHost", new GameStartedHostDto(
             EndsAtUnix: endsAtUnix,
@@ -86,7 +86,7 @@ public class QuizHub(
 
         var room = roomManager.GetRoom(roomId);
         if (room is not { IsStarted: true }) return;
-        
+
         await EndGame(roomId, "forced");
     }
 
@@ -136,9 +136,12 @@ public class QuizHub(
         if (room == null || !room.IsStarted) return;
         if (!room.Players.TryGetValue(Context.ConnectionId, out var player)) return;
 
-        var gameEvent = roomManager.GetCurrentEventForPlayer(roomId, Context.ConnectionId, player.Profile.ToString().ToLowerInvariant());
+        var gameEvent = roomManager.GetCurrentEventForPlayer(roomId, Context.ConnectionId,
+            player.Profile.ToString().ToLowerInvariant());
+
         logger.LogInformation("SubmitAction — actionId: {ActionId}, gameEvent: {EventId}",
             actionId, gameEvent?.Id ?? "NULL");
+
         var action = gameEvent?.Actions.FirstOrDefault(a => a.Id == actionId);
         if (action == null || gameEvent == null) return;
 
@@ -150,6 +153,8 @@ public class QuizHub(
         roomManager.ApplyCarbonGlobal(roomId, result.CarbonApplied);
 
         var newScore = roomManager.GetScore(roomId, Context.ConnectionId);
+
+        logger.LogInformation("Updating the host");
 
         await Clients.Client(room.HostConnectionId).SendAsync("VillageUpdate", new VillageUpdateDto(
             ConnectionId: player.ConnectionId,
@@ -166,7 +171,8 @@ public class QuizHub(
             PrerequisitesMet: result.PrerequisitesMet,
             NewScore: newScore,
             EducationalNote: gameEvent.EducationalNote,
-            HasNextEvent: roomManager.HasMoreEventsForPlayer(roomId, Context.ConnectionId, player.Profile.ToString().ToLowerInvariant())
+            HasNextEvent: roomManager.HasMoreEventsForPlayer(roomId, Context.ConnectionId,
+                player.Profile.ToString().ToLowerInvariant())
         ));
 
         await SendNextEventToPlayer(roomId, Context.ConnectionId);
@@ -210,10 +216,39 @@ public class QuizHub(
     private async Task SendNextEventToPlayer(string roomId, string connectionId)
     {
         var room = roomManager.GetRoom(roomId);
-        if (room == null) return;
-        if (!room.Players.TryGetValue(connectionId, out var player)) return;
+        if (room == null)
+        {
+            logger.LogInformation("L dans le chat");
+            return;
+        }
 
-        var nextEvent = roomManager.PeekNextEventForPlayer(roomId, connectionId, player.Profile.ToString().ToLowerInvariant());
+        if (!room.Players.TryGetValue(connectionId, out var player))
+        {
+            logger.LogInformation("L dans le chat user NULL");
+            return;
+        }
+
+        var profile = player.Profile.ToString().ToLowerInvariant();
+        var allEvents = room.EventQueueByProfile;
+
+        allEvents.TryGetValue(profile, out var events);
+
+        if (events == null)
+        {
+            logger.LogInformation("all events is null");
+            return;
+        }
+
+        logger.LogInformation(
+            "Player profile: {Profile}, Total events: {Total}, Eligible: {Eligible}, Filters in queue: [{Filters}]",
+            profile,
+            allEvents.Count,
+            events.Count,
+            string.Join(", ", events.Select(e => $"'{e.ProfileFilter ?? "null"}'"))
+        );
+
+        var nextEvent =
+            roomManager.PeekNextEventForPlayer(roomId, connectionId, player.Profile.ToString().ToLowerInvariant());
 
         if (nextEvent == null)
         {
@@ -225,12 +260,14 @@ public class QuizHub(
             if (roomManager.AllPlayersFinished(roomId))
                 await EndGame(roomId, "completed");
 
+            logger.LogInformation("No more next event for user {Id}", connectionId);
+
             return;
         }
 
-        // Avance l'index seulement après avoir confirmé qu'on envoie l'event
-        roomManager.AdvancePlayerEvent(roomId, connectionId);
+        logger.LogInformation("Sending new event to {User}", connectionId);
 
+        roomManager.AdvancePlayerEvent(roomId, connectionId);
         room.PlayerEventIndex.TryGetValue(connectionId, out var index);
 
         await Clients.Client(connectionId).SendAsync("NewEvent", new NewEventDto(
@@ -270,7 +307,9 @@ public class QuizHub(
             if (!ct.IsCancellationRequested)
                 await EndGame(roomId, "timeout");
         }
-        catch (TaskCanceledException) { }
+        catch (TaskCanceledException)
+        {
+        }
     }
 
     private async Task EndGame(string roomId, string reason)
@@ -285,6 +324,7 @@ public class QuizHub(
                 roomManager.GetPlayerHistory(roomId, player.ConnectionId));
 
             await Clients.Client(player.ConnectionId).SendAsync("Debrief", debrief);
+            logger.LogInformation("Ending for user {User}", player.Username);
         }
 
         var room = roomManager.GetRoom(roomId);
@@ -321,6 +361,7 @@ public class QuizHub(
         );
 
         await Clients.Client(room!.HostConnectionId).SendAsync("GlobalDebrief", globalDebrief);
+        logger.LogInformation("Sending to host {HostId}: {Global}", room.HostConnectionId, globalDebrief);
 
         logger.LogInformation("Room {RoomId} terminée — raison: {Reason}", roomId, reason);
     }
