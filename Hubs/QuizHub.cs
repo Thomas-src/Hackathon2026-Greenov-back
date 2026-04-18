@@ -1,5 +1,4 @@
 using Backend.Catalog.Models;
-using Backend.Controllers;
 using Backend.Domains;
 using Backend.Dto.Action;
 using Backend.Dto.Debrief;
@@ -137,7 +136,9 @@ public class QuizHub(
         if (room == null || !room.IsStarted) return;
         if (!room.Players.TryGetValue(Context.ConnectionId, out var player)) return;
 
-        var gameEvent = roomManager.GetCurrentEventForPlayer(roomId, Context.ConnectionId, player.Profile);
+        var gameEvent = roomManager.GetCurrentEventForPlayer(roomId, Context.ConnectionId, player.Profile.ToString().ToLowerInvariant());
+        logger.LogInformation("SubmitAction — actionId: {ActionId}, gameEvent: {EventId}",
+            actionId, gameEvent?.Id ?? "NULL");
         var action = gameEvent?.Actions.FirstOrDefault(a => a.Id == actionId);
         if (action == null || gameEvent == null) return;
 
@@ -212,7 +213,7 @@ public class QuizHub(
         if (room == null) return;
         if (!room.Players.TryGetValue(connectionId, out var player)) return;
 
-        var nextEvent = roomManager.GetNextEventForPlayer(roomId, connectionId, player.Profile.ToString().ToLowerInvariant());
+        var nextEvent = roomManager.PeekNextEventForPlayer(roomId, connectionId, player.Profile.ToString().ToLowerInvariant());
 
         if (nextEvent == null)
         {
@@ -226,6 +227,9 @@ public class QuizHub(
 
             return;
         }
+
+        // Avance l'index seulement après avoir confirmé qu'on envoie l'event
+        roomManager.AdvancePlayerEvent(roomId, connectionId);
 
         room.PlayerEventIndex.TryGetValue(connectionId, out var index);
 
