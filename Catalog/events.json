@@ -1,0 +1,31 @@
+[
+  {
+    "id": "evt_chaudiere",
+    "title": "Chaudière en panne",
+    "description": "Votre chaudière tombe en panne en plein hiver.",
+    "profileFilter": "proprietaire",
+    "actions": [
+      {
+        "id": "A",
+        "label": "Appeler un technicien certifié",
+        "requiredBefore": [],
+        "scoreDelta": 10,
+        "carbonDelta": -5
+      },
+      {
+        "id": "B",
+        "label": "Remplacer la pièce défectueuse",
+        "requiredBefore": ["A"],
+        "scoreDelta": 20,
+        "carbonDelta": -15
+      },
+      {
+        "id": "C",
+        "label": "Ajouter une isolation préventive",
+        "requiredBefore": [],
+        "scoreDelta": 5,
+        "carbonDelta": -8
+      }
+    ]
+  }
+]
