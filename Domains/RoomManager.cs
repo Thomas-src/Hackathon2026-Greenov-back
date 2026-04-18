@@ -58,20 +58,26 @@ public class RoomManager
         };
     }
 
-    public void RemovePlayer(string connectionId)
+    public string? GetRoomIdByConnectionId(string connectionId) =>
+        _rooms.Values
+            .FirstOrDefault(r => r.Players.ContainsKey(connectionId))
+            ?.RoomId;
+
+    public Player? RemovePlayer(string connectionId)
     {
-        foreach (var room in _rooms.Values)
+        foreach (var room in _rooms.Values.Where(room => room.Players.ContainsKey(connectionId)))
         {
-            if (room.Players.ContainsKey(connectionId))
-            {
-                room.Players.Remove(connectionId);
-                return;
-            }
+            room.Players.Remove(connectionId, out var value);
+            return value;
         }
+
+        return null;
     }
 
     public List<Player> GetAllPlayers(string roomId) =>
         GetRoom(roomId)?.Players.Values.ToList() ?? [];
+
+    public int Count(string roomId) => GetAllPlayers(roomId).Count;
 
     // ── Progression par joueur ─────────────────────────────
 
@@ -82,7 +88,6 @@ public class RoomManager
 
         room.PlayerEventIndex.TryGetValue(connectionId, out var index);
 
-        // Cherche le prochain event compatible avec le profil à partir de l'index actuel
         var eligibleEvents = room.EventQueue
             .Where(e => string.IsNullOrEmpty(e.ProfileFilter) || e.ProfileFilter == profile)
             .ToList();
@@ -124,7 +129,6 @@ public class RoomManager
         });
     }
 
-// Récupère l'event courant du joueur (après GetNextEventForPlayer, index déjà avancé)
     public GameEvent? GetCurrentEventForPlayer(string roomId, string connectionId, string profile)
     {
         var room = GetRoom(roomId);
