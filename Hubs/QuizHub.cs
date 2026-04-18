@@ -104,7 +104,7 @@ public class QuizHub(
             {
                 HouseState = player.Score,
                 Carbon = player.CarbonLevel,
-                Profile = player.Profile
+                player.Profile
             }, cancellationToken: cts.Token);
 
             await SendNextEventToPlayer(roomId, connectionId);
@@ -137,7 +137,7 @@ public class QuizHub(
         if (!roomManager.IsHost(roomId, Context.ConnectionId)) return;
 
         var room = roomManager.GetRoom(roomId);
-        if (room == null || !room.IsStarted) return;
+        if (room is not { IsStarted: true }) return;
 
         await EndGame(roomId, "forced");
     }
@@ -175,13 +175,12 @@ public class QuizHub(
         {
             Username = username,
             Profile = profile,
+            PlayerCount = room.Players.Count
         });
 
-        await Clients.Group(roomId).SendAsync("PlayerJoined", new
+        await Clients.GroupExcept(roomId, Context.ConnectionId).SendAsync("PlayerJoined", new
         {
-            Username = username,
-            Profile = profile,
-            PlayerCount = room.Players.Count,
+            PlayerCount = room.Players.Count
         });
     }
 
@@ -219,7 +218,7 @@ public class QuizHub(
             result.IsGoodMove,
             result.PrerequisitesMet,
             NewScore = newScore,
-            EducationalNote = gameEvent.EducationalNote,
+            gameEvent.EducationalNote,
             HasNextEvent = roomManager.HasMoreEventsForPlayer(roomId, Context.ConnectionId, player.Profile),
         });
 
@@ -291,7 +290,7 @@ public class QuizHub(
             nextEvent.Title,
             nextEvent.Description,
             EventNumber = index,
-            TotalEvents = room.TotalEvents,
+            room.TotalEvents,
             Actions = nextEvent.Actions.Select(a => new { a.Id, a.Label })
         });
     }
@@ -380,7 +379,7 @@ public class QuizHub(
                     {
                         EventTitle = eg.Key,
                         Count = eg.Count(),
-                        EducationalNote = eg.First().EducationalNote,
+                        eg.First().EducationalNote,
                     }),
             });
 
