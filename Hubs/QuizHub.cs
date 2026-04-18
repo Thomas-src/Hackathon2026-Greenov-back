@@ -70,6 +70,12 @@ public class QuizHub(
 
     public async Task StartGame(string roomId)
     {
+        logger.LogInformation("StartGame called — roomId: {RoomId}, caller: {ConnId}, host: {HostConnId}, isHost: {IsHost}",
+            roomId,
+            Context.ConnectionId,
+            roomManager.GetRoom(roomId)?.HostConnectionId ?? "null",
+            roomManager.IsHost(roomId, Context.ConnectionId));
+
         if (!roomManager.IsHost(roomId, Context.ConnectionId)) return;
 
         var room = roomManager.GetRoom(roomId);
@@ -129,12 +135,35 @@ public class QuizHub(
     public async Task JoinRoom(string roomId, string username, string profile)
     {
         var room = roomManager.GetRoom(roomId);
-        if (room == null) return;
+
+        if (room == null)
+        {
+            await Clients.Caller.SendAsync("JoinFailed", new
+            {
+                Message = "Session introuvable. Vérifie le code et réessaie."
+            });
+            return;
+        }
+
+        if (room.IsStarted)
+        {
+            await Clients.Caller.SendAsync("JoinFailed", new
+            {
+                Message = "La partie a déjà commencé."
+            });
+            return;
+        }
 
         roomManager.AddPlayer(roomId, Context.ConnectionId, username, profile);
         await Groups.AddToGroupAsync(Context.ConnectionId, roomId);
 
         logger.LogInformation("Player {Username} ({Profile}) a rejoint {RoomId}", username, profile, roomId);
+
+        await Clients.Caller.SendAsync("JoinSuccess", new
+        {
+            Username = username,
+            Profile = profile,
+        });
 
         await Clients.Group(roomId).SendAsync("PlayerJoined", new
         {
