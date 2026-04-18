@@ -83,11 +83,14 @@ public class QuizHub(
 
         roomManager.StartRoom(roomId);
 
-        await Clients.Group(roomId).SendAsync("GameStarted", new
+        var time = new DateTimeOffset((room.StartedAt ?? DateTime.Now + TimeSpan.FromMinutes(room.DurationMinutes)).ToUniversalTime());
+
+        // host
+        await Clients.Caller.SendAsync("GameStarted", new
         {
-            DurationMinutes = room.DurationMinutes,
-            TotalEvents = room.TotalEvents,
-            PlayerCount = room.Players.Count,
+            Remaining = time.ToUnixTimeSeconds(),
+            Players = room.Players.Values,
+            Carbon = room.GlobalCarbon
         });
 
         var cts = new CancellationTokenSource();
@@ -95,8 +98,16 @@ public class QuizHub(
         _ = RunGameTimerAsync(roomId, room.DurationMinutes, cts.Token);
 
         // Premier event envoyé individuellement à chaque joueur
-        foreach (var connectionId in room.Players.Keys)
+        foreach (var (connectionId, player) in room.Players)
+        {
+            await Clients.Client(connectionId).SendAsync("GameStarted", new
+            {
+                HouseState = player.Score,
+                Carbon = player.CarbonLevel
+            }, cancellationToken: cts.Token);
+
             await SendNextEventToPlayer(roomId, connectionId);
+        }
     }
 
     public async Task GetGlobalDebrief(string roomId)
