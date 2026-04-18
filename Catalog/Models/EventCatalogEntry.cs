@@ -44,5 +44,5 @@ public class ActionCatalogEntry
     public int CarbonDelta { get; init; }
     
     [JsonPropertyName("isGoodAnswer")]
-    public int IsGoodAnswer { get; init; }
+    public bool IsGoodAnswer { get; init; }
 }

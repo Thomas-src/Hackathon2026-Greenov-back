@@ -8,7 +8,7 @@ public class ActionEngine
     {
         var prereqsMet = action.RequiredBefore.All(playerHistory.Contains);
 
-        if (!prereqsMet)
+        if (!prereqsMet || !action.IsGoodAnswer)
         {
             // Pénalité : B fait avant A
             return new ActionResult(

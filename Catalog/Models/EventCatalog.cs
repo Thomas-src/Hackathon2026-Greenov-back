@@ -42,6 +42,7 @@ public class EventCatalog
             RequiredBefore = a.RequiredBefore,
             ScoreDelta = a.ScoreDelta,
             CarbonDelta = a.CarbonDelta,
+            IsGoodAnswer = a.IsGoodAnswer
         }).ToList()
     };
 }

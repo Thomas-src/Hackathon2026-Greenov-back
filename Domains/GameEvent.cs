@@ -18,4 +18,5 @@ public class GameAction
     public List<string> RequiredBefore { get; init; } = [];  // ["A"] = B nécessite A d'abord
     public int ScoreDelta { get; init; }              // +10 ou -15
     public int CarbonDelta { get; init; }             // -5 ou +20
+    public required bool IsGoodAnswer { get; init; }
 }
