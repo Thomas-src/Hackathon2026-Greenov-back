@@ -54,7 +54,7 @@ public class QuizHub(
         roomManager.StartRoom(roomId);
 
         var endsAt = new DateTimeOffset(
-            (room.StartedAt ?? DateTime.UtcNow + TimeSpan.FromMinutes(room.DurationMinutes))
+            ((room.StartedAt ?? DateTime.UtcNow) + TimeSpan.FromMinutes(room.DurationMinutes))
             .ToUniversalTime());
 
         await Clients.Caller.SendAsync("GameStartedHost", new GameStartedHostDto(
