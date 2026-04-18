@@ -17,6 +17,7 @@ builder.Services.AddCors(options =>
             .SetIsOriginAllowed(_ => true); // dev only
     });
 });
+builder.Services.AddControllers();
 
 builder.Services.AddSingleton<RoomManager>();
 builder.Services.AddSingleton<EventCatalog>();
@@ -27,6 +28,6 @@ var app = builder.Build();
 app.UseCors();
 
 app.MapHub<QuizHub>("/hub");
-app.MapFallback(() => Results.NotFound());
+app.MapControllers();
 
 app.Run();
