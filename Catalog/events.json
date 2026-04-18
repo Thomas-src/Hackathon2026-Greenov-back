@@ -1,5 +1,1017 @@
 [
   {
+    "id": "evt_proprietaire_1",
+    "title": "Isolation des combles absente",
+    "description": "Vos combles ne sont pas isolés. La chaleur s'échappe massivement en hiver et s'accumule en été.",
+    "profileFilter": "proprietaire",
+    "educationalNote": "Les combles représentent jusqu’à 30% des pertes thermiques d'une maison non isolée.",
+    "actions": [
+      {
+        "id": "A",
+        "label": "Faire un audit énergétique",
+        "requiredBefore": [],
+        "scoreDelta": 10,
+        "carbonDelta": -5
+      },
+      {
+        "id": "B",
+        "label": "Isoler les combles",
+        "requiredBefore": [
+          "A"
+        ],
+        "scoreDelta": 30,
+        "carbonDelta": -25
+      },
+      {
+        "id": "C",
+        "label": "Ignorer",
+        "requiredBefore": [],
+        "scoreDelta": -10,
+        "carbonDelta": 20
+      }
+    ]
+  },
+  {
+    "id": "evt_chaudiere_fioul",
+    "title": "Remplacement du système de chauffage",
+    "description": "Votre vieille chaudière au fioul arrive en fin de vie. Les prix du combustible s'envolent.",
+    "profileFilter": "proprietaire",
+    "educationalNote": "Le fioul est l'une des énergies les plus carbonées. Installer une pompe à chaleur (PAC) peut diviser vos émissions par 4.",
+    "actions": [
+      {
+        "id": "A",
+        "label": "Installer une pompe à chaleur air-eau",
+        "requiredBefore": [],
+        "scoreDelta": 35,
+        "carbonDelta": -60
+      },
+      {
+        "id": "B",
+        "label": "Passer à une chaudière biomasse (granulés)",
+        "requiredBefore": [],
+        "scoreDelta": 30,
+        "carbonDelta": -55
+      },
+      {
+        "id": "C",
+        "label": "Réparer l'ancienne chaudière",
+        "requiredBefore": [],
+        "scoreDelta": -15,
+        "carbonDelta": 10
+      }
+    ]
+  },
+  {
+    "id": "evt_fenetres_vitrage",
+    "title": "Fenêtres en simple vitrage",
+    "description": "Vos fenêtres actuelles laissent passer le bruit et le froid.",
+    "profileFilter": "proprietaire",
+    "educationalNote": "Le passage au double vitrage performant permet de réduire les pertes de chaleur par les fenêtres de 40% à 60%.",
+    "actions": [
+      {
+        "id": "A",
+        "label": "Poser du double vitrage renforcé",
+        "requiredBefore": [],
+        "scoreDelta": 20,
+        "carbonDelta": -15
+      },
+      {
+        "id": "B",
+        "label": "Installer des volets roulants isolants",
+        "requiredBefore": [],
+        "scoreDelta": 12,
+        "carbonDelta": -8
+      }
+    ]
+  },
+  {
+    "id": "evt_chauffe_eau_solaire",
+    "title": "Production d'eau chaude sanitaire",
+    "description": "Votre cumulus électrique consomme énormément chaque mois.",
+    "profileFilter": "proprietaire",
+    "educationalNote": "Un chauffe-eau solaire thermique peut couvrir jusqu'à 70% des besoins annuels en eau chaude d'une famille.",
+    "actions": [
+      {
+        "id": "A",
+        "label": "Installer un chauffe-eau thermodynamique",
+        "requiredBefore": [],
+        "scoreDelta": 25,
+        "carbonDelta": -20
+      },
+      {
+        "id": "B",
+        "label": "Installer des panneaux solaires thermiques",
+        "requiredBefore": [],
+        "scoreDelta": 30,
+        "carbonDelta": -25
+      }
+    ]
+  },
+  {
+    "id": "evt_vMC_ventilation",
+    "title": "Humidité et qualité de l'air",
+    "description": "Des traces de moisissures apparaissent. Votre ventilation est naturelle ou inexistante.",
+    "profileFilter": "proprietaire",
+    "educationalNote": "Une VMC double flux récupère la chaleur de l'air extrait pour chauffer l'air entrant, économisant jusqu'à 15% de chauffage.",
+    "actions": [
+      {
+        "id": "A",
+        "label": "Installer une VMC simple flux hygroréglable",
+        "requiredBefore": [],
+        "scoreDelta": 15,
+        "carbonDelta": -5
+      },
+      {
+        "id": "B",
+        "label": "Installer une VMC double flux",
+        "requiredBefore": [],
+        "scoreDelta": 25,
+        "carbonDelta": -12
+      }
+    ]
+  },
+  {
+    "id": "evt_panneaux_photovoltaiques",
+    "title": "Autoconsommation électrique",
+    "description": "Votre toiture est bien exposée. Vous payez vos factures au prix fort.",
+    "profileFilter": "proprietaire",
+    "educationalNote": "L'énergie solaire est inépuisable. Revendre le surplus à EDF permet d'amortir l'installation en 10 à 12 ans.",
+    "actions": [
+      {
+        "id": "A",
+        "label": "Poser des panneaux photovoltaïques",
+        "requiredBefore": [],
+        "scoreDelta": 30,
+        "carbonDelta": -40
+      },
+      {
+        "id": "B",
+        "label": "Souscrire à une coopérative solaire locale",
+        "requiredBefore": [],
+        "scoreDelta": 20,
+        "carbonDelta": -30
+      }
+    ]
+  },
+  {
+    "id": "evt_recuperateur_eau",
+    "title": "Gestion de l'eau au jardin",
+    "description": "Vous arrosez votre grand jardin à l'eau potable, ce qui coûte cher.",
+    "profileFilter": "proprietaire",
+    "educationalNote": "Récupérer l'eau de pluie permet de préserver les nappes phréatiques et d'arroser gratuitement pendant les restrictions.",
+    "actions": [
+      {
+        "id": "A",
+        "label": "Installer une cuve enterrée de 5000L",
+        "requiredBefore": [],
+        "scoreDelta": 25,
+        "carbonDelta": -5
+      },
+      {
+        "id": "B",
+        "label": "Placer des récupérateurs aériens aux gouttières",
+        "requiredBefore": [],
+        "scoreDelta": 15,
+        "carbonDelta": -2
+      }
+    ]
+  },
+  {
+    "id": "evt_isolation_exterieure",
+    "title": "Ravalement de façade",
+    "description": "Votre façade est défraîchie. C'est l'occasion de revoir l'enveloppe du bâtiment.",
+    "profileFilter": "proprietaire",
+    "educationalNote": "L'Isolation Thermique par l'Extérieur (ITE) traite les ponts thermiques sans réduire la surface habitable.",
+    "actions": [
+      {
+        "id": "A",
+        "label": "Faire une isolation par l'extérieur",
+        "requiredBefore": [],
+        "scoreDelta": 40,
+        "carbonDelta": -50
+      },
+      {
+        "id": "B",
+        "label": "Faire un ravalement simple (peinture)",
+        "requiredBefore": [],
+        "scoreDelta": -5,
+        "carbonDelta": 10
+      }
+    ]
+  },
+  {
+    "id": "evt_borne_electrique",
+    "title": "Mobilité électrique",
+    "description": "Vous envisagez de passer à l'électrique mais vous n'avez pas de prise dans le garage.",
+    "profileFilter": "proprietaire",
+    "educationalNote": "L'installation d'une borne de recharge à domicile bénéficie d'un crédit d'impôt et valorise votre bien.",
+    "actions": [
+      {
+        "id": "A",
+        "label": "Installer une borne de recharge rapide",
+        "requiredBefore": [],
+        "scoreDelta": 20,
+        "carbonDelta": -35
+      },
+      {
+        "id": "B",
+        "label": "Installer une prise renforcée",
+        "requiredBefore": [],
+        "scoreDelta": 10,
+        "carbonDelta": -15
+      }
+    ]
+  },
+  {
+    "id": "evt_plancher_bas",
+    "title": "Sols froids",
+    "description": "Le sol de votre rez-de-chaussée est glacé car le garage en dessous n'est pas chauffé.",
+    "profileFilter": "proprietaire",
+    "educationalNote": "Isoler le plafond de la cave ou du garage est une opération peu coûteuse qui améliore grandement le confort pieds nus.",
+    "actions": [
+      {
+        "id": "A",
+        "label": "Isoler le plafond du sous-sol",
+        "requiredBefore": [],
+        "scoreDelta": 15,
+        "carbonDelta": -12
+      },
+      {
+        "id": "B",
+        "label": "Poser une moquette épaisse",
+        "requiredBefore": [],
+        "scoreDelta": 0,
+        "carbonDelta": 5
+      }
+    ]
+  },
+  {
+    "id": "evt_climatisation_passive",
+    "title": "Protection contre la chaleur",
+    "description": "Votre maison devient une fournaise en été.",
+    "profileFilter": "proprietaire",
+    "educationalNote": "Les protections solaires extérieures (brise-soleil, stores) sont plus efficaces que la climatisation pour garder la fraîcheur.",
+    "actions": [
+      {
+        "id": "A",
+        "label": "Installer des stores bannes extérieurs",
+        "requiredBefore": [],
+        "scoreDelta": 15,
+        "carbonDelta": -2
+      },
+      {
+        "id": "B",
+        "label": "Planter des arbres à feuilles caduques au sud",
+        "requiredBefore": [],
+        "scoreDelta": 20,
+        "carbonDelta": -10
+      },
+      {
+        "id": "C",
+        "label": "Installer une climatisation réversible",
+        "requiredBefore": [],
+        "scoreDelta": -10,
+        "carbonDelta": 30
+      }
+    ]
+  },
+  {
+    "id": "evt_matériaux_biosources",
+    "title": "Choix des matériaux de rénovation",
+    "description": "Vous devez isoler un mur intérieur. Plusieurs options s'offrent à vous.",
+    "profileFilter": "proprietaire",
+    "educationalNote": "Les isolants biosourcés (chanvre, laine de bois) stockent du carbone et régulent mieux l'humidité que la laine de verre.",
+    "actions": [
+      {
+        "id": "A",
+        "label": "Choisir de la laine de mouton ou du chanvre",
+        "requiredBefore": [],
+        "scoreDelta": 25,
+        "carbonDelta": -20
+      },
+      {
+        "id": "B",
+        "label": "Utiliser du polystyrène (moins cher)",
+        "requiredBefore": [],
+        "scoreDelta": -15,
+        "carbonDelta": 15
+      }
+    ]
+  },
+  {
+    "id": "evt_toiture_vegetalisee",
+    "title": "Toit terrasse",
+    "description": "Votre extension a un toit plat en bitume qui chauffe beaucoup l'été.",
+    "profileFilter": "proprietaire",
+    "educationalNote": "Une toiture végétalisée protège l'étanchéité, favorise la biodiversité et limite les rejets d'eau de pluie.",
+    "actions": [
+      {
+        "id": "A",
+        "label": "Végétaliser la toiture",
+        "requiredBefore": [],
+        "scoreDelta": 30,
+        "carbonDelta": -15
+      },
+      {
+        "id": "B",
+        "label": "Peindre le toit en blanc (Cool Roof)",
+        "requiredBefore": [],
+        "scoreDelta": 15,
+        "carbonDelta": -5
+      }
+    ]
+  },
+  {
+    "id": "evt_chauffage_bois",
+    "title": "Agrément et chauffage",
+    "description": "Vous avez une cheminée ouverte qui fume beaucoup et chauffe peu.",
+    "profileFilter": "proprietaire",
+    "educationalNote": "Une cheminée ouverte a un rendement de 15%. Un insert moderne monte à plus de 80% tout en polluant moins.",
+    "actions": [
+      {
+        "id": "A",
+        "label": "Installer un insert ou un poêle à bois",
+        "requiredBefore": [],
+        "scoreDelta": 25,
+        "carbonDelta": -25
+      },
+      {
+        "id": "B",
+        "label": "Faire ramoner et continuer ainsi",
+        "requiredBefore": [],
+        "scoreDelta": -10,
+        "carbonDelta": 15
+      }
+    ]
+  },
+  {
+    "id": "evt_eclairage_exterieur",
+    "title": "Éclairage du jardin",
+    "description": "Vos projecteurs de façade s'allument toute la nuit.",
+    "profileFilter": "proprietaire",
+    "educationalNote": "La pollution lumineuse perturbe la biodiversité. Les détecteurs de présence divisent la consommation par 10.",
+    "actions": [
+      {
+        "id": "A",
+        "label": "Installer des détecteurs de mouvement",
+        "requiredBefore": [],
+        "scoreDelta": 15,
+        "carbonDelta": -5
+      },
+      {
+        "id": "B",
+        "label": "Remplacer par des bornes solaires LED",
+        "requiredBefore": [],
+        "scoreDelta": 20,
+        "carbonDelta": -8
+      }
+    ]
+  },
+  {
+    "id": "evt_terrasse_durable",
+    "title": "Aménagement extérieur",
+    "description": "Vous voulez construire une terrasse.",
+    "profileFilter": "proprietaire",
+    "educationalNote": "Le bois local (mélèze, douglas) évite les traitements chimiques et le transport lié aux bois exotiques.",
+    "actions": [
+      {
+        "id": "A",
+        "label": "Utiliser du bois français certifié PEFC",
+        "requiredBefore": [],
+        "scoreDelta": 20,
+        "carbonDelta": -15
+      },
+      {
+        "id": "B",
+        "label": "Choisir du bois exotique (Ipé/Teck)",
+        "requiredBefore": [],
+        "scoreDelta": -25,
+        "carbonDelta": 40
+      },
+      {
+        "id": "C",
+        "label": "Faire une dalle en béton brut",
+        "requiredBefore": [],
+        "scoreDelta": -10,
+        "carbonDelta": 20
+      }
+    ]
+  },
+  {
+    "id": "evt_vannes_thermostatiques",
+    "title": "Régulation du chauffage",
+    "description": "Vos radiateurs ont de vieux robinets manuels impossibles à régler finement.",
+    "profileFilter": "proprietaire",
+    "educationalNote": "Les vannes thermostatiques permettent de réguler la température pièce par pièce, économisant jusqu'à 10% d'énergie.",
+    "actions": [
+      {
+        "id": "A",
+        "label": "Installer des vannes thermostatiques connectées",
+        "requiredBefore": [],
+        "scoreDelta": 20,
+        "carbonDelta": -12
+      },
+      {
+        "id": "B",
+        "label": "Installer un thermostat d'ambiance central",
+        "requiredBefore": [],
+        "scoreDelta": 15,
+        "carbonDelta": -8
+      }
+    ]
+  },
+  {
+    "id": "evt_biodiversite_jardin",
+    "title": "Entretien des espaces verts",
+    "description": "Votre gazon est tondu ras partout, sans aucune fleur sauvage.",
+    "profileFilter": "proprietaire",
+    "educationalNote": "Laisser des zones de 'prairie fleurie' favorise le retour des insectes pollinisateurs et des oiseaux.",
+    "actions": [
+      {
+        "id": "A",
+        "label": "Pratiquer la tonte différenciée",
+        "requiredBefore": [],
+        "scoreDelta": 15,
+        "carbonDelta": -5
+      },
+      {
+        "id": "B",
+        "label": "Planter une haie bocagère variée",
+        "requiredBefore": [],
+        "scoreDelta": 25,
+        "carbonDelta": -10
+      }
+    ]
+  },
+  {
+    "id": "evt_piscine_eco",
+    "title": "Entretien de la piscine",
+    "description": "Votre piscine consomme beaucoup d'eau par évaporation et de produits chimiques.",
+    "profileFilter": "proprietaire",
+    "educationalNote": "Une bâche à bulles réduit l'évaporation de 90% et maintient la température de l'eau.",
+    "actions": [
+      {
+        "id": "A",
+        "label": "Installer un volet roulant solaire",
+        "requiredBefore": [],
+        "scoreDelta": 20,
+        "carbonDelta": -15
+      },
+      {
+        "id": "B",
+        "label": "Passer au traitement à l'ozone ou UV",
+        "requiredBefore": [],
+        "scoreDelta": 15,
+        "carbonDelta": -5
+      }
+    ]
+  },
+  {
+    "id": "evt_sol_permeable",
+    "title": "Allée de garage",
+    "description": "Vous voulez refaire votre allée de garage actuellement en terre battue.",
+    "profileFilter": "proprietaire",
+    "educationalNote": "L'imperméabilisation des sols sature les égouts. Les pavés drainants ou le gravier permettent à l'eau de s'infiltrer.",
+    "actions": [
+      {
+        "id": "A",
+        "label": "Utiliser des pavés drainants",
+        "requiredBefore": [],
+        "scoreDelta": 20,
+        "carbonDelta": -5
+      },
+      {
+        "id": "B",
+        "label": "Couler un enrobé de bitume",
+        "requiredBefore": [],
+        "scoreDelta": -20,
+        "carbonDelta": 15
+      }
+    ]
+  },
+  {
+    "id": "evt_electromenager_classe",
+    "title": "Équipement de la cuisine",
+    "description": "Votre réfrigérateur a 15 ans et fait un bruit de moteur d'avion.",
+    "profileFilter": "proprietaire",
+    "educationalNote": "Un appareil de classe A actuel consomme jusqu'à 3 fois moins qu'un modèle ancien équivalent.",
+    "actions": [
+      {
+        "id": "A",
+        "label": "Remplacer par un modèle classe A",
+        "requiredBefore": [],
+        "scoreDelta": 15,
+        "carbonDelta": -20
+      },
+      {
+        "id": "B",
+        "label": "Réparer les joints de porte",
+        "requiredBefore": [],
+        "scoreDelta": 10,
+        "carbonDelta": -5
+      }
+    ]
+  },
+  {
+    "id": "evt_diagnostics_immobiliers",
+    "title": "Mise en location",
+    "description": "Vous voulez louer votre appartement mais son DPE est classé E.",
+    "profileFilter": "proprietaire",
+    "educationalNote": "Depuis 2025, la location des logements les plus énergivores (G, puis F) est progressivement interdite.",
+    "actions": [
+      {
+        "id": "A",
+        "label": "Réaliser des travaux de rénovation globale",
+        "requiredBefore": [],
+        "scoreDelta": 40,
+        "carbonDelta": -60
+      },
+      {
+        "id": "B",
+        "label": "Baisser le loyer sans faire de travaux",
+        "requiredBefore": [],
+        "scoreDelta": -30,
+        "carbonDelta": 10
+      }
+    ]
+  },
+  {
+    "id": "evt_peinture_interieure",
+    "title": "Décoration des chambres",
+    "description": "Vous allez repeindre les chambres des enfants.",
+    "profileFilter": "proprietaire",
+    "educationalNote": "Les peintures classiques rejettent des COV (Composés Organiques Volatils). Les peintures A+ ou naturelles préservent la santé.",
+    "actions": [
+      {
+        "id": "A",
+        "label": "Choisir une peinture aux algues ou à la chaux",
+        "requiredBefore": [],
+        "scoreDelta": 20,
+        "carbonDelta": -10
+      },
+      {
+        "id": "B",
+        "label": "Prendre une peinture acrylique standard",
+        "requiredBefore": [],
+        "scoreDelta": -5,
+        "carbonDelta": 5
+      }
+    ]
+  },
+  {
+    "id": "evt_recup_eaux_grises",
+    "title": "Innovation domestique",
+    "description": "Vous refaites votre salle de bain.",
+    "profileFilter": "proprietaire",
+    "educationalNote": "Recycler l'eau de la douche pour les toilettes permet d'économiser jusqu'à 30% d'eau potable.",
+    "actions": [
+      {
+        "id": "A",
+        "label": "Installer un système de récupération d'eaux grises",
+        "requiredBefore": [],
+        "scoreDelta": 30,
+        "carbonDelta": -10
+      },
+      {
+        "id": "B",
+        "label": "Installer des robinets avec limiteurs de débit",
+        "requiredBefore": [],
+        "scoreDelta": 15,
+        "carbonDelta": -3
+      }
+    ]
+  },
+  {
+    "id": "evt_bois_chauffage_stock",
+    "title": "Qualité du combustible",
+    "description": "Vous stockez votre bois de chauffage à l'air libre sous la pluie.",
+    "profileFilter": "proprietaire",
+    "educationalNote": "Brûler du bois humide pollue massivement l'air extérieur et réduit de moitié la chaleur produite.",
+    "actions": [
+      {
+        "id": "A",
+        "label": "Construire un abri à bois ventilé",
+        "requiredBefore": [],
+        "scoreDelta": 15,
+        "carbonDelta": -15
+      },
+      {
+        "id": "B",
+        "label": "Acheter du bois déjà séché (label NF)",
+        "requiredBefore": [],
+        "scoreDelta": 10,
+        "carbonDelta": -10
+      }
+    ]
+  },
+  {
+    "id": "evt_copropriete_isolation",
+    "title": "AG de copropriété",
+    "description": "L'ordre du jour propose l'isolation de la toiture de l'immeuble.",
+    "profileFilter": "proprietaire",
+    "educationalNote": "Voter pour des travaux collectifs est souvent plus rentable grâce aux aides groupées (MaPrimeRénov' Copropriété).",
+    "actions": [
+      {
+        "id": "A",
+        "label": "Voter POUR les travaux d'isolation",
+        "requiredBefore": [],
+        "scoreDelta": 25,
+        "carbonDelta": -40
+      },
+      {
+        "id": "B",
+        "label": "Voter CONTRE pour économiser les charges",
+        "requiredBefore": [],
+        "scoreDelta": -20,
+        "carbonDelta": 30
+      }
+    ]
+  },
+  {
+    "id": "evt_veranda_thermique",
+    "title": "Extension de maison",
+    "description": "Vous voulez ajouter une véranda.",
+    "profileFilter": "proprietaire",
+    "educationalNote": "Une véranda non chauffée agit comme un tampon thermique. Chauffée, elle devient un gouffre énergétique.",
+    "actions": [
+      {
+        "id": "A",
+        "label": "Concevoir une véranda bioclimatique",
+        "requiredBefore": [],
+        "scoreDelta": 20,
+        "carbonDelta": -10
+      },
+      {
+        "id": "B",
+        "label": "Installer un radiateur dans la véranda",
+        "requiredBefore": [],
+        "scoreDelta": -30,
+        "carbonDelta": 50
+      }
+    ]
+  },
+  {
+    "id": "evt_composteur_collectif",
+    "title": "Déchets verts",
+    "description": "Vos tontes de pelouse finissent à la déchetterie.",
+    "profileFilter": "proprietaire",
+    "educationalNote": "Le compostage sur place crée un engrais naturel gratuit et évite les transports de déchets volumineux.",
+    "actions": [
+      {
+        "id": "A",
+        "label": "Installer un silo à compost",
+        "requiredBefore": [],
+        "scoreDelta": 15,
+        "carbonDelta": -10
+      },
+      {
+        "id": "B",
+        "label": "Utiliser les tontes en paillage",
+        "requiredBefore": [],
+        "scoreDelta": 15,
+        "carbonDelta": -5
+      }
+    ]
+  },
+  {
+    "id": "evt_audit_energetique",
+    "title": "Vision globale",
+    "description": "Vous ne savez pas par quels travaux commencer.",
+    "profileFilter": "proprietaire",
+    "educationalNote": "Un audit complet permet de prioriser les travaux les plus efficaces et de débloquer les aides maximales.",
+    "actions": [
+      {
+        "id": "A",
+        "label": "Faire appel à un Accompagnateur Rénov'",
+        "requiredBefore": [],
+        "scoreDelta": 20,
+        "carbonDelta": -5
+      },
+      {
+        "id": "B",
+        "label": "Changer un petit radiateur au hasard",
+        "requiredBefore": [],
+        "scoreDelta": 5,
+        "carbonDelta": -2
+      }
+    ]
+  },
+  {
+    "id": "evt_voiture_occasion",
+    "title": "Véhicule du foyer",
+    "description": "Votre SUV diesel est trop polluant pour les futures ZFE.",
+    "profileFilter": "proprietaire",
+    "educationalNote": "Remplacer un véhicule lourd par une citadine électrique légère ou un vélo cargo réduit drastiquement l'empreinte carbone transport.",
+    "actions": [
+      {
+        "id": "A",
+        "label": "Passer à une voiture électrique compacte",
+        "requiredBefore": [],
+        "scoreDelta": 25,
+        "carbonDelta": -100
+      },
+      {
+        "id": "B",
+        "label": "Vendre la voiture et acheter un vélo cargo",
+        "requiredBefore": [],
+        "scoreDelta": 40,
+        "carbonDelta": -150
+      }
+    ]
+  },
+  {
+    "id": "evt_proprietaire_1",
+    "title": "Isolation des combles absente",
+    "description": "Vos combles ne sont pas isolés.",
+    "profileFilter": "proprietaire",
+    "educationalNote": "Les combles représentent jusqu’à 30% des pertes thermiques.",
+    "actions": [
+      {
+        "id": "A",
+        "label": "Faire un audit énergétique",
+        "requiredBefore": [],
+        "scoreDelta": 10,
+        "carbonDelta": -5
+      },
+      {
+        "id": "B",
+        "label": "Isoler les combles",
+        "requiredBefore": [
+          "A"
+        ],
+        "scoreDelta": 30,
+        "carbonDelta": -25
+      },
+      {
+        "id": "C",
+        "label": "Ignorer",
+        "requiredBefore": [],
+        "scoreDelta": -10,
+        "carbonDelta": 20
+      }
+    ]
+  },
+  {
+    "id": "evt_proprietaire_2",
+    "title": "Fenêtres simple vitrage",
+    "description": "Vos fenêtres sont peu performantes.",
+    "profileFilter": "proprietaire",
+    "educationalNote": "Le double vitrage améliore fortement l'isolation.",
+    "actions": [
+      {
+        "id": "A",
+        "label": "Demander un devis",
+        "requiredBefore": [],
+        "scoreDelta": 5,
+        "carbonDelta": -2
+      },
+      {
+        "id": "B",
+        "label": "Installer double vitrage",
+        "requiredBefore": [
+          "A"
+        ],
+        "scoreDelta": 25,
+        "carbonDelta": -20
+      },
+      {
+        "id": "C",
+        "label": "Mettre rideaux épais",
+        "requiredBefore": [],
+        "scoreDelta": 5,
+        "carbonDelta": -3
+      }
+    ]
+  },
+  {
+    "id": "evt_proprietaire_3",
+    "title": "Toiture vieillissante",
+    "description": "Votre toiture laisse passer l'humidité.",
+    "profileFilter": "proprietaire",
+    "educationalNote": "Une toiture rénovée améliore isolation et étanchéité.",
+    "actions": [
+      {
+        "id": "A",
+        "label": "Inspection toiture",
+        "requiredBefore": [],
+        "scoreDelta": 10,
+        "carbonDelta": -4
+      },
+      {
+        "id": "B",
+        "label": "Rénover toiture",
+        "requiredBefore": [
+          "A"
+        ],
+        "scoreDelta": 30,
+        "carbonDelta": -22
+      },
+      {
+        "id": "C",
+        "label": "Réparer partiellement",
+        "requiredBefore": [
+          "A"
+        ],
+        "scoreDelta": 10,
+        "carbonDelta": -5
+      }
+    ]
+  },
+  {
+    "id": "evt_proprietaire_4",
+    "title": "Ponts thermiques",
+    "description": "Des zones froides apparaissent sur vos murs.",
+    "profileFilter": "proprietaire",
+    "educationalNote": "Les ponts thermiques augmentent les pertes d’énergie.",
+    "actions": [
+      {
+        "id": "A",
+        "label": "Diagnostiquer les ponts",
+        "requiredBefore": [],
+        "scoreDelta": 10,
+        "carbonDelta": -4
+      },
+      {
+        "id": "B",
+        "label": "Corriger isolation",
+        "requiredBefore": [
+          "A"
+        ],
+        "scoreDelta": 25,
+        "carbonDelta": -20
+      },
+      {
+        "id": "C",
+        "label": "Ignorer",
+        "requiredBefore": [],
+        "scoreDelta": -10,
+        "carbonDelta": 15
+      }
+    ]
+  },
+  {
+    "id": "evt_proprietaire_5",
+    "title": "Radiateurs anciens",
+    "description": "Vos radiateurs sont peu efficaces.",
+    "profileFilter": "proprietaire",
+    "educationalNote": "Les radiateurs récents consomment moins.",
+    "actions": [
+      {
+        "id": "A",
+        "label": "Faire un bilan",
+        "requiredBefore": [],
+        "scoreDelta": 5,
+        "carbonDelta": -2
+      },
+      {
+        "id": "B",
+        "label": "Remplacer radiateurs",
+        "requiredBefore": [
+          "A"
+        ],
+        "scoreDelta": 20,
+        "carbonDelta": -15
+      },
+      {
+        "id": "C",
+        "label": "Augmenter chauffage",
+        "requiredBefore": [],
+        "scoreDelta": -10,
+        "carbonDelta": 18
+      }
+    ]
+  },
+  {
+    "id": "evt_proprietaire_6",
+    "title": "Absence de thermostat",
+    "description": "Votre chauffage n’est pas régulé.",
+    "profileFilter": "proprietaire",
+    "educationalNote": "Un thermostat permet jusqu'à 15% d'économie.",
+    "actions": [
+      {
+        "id": "A",
+        "label": "Installer thermostat",
+        "requiredBefore": [],
+        "scoreDelta": 20,
+        "carbonDelta": -15
+      },
+      {
+        "id": "B",
+        "label": "Programmer chauffage",
+        "requiredBefore": [
+          "A"
+        ],
+        "scoreDelta": 10,
+        "carbonDelta": -5
+      },
+      {
+        "id": "C",
+        "label": "Régler manuellement",
+        "requiredBefore": [],
+        "scoreDelta": 3,
+        "carbonDelta": -1
+      }
+    ]
+  },
+  {
+    "id": "evt_proprietaire_7",
+    "title": "Ballon d’eau chaude ancien",
+    "description": "Votre chauffe-eau consomme beaucoup.",
+    "profileFilter": "proprietaire",
+    "educationalNote": "Les modèles récents sont plus efficaces.",
+    "actions": [
+      {
+        "id": "A",
+        "label": "Faire diagnostic",
+        "requiredBefore": [],
+        "scoreDelta": 5,
+        "carbonDelta": -2
+      },
+      {
+        "id": "B",
+        "label": "Remplacer ballon",
+        "requiredBefore": [
+          "A"
+        ],
+        "scoreDelta": 25,
+        "carbonDelta": -20
+      },
+      {
+        "id": "C",
+        "label": "Réparer",
+        "requiredBefore": [
+          "A"
+        ],
+        "scoreDelta": 10,
+        "carbonDelta": -5
+      }
+    ]
+  },
+  {
+    "id": "evt_proprietaire_8",
+    "title": "Consommation électrique élevée",
+    "description": "Votre facture est très élevée.",
+    "profileFilter": "proprietaire",
+    "educationalNote": "Identifier les postes de consommation est clé.",
+    "actions": [
+      {
+        "id": "A",
+        "label": "Analyser facture",
+        "requiredBefore": [],
+        "scoreDelta": 10,
+        "carbonDelta": -3
+      },
+      {
+        "id": "B",
+        "label": "Optimiser équipements",
+        "requiredBefore": [
+          "A"
+        ],
+        "scoreDelta": 20,
+        "carbonDelta": -15
+      },
+      {
+        "id": "C",
+        "label": "Ignorer",
+        "requiredBefore": [],
+        "scoreDelta": -10,
+        "carbonDelta": 12
+      }
+    ]
+  },
+  {
+    "id": "evt_proprietaire_9",
+    "title": "Absence de panneaux solaires",
+    "description": "Votre toiture pourrait produire de l'énergie.",
+    "profileFilter": "proprietaire",
+    "educationalNote": "Le solaire réduit la dépendance énergétique.",
+    "actions": [
+      {
+        "id": "A",
+        "label": "Étudier faisabilité",
+        "requiredBefore": [],
+        "scoreDelta": 10,
+        "carbonDelta": -3
+      },
+      {
+        "id": "B",
+        "label": "Installer panneaux",
+        "requiredBefore": [
+          "A"
+        ],
+        "scoreDelta": 30,
+        "carbonDelta": -25
+      },
+      {
+        "id": "C",
+        "label": "Ignorer",
+        "requiredBefore": [],
+        "scoreDelta": -5,
+        "carbonDelta": 5
+      }
+    ]
+  },
+  {
     "id": "evt_isolation",
     "title": "Isolation insuffisante",
     "description": "Vos murs sont mal isolés, la chaleur s'échappe et votre facture explose.",
@@ -16,7 +1028,9 @@
       {
         "id": "B",
         "label": "Poser une isolation par l'extérieur",
-        "requiredBefore": ["A"],
+        "requiredBefore": [
+          "A"
+        ],
         "scoreDelta": 25,
         "carbonDelta": -20
       },
@@ -46,14 +1060,18 @@
       {
         "id": "B",
         "label": "Remplacer par une pompe à chaleur",
-        "requiredBefore": ["A"],
+        "requiredBefore": [
+          "A"
+        ],
         "scoreDelta": 30,
         "carbonDelta": -25
       },
       {
         "id": "C",
         "label": "Faire une simple réparation temporaire",
-        "requiredBefore": ["A"],
+        "requiredBefore": [
+          "A"
+        ],
         "scoreDelta": 5,
         "carbonDelta": 5
       }
@@ -76,7 +1094,743 @@
       {
         "id": "B",
         "label": "Saisir la commission départementale",
-        "requiredBefore": ["A"],
+        "requiredBefore": [
+          "A"
+        ],
+        "scoreDelta": 20,
+        "carbonDelta": -10
+      },
+      {
+        "id": "C",
+        "label": "Poser des rideaux épais et ignorer",
+        "requiredBefore": [],
+        "scoreDelta": -5,
+        "carbonDelta": 5
+      }
+    ]
+  },
+  {
+    "id": "evt_chauffage_hiver",
+    "title": "Hiver rigoureux",
+    "description": "Il fait 16°C dans votre salon. Le radiateur électrique est poussif.",
+    "profileFilter": "locataire",
+    "educationalNote": "Baisser le chauffage de 1°C permet d'économiser environ 7% d'énergie. En dessous de 19°C, privilégiez les vêtements techniques.",
+    "actions": [
+      {
+        "id": "A",
+        "label": "Acheter un radiateur d'appoint au pétrole",
+        "requiredBefore": [],
+        "scoreDelta": -15,
+        "carbonDelta": 25
+      },
+      {
+        "id": "B",
+        "label": "Mettre un pull en laine et régler sur 19°C",
+        "requiredBefore": [],
+        "scoreDelta": 15,
+        "carbonDelta": -10
+      },
+      {
+        "id": "C",
+        "label": "Installer des films isolants sur les vitres",
+        "requiredBefore": [],
+        "scoreDelta": 20,
+        "carbonDelta": -15
+      }
+    ]
+  },
+  {
+    "id": "evt_compost_urbain",
+    "title": "Déchets de cuisine",
+    "description": "Vos épluchures finissent à la poubelle alors que votre ville propose des solutions.",
+    "profileFilter": "locataire",
+    "educationalNote": "Les biodéchets représentent 30% du poids de nos poubelles. Les composter évite leur incinération inutile.",
+    "actions": [
+      {
+        "id": "A",
+        "label": "Installer un lombricomposteur en cuisine",
+        "requiredBefore": [],
+        "scoreDelta": 25,
+        "carbonDelta": -15
+      },
+      {
+        "id": "B",
+        "label": "Apporter ses restes au bac de quartier",
+        "requiredBefore": [],
+        "scoreDelta": 15,
+        "carbonDelta": -10
+      }
+    ]
+  },
+  {
+    "id": "evt_eau_douche",
+    "title": "Consommation d'eau record",
+    "description": "Votre facture d'eau explose. Vous adorez les douches de 15 minutes.",
+    "profileFilter": "locataire",
+    "educationalNote": "Un pommeau de douche économe peut réduire le débit de 15L/min à 6L/min sans perte de confort.",
+    "actions": [
+      {
+        "id": "A",
+        "label": "Installer un mousseur et un pommeau éco",
+        "requiredBefore": [],
+        "scoreDelta": 20,
+        "carbonDelta": -5
+      },
+      {
+        "id": "B",
+        "label": "Utiliser un sablier de douche (5 min max)",
+        "requiredBefore": [],
+        "scoreDelta": 25,
+        "carbonDelta": -8
+      }
+    ]
+  },
+  {
+    "id": "evt_mobilier_occasion",
+    "title": "Besoin d'un nouveau canapé",
+    "description": "Le vôtre est troué. Vous lorgnez sur un modèle neuf en promotion.",
+    "profileFilter": "locataire",
+    "educationalNote": "L'ameublement neuf a un coût carbone élevé lié au transport et aux colles chimiques. L'occasion évite ces émissions.",
+    "actions": [
+      {
+        "id": "A",
+        "label": "Acheter un canapé de seconde main sur LeBonCoin",
+        "requiredBefore": [],
+        "scoreDelta": 30,
+        "carbonDelta": -40
+      },
+      {
+        "id": "B",
+        "label": "Commander un modèle neuf en kit",
+        "requiredBefore": [],
+        "scoreDelta": -10,
+        "carbonDelta": 50
+      }
+    ]
+  },
+  {
+    "id": "evt_eclairage_led",
+    "title": "Ampoules énergivores",
+    "description": "Votre appartement est équipé de vieilles ampoules halogènes.",
+    "profileFilter": "locataire",
+    "educationalNote": "Les LED consomment 80% d'énergie en moins que les ampoules classiques et durent 10 fois plus longtemps.",
+    "actions": [
+      {
+        "id": "A",
+        "label": "Remplacer tout par des ampoules LED",
+        "requiredBefore": [],
+        "scoreDelta": 15,
+        "carbonDelta": -10
+      },
+      {
+        "id": "B",
+        "label": "Attendre qu'elles grillent pour changer",
+        "requiredBefore": [],
+        "scoreDelta": 0,
+        "carbonDelta": 5
+      }
+    ]
+  },
+  {
+    "id": "evt_transport_boulot",
+    "title": "Trajet domicile-travail",
+    "description": "Vous habitez à 5km de votre bureau. Vous prenez la voiture par automatisme.",
+    "profileFilter": "locataire",
+    "educationalNote": "Le vélo est le mode de transport le plus rapide en ville sur les distances de moins de 6km.",
+    "actions": [
+      {
+        "id": "A",
+        "label": "Acheter un vélo d'occasion",
+        "requiredBefore": [],
+        "scoreDelta": 25,
+        "carbonDelta": -45
+      },
+      {
+        "id": "B",
+        "label": "Prendre un abonnement aux transports en commun",
+        "requiredBefore": [],
+        "scoreDelta": 20,
+        "carbonDelta": -35
+      },
+      {
+        "id": "C",
+        "label": "Continuer en voiture mais covoiturer",
+        "requiredBefore": [],
+        "scoreDelta": 10,
+        "carbonDelta": -15
+      }
+    ]
+  },
+  {
+    "id": "evt_alimentation_saison",
+    "title": "Envie de fraises en Janvier",
+    "description": "Elles sont en rayon, bien rouges, mais viennent d'Espagne.",
+    "profileFilter": "locataire",
+    "educationalNote": "Un fruit hors saison peut émettre jusqu'à 20 fois plus de CO2 qu'un fruit local de saison à cause des serres chauffées.",
+    "actions": [
+      {
+        "id": "A",
+        "label": "Acheter des pommes locales à la place",
+        "requiredBefore": [],
+        "scoreDelta": 15,
+        "carbonDelta": -20
+      },
+      {
+        "id": "B",
+        "label": "Acheter les fraises quand même",
+        "requiredBefore": [],
+        "scoreDelta": -15,
+        "carbonDelta": 30
+      }
+    ]
+  },
+  {
+    "id": "evt_banque_ethique",
+    "title": "Épargne et climat",
+    "description": "Votre argent dort dans une banque qui finance massivement les énergies fossiles.",
+    "profileFilter": "locataire",
+    "educationalNote": "Changer de banque pour un établissement éthique est l'un des leviers individuels les plus puissants.",
+    "actions": [
+      {
+        "id": "A",
+        "label": "Ouvrir un compte dans une néo-banque verte",
+        "requiredBefore": [],
+        "scoreDelta": 30,
+        "carbonDelta": -60
+      },
+      {
+        "id": "B",
+        "label": "Interroger son conseiller sur les fonds ISR",
+        "requiredBefore": [],
+        "scoreDelta": 10,
+        "carbonDelta": -5
+      }
+    ]
+  },
+  {
+    "id": "evt_vêtements_neufs",
+    "title": "Mode éphémère",
+    "description": "Une pub pour un site de vêtements à bas prix vous tente.",
+    "profileFilter": "locataire",
+    "educationalNote": "L'industrie textile est l'une des plus polluantes. La règle des '5 R' (Refuser, Réduire, Réutiliser, Réparer, Recycler) s'applique ici.",
+    "actions": [
+      {
+        "id": "A",
+        "label": "Désinstaller l'application de shopping",
+        "requiredBefore": [],
+        "scoreDelta": 20,
+        "carbonDelta": -25
+      },
+      {
+        "id": "B",
+        "label": "Organiser un vide-dressing avec des amis",
+        "requiredBefore": [],
+        "scoreDelta": 25,
+        "carbonDelta": -15
+      }
+    ]
+  },
+  {
+    "id": "evt_lave_linge_eco",
+    "title": "Lessive quotidienne",
+    "description": "Vous lavez souvent de petites quantités à 60°C.",
+    "profileFilter": "locataire",
+    "educationalNote": "Le mode 'Eco' des lave-linges réduit la température et la consommation d'eau, même s'il dure plus longtemps.",
+    "actions": [
+      {
+        "id": "A",
+        "label": "Attendre que le tambour soit plein",
+        "requiredBefore": [],
+        "scoreDelta": 15,
+        "carbonDelta": -10
+      },
+      {
+        "id": "B",
+        "label": "Laver à froid (30°C max)",
+        "requiredBefore": [],
+        "scoreDelta": 15,
+        "carbonDelta": -12
+      }
+    ]
+  },
+  {
+    "id": "evt_numerique_sobriete",
+    "title": "Changement de smartphone",
+    "description": "Le vôtre ralentit un peu. Les nouveaux modèles viennent de sortir.",
+    "profileFilter": "locataire",
+    "educationalNote": "80% de l'impact d'un smartphone a lieu lors de sa fabrication. Réparer est toujours préférable.",
+    "actions": [
+      {
+        "id": "A",
+        "label": "Faire changer la batterie chez un réparateur",
+        "requiredBefore": [],
+        "scoreDelta": 25,
+        "carbonDelta": -35
+      },
+      {
+        "id": "B",
+        "label": "Acheter un modèle reconditionné",
+        "requiredBefore": [],
+        "scoreDelta": 15,
+        "carbonDelta": -15
+      },
+      {
+        "id": "C",
+        "label": "Prendre le dernier cri avec un forfait",
+        "requiredBefore": [],
+        "scoreDelta": -20,
+        "carbonDelta": 45
+      }
+    ]
+  },
+  {
+    "id": "evt_streaming_video",
+    "title": "Consommation de données",
+    "description": "Vous regardez toutes vos séries en 4K sur votre smartphone en 5G.",
+    "profileFilter": "locataire",
+    "educationalNote": "Réduire la résolution de 4K à HD divise par 4 l'énergie nécessaire à la lecture de la vidéo.",
+    "actions": [
+      {
+        "id": "A",
+        "label": "Passer en Wi-Fi plutôt qu'en 4G/5G",
+        "requiredBefore": [],
+        "scoreDelta": 10,
+        "carbonDelta": -5
+      },
+      {
+        "id": "B",
+        "label": "Régler la qualité par défaut sur 'Standard'",
+        "requiredBefore": [],
+        "scoreDelta": 15,
+        "carbonDelta": -10
+      }
+    ]
+  },
+  {
+    "id": "evt_viande_rouge",
+    "title": "Le dilemme du steak",
+    "description": "Vous mangez de la viande rouge 5 fois par semaine.",
+    "profileFilter": "locataire",
+    "educationalNote": "La production d'un kg de bœuf émet environ 60kg de CO2, contre moins d'un kg pour des légumineuses.",
+    "actions": [
+      {
+        "id": "A",
+        "label": "Tester le 'Lundi Vert' (sans viande)",
+        "requiredBefore": [],
+        "scoreDelta": 15,
+        "carbonDelta": -15
+      },
+      {
+        "id": "B",
+        "label": "Devenir flexitarien (viande 2 fois par semaine)",
+        "requiredBefore": [],
+        "scoreDelta": 30,
+        "carbonDelta": -50
+      },
+      {
+        "id": "C",
+        "label": "Remplacer le bœuf par du poulet",
+        "requiredBefore": [],
+        "scoreDelta": 10,
+        "carbonDelta": -20
+      }
+    ]
+  },
+  {
+    "id": "evt_frigo_entretien",
+    "title": "Givre dans le congélateur",
+    "description": "Une couche de 3cm de glace s'est formée dans votre bac à glaçons.",
+    "profileFilter": "locataire",
+    "educationalNote": "3 mm de givre augmentent la consommation électrique de votre réfrigérateur de 30%.",
+    "actions": [
+      {
+        "id": "A",
+        "label": "Dégivrer l'appareil immédiatement",
+        "requiredBefore": [],
+        "scoreDelta": 15,
+        "carbonDelta": -8
+      },
+      {
+        "id": "B",
+        "label": "Nettoyer la grille arrière de l'appareil",
+        "requiredBefore": [],
+        "scoreDelta": 10,
+        "carbonDelta": -2
+      }
+    ]
+  },
+  {
+    "id": "evt_voyage_vacances",
+    "title": "Vacances d'été",
+    "description": "Vous hésitez entre un week-end à Rome en avion ou en train.",
+    "profileFilter": "locataire",
+    "educationalNote": "Le train émet jusqu'à 80 fois moins de CO2 que l'avion sur les trajets européens.",
+    "actions": [
+      {
+        "id": "A",
+        "label": "Prendre le train de nuit",
+        "requiredBefore": [],
+        "scoreDelta": 35,
+        "carbonDelta": -100
+      },
+      {
+        "id": "B",
+        "label": "Prendre l'avion (Low-Cost)",
+        "requiredBefore": [],
+        "scoreDelta": -40,
+        "carbonDelta": 150
+      }
+    ]
+  },
+  {
+    "id": "evt_produits_entretien",
+    "title": "Ménage de printemps",
+    "description": "Vous achetez 10 bidons de produits chimiques différents.",
+    "profileFilter": "locataire",
+    "educationalNote": "Le vinaigre blanc et le bicarbonate suffisent pour 90% des tâches ménagères et polluent moins l'air intérieur.",
+    "actions": [
+      {
+        "id": "A",
+        "label": "Passer au vinaigre blanc et savon noir",
+        "requiredBefore": [],
+        "scoreDelta": 20,
+        "carbonDelta": -10
+      },
+      {
+        "id": "B",
+        "label": "Acheter des recharges plutôt que des bidons",
+        "requiredBefore": [],
+        "scoreDelta": 10,
+        "carbonDelta": -5
+      }
+    ]
+  },
+  {
+    "id": "evt_clim_ete",
+    "title": "Canicule en ville",
+    "description": "Votre appartement sous les toits atteint 30°C.",
+    "profileFilter": "locataire",
+    "educationalNote": "Les climatiseurs mobiles sont très énergivores et rejettent de la chaleur à l'extérieur, aggravant l'effet d'îlot thermique.",
+    "actions": [
+      {
+        "id": "A",
+        "label": "Acheter une climatisation mobile",
+        "requiredBefore": [],
+        "scoreDelta": -20,
+        "carbonDelta": 40
+      },
+      {
+        "id": "B",
+        "label": "Fermer les volets le jour, ouvrir la nuit",
+        "requiredBefore": [],
+        "scoreDelta": 15,
+        "carbonDelta": 0
+      },
+      {
+        "id": "C",
+        "label": "Investir dans un ventilateur performant",
+        "requiredBefore": [],
+        "scoreDelta": 10,
+        "carbonDelta": 5
+      }
+    ]
+  },
+  {
+    "id": "evt_abonnement_elec",
+    "title": "Contrat d'énergie",
+    "description": "Vous êtes toujours sur le tarif historique par flemme de changer.",
+    "profileFilter": "locataire",
+    "educationalNote": "Certains fournisseurs garantissent une électricité 100% renouvelable et soutiennent des producteurs locaux.",
+    "actions": [
+      {
+        "id": "A",
+        "label": "Souscrire à une offre d'électricité verte",
+        "requiredBefore": [],
+        "scoreDelta": 20,
+        "carbonDelta": -30
+      },
+      {
+        "id": "B",
+        "label": "Prendre une option 'Heures Creuses'",
+        "requiredBefore": [],
+        "scoreDelta": 5,
+        "carbonDelta": -2
+      }
+    ]
+  },
+  {
+    "id": "evt_gaspillage_alimentaire",
+    "title": "Frigo trop plein",
+    "description": "Vous retrouvez souvent des yaourts périmés au fond du frigo.",
+    "profileFilter": "locataire",
+    "educationalNote": "En France, chaque personne jette 30kg de nourriture par an, dont 7kg encore emballés.",
+    "actions": [
+      {
+        "id": "A",
+        "label": "Faire une liste de courses précise",
+        "requiredBefore": [],
+        "scoreDelta": 15,
+        "carbonDelta": -10
+      },
+      {
+        "id": "B",
+        "label": "Cuisiner les restes en mode 'Touski'",
+        "requiredBefore": [],
+        "scoreDelta": 20,
+        "carbonDelta": -15
+      }
+    ]
+  },
+  {
+    "id": "evt_bouteilles_plastique",
+    "title": "Eau minérale",
+    "description": "Vous montez 3 packs d'eau au 4ème étage chaque semaine.",
+    "profileFilter": "locataire",
+    "educationalNote": "L'eau du robinet est 100 à 300 fois moins chère que l'eau en bouteille et n'émet pas de déchets plastiques.",
+    "actions": [
+      {
+        "id": "A",
+        "label": "Acheter une gourde et une carafe filtrante",
+        "requiredBefore": [],
+        "scoreDelta": 25,
+        "carbonDelta": -40
+      },
+      {
+        "id": "B",
+        "label": "Acheter des bidons de 5L au lieu de bouteilles",
+        "requiredBefore": [],
+        "scoreDelta": 5,
+        "carbonDelta": -10
+      }
+    ]
+  },
+  {
+    "id": "evt_emballages_vrac",
+    "title": "Courses sèches",
+    "description": "Vos placards débordent de paquets de pâtes et riz en carton/plastique.",
+    "profileFilter": "locataire",
+    "educationalNote": "Acheter en vrac permet de réduire les emballages et de ne prendre que la quantité nécessaire.",
+    "actions": [
+      {
+        "id": "A",
+        "label": "Aller dans une épicerie de vrac avec ses bocaux",
+        "requiredBefore": [],
+        "scoreDelta": 25,
+        "carbonDelta": -20
+      },
+      {
+        "id": "B",
+        "label": "Privilégier les formats familiaux",
+        "requiredBefore": [],
+        "scoreDelta": 10,
+        "carbonDelta": -5
+      }
+    ]
+  },
+  {
+    "id": "evt_voiture_partage",
+    "title": "Usage ponctuel voiture",
+    "description": "Votre voiture reste garée 95% du temps mais vous coûte cher.",
+    "profileFilter": "locataire",
+    "educationalNote": "L'autopartage permet d'accéder à un véhicule uniquement quand c'est nécessaire, libérant de l'espace urbain.",
+    "actions": [
+      {
+        "id": "A",
+        "label": "Vendre sa voiture et utiliser l'autopartage",
+        "requiredBefore": [],
+        "scoreDelta": 40,
+        "carbonDelta": -120
+      },
+      {
+        "id": "B",
+        "label": "Louer sa propre voiture à des voisins",
+        "requiredBefore": [],
+        "scoreDelta": 15,
+        "carbonDelta": -20
+      }
+    ]
+  },
+  {
+    "id": "evt_recherche_internet",
+    "title": "Pollution numérique",
+    "description": "Vous laissez 200 onglets ouverts et ne triez jamais vos mails.",
+    "profileFilter": "locataire",
+    "educationalNote": "Le stockage inutile de données dans le cloud consomme de l'électricité pour refroidir les data centers.",
+    "actions": [
+      {
+        "id": "A",
+        "label": "Nettoyer sa boîte mail et se désabonner des pubs",
+        "requiredBefore": [],
+        "scoreDelta": 10,
+        "carbonDelta": -2
+      },
+      {
+        "id": "B",
+        "label": "Utiliser un moteur de recherche éco-responsable",
+        "requiredBefore": [],
+        "scoreDelta": 5,
+        "carbonDelta": -1
+      }
+    ]
+  },
+  {
+    "id": "evt_isolation_fenetres",
+    "title": "Courants d'air",
+    "description": "L'air passe sous votre porte d'entrée et aux fenêtres.",
+    "profileFilter": "locataire",
+    "educationalNote": "De petits investissements réversibles comme des boudins de porte peuvent améliorer le confort thermique.",
+    "actions": [
+      {
+        "id": "A",
+        "label": "Installer des joints d'étanchéité adhésifs",
+        "requiredBefore": [],
+        "scoreDelta": 15,
+        "carbonDelta": -5
+      },
+      {
+        "id": "B",
+        "label": "Placer un boudin de porte épais",
+        "requiredBefore": [],
+        "scoreDelta": 10,
+        "carbonDelta": -3
+      }
+    ]
+  },
+  {
+    "id": "evt_cafe_dosettes",
+    "title": "Le rituel du matin",
+    "description": "Vous utilisez 3 dosettes en aluminium par jour.",
+    "profileFilter": "locataire",
+    "educationalNote": "Les dosettes génèrent 10 fois plus de déchets que le café en vrac ou en grains.",
+    "actions": [
+      {
+        "id": "A",
+        "label": "Passer à une cafetière italienne ou à piston",
+        "requiredBefore": [],
+        "scoreDelta": 20,
+        "carbonDelta": -15
+      },
+      {
+        "id": "B",
+        "label": "Acheter des dosettes réutilisables en inox",
+        "requiredBefore": [],
+        "scoreDelta": 15,
+        "carbonDelta": -10
+      }
+    ]
+  },
+  {
+    "id": "evt_cadeaux_noel",
+    "title": "Période de fêtes",
+    "description": "Vous devez acheter 10 cadeaux pour votre famille.",
+    "profileFilter": "locataire",
+    "educationalNote": "Offrir des expériences (spectacles, cours) ou des objets utiles réduit la surconsommation matérielle.",
+    "actions": [
+      {
+        "id": "A",
+        "label": "Offrir des places de concert ou de théâtre",
+        "requiredBefore": [],
+        "scoreDelta": 20,
+        "carbonDelta": -15
+      },
+      {
+        "id": "B",
+        "label": "Acheter des cadeaux d'occasion (livres, jeux)",
+        "requiredBefore": [],
+        "scoreDelta": 15,
+        "carbonDelta": -20
+      }
+    ]
+  },
+  {
+    "id": "evt_veille_appareils",
+    "title": "Consommation fantôme",
+    "description": "Box, TV et consoles restent en veille toute la nuit.",
+    "profileFilter": "locataire",
+    "educationalNote": "Les appareils en veille peuvent représenter jusqu'à 10% de votre facture d'électricité annuelle.",
+    "actions": [
+      {
+        "id": "A",
+        "label": "Installer une multiprise à interrupteur",
+        "requiredBefore": [],
+        "scoreDelta": 15,
+        "carbonDelta": -8
+      },
+      {
+        "id": "B",
+        "label": "Débrancher la box lors des départs en vacances",
+        "requiredBefore": [],
+        "scoreDelta": 10,
+        "carbonDelta": -4
+      }
+    ]
+  },
+  {
+    "id": "evt_cuisson_energie",
+    "title": "Cuisiner des pâtes",
+    "description": "Vous faites bouillir l'eau sans couvercle.",
+    "profileFilter": "locataire",
+    "educationalNote": "Mettre un couvercle permet de diviser par 4 la consommation d'énergie pour faire bouillir de l'eau.",
+    "actions": [
+      {
+        "id": "A",
+        "label": "Utiliser systématiquement un couvercle",
+        "requiredBefore": [],
+        "scoreDelta": 10,
+        "carbonDelta": -2
+      },
+      {
+        "id": "B",
+        "label": "Utiliser une bouilloire électrique avant la casserole",
+        "requiredBefore": [],
+        "scoreDelta": 5,
+        "carbonDelta": -1
+      }
+    ]
+  },
+  {
+    "id": "evt_fast_food",
+    "title": "Repas sur le pouce",
+    "description": "Vous commandez souvent via des plateformes de livraison.",
+    "profileFilter": "locataire",
+    "educationalNote": "La livraison génère beaucoup de déchets d'emballage et les trajets motorisés augmentent le bilan carbone du repas.",
+    "actions": [
+      {
+        "id": "A",
+        "label": "Aller chercher son plat avec ses propres contenants",
+        "requiredBefore": [],
+        "scoreDelta": 20,
+        "carbonDelta": -15
+      },
+      {
+        "id": "B",
+        "label": "Cuisiner une 'batch-cook' le dimanche",
+        "requiredBefore": [],
+        "scoreDelta": 30,
+        "carbonDelta": -25
+      }
+    ]
+  },
+  {
+    "id": "evt_loyer_charges",
+    "title": "Charges énergétiques trop élevées",
+    "description": "Votre propriétaire refuse de rénover. Vos charges représentent 40% de votre loyer.",
+    "profileFilter": "locataire",
+    "educationalNote": "Un locataire peut demander un DPE à son propriétaire et saisir la commission départementale en cas de logement énergivore classé F ou G.",
+    "actions": [
+      {
+        "id": "A",
+        "label": "Demander le DPE du logement au propriétaire",
+        "requiredBefore": [],
+        "scoreDelta": 10,
+        "carbonDelta": -2
+      },
+      {
+        "id": "B",
+        "label": "Saisir la commission départementale",
+        "requiredBefore": [
+          "A"
+        ],
         "scoreDelta": 20,
         "carbonDelta": -10
       },
@@ -106,7 +1860,9 @@
       {
         "id": "B",
         "label": "Remplacer par des appareils classe A",
-        "requiredBefore": ["A"],
+        "requiredBefore": [
+          "A"
+        ],
         "scoreDelta": 20,
         "carbonDelta": -18
       },
@@ -136,7 +1892,9 @@
       {
         "id": "B",
         "label": "Installer des LED avec détecteurs de présence",
-        "requiredBefore": ["A"],
+        "requiredBefore": [
+          "A"
+        ],
         "scoreDelta": 25,
         "carbonDelta": -22
       },
@@ -166,14 +1924,19 @@
       {
         "id": "B",
         "label": "Installer des bornes de recharge",
-        "requiredBefore": ["A"],
+        "requiredBefore": [
+          "A"
+        ],
         "scoreDelta": 15,
         "carbonDelta": -10
       },
       {
         "id": "C",
         "label": "Remplacer progressivement par des véhicules électriques",
-        "requiredBefore": ["A", "B"],
+        "requiredBefore": [
+          "A",
+          "B"
+        ],
         "scoreDelta": 30,
         "carbonDelta": -35
       },
@@ -213,6 +1976,717 @@
         "requiredBefore": [],
         "scoreDelta": -10,
         "carbonDelta": 15
+      }
+    ]
+  },
+  {
+    "id": "evt_eau_douche",
+    "title": "Hygiène et ressources",
+    "description": "Vous passez beaucoup de temps sous l'eau chaude pour vous détendre.",
+    "profileFilter": "locataire",
+    "educationalNote": "Une douche de 5 minutes consomme environ 40 litres d'eau, contre 150 à 200 litres pour un bain.",
+    "actions": [
+      {
+        "id": "A",
+        "label": "Passer de 10 à 5 minutes par douche",
+        "requiredBefore": [],
+        "scoreDelta": 12,
+        "carbonDelta": -5
+      },
+      {
+        "id": "B",
+        "label": "Installer un pommeau éco-mousseur",
+        "requiredBefore": [],
+        "scoreDelta": 15,
+        "carbonDelta": -7
+      },
+      {
+        "id": "C",
+        "label": "Prendre un bain moussant le dimanche",
+        "requiredBefore": [],
+        "scoreDelta": -10,
+        "carbonDelta": 12
+      }
+    ]
+  },
+  {
+    "id": "evt_eclairage_led",
+    "title": "Optimisation de l'éclairage",
+    "description": "Votre appartement est encore équipé de vieilles ampoules halogènes énergivores.",
+    "profileFilter": "locataire",
+    "educationalNote": "Les ampoules LED consomment 80% d'énergie en moins et durent jusqu'à 15 fois plus longtemps.",
+    "actions": [
+      {
+        "id": "A",
+        "label": "Remplacer toutes les ampoules par des LED",
+        "requiredBefore": [],
+        "scoreDelta": 18,
+        "carbonDelta": -10
+      },
+      {
+        "id": "B",
+        "label": "Éteindre systématiquement en sortant",
+        "requiredBefore": [],
+        "scoreDelta": 8,
+        "carbonDelta": -3
+      }
+    ]
+  },
+  {
+    "id": "evt_cuisson_couvercle",
+    "title": "Efficacité en cuisine",
+    "description": "Vous cuisinez souvent des plats bouillis (pâtes, riz) à découvert.",
+    "profileFilter": "locataire",
+    "educationalNote": "Mettre un couvercle sur une casserole permet de diviser par 4 la consommation d'énergie lors de l'ébullition.",
+    "actions": [
+      {
+        "id": "A",
+        "label": "Utiliser systématiquement des couvercles",
+        "requiredBefore": [],
+        "scoreDelta": 10,
+        "carbonDelta": -4
+      },
+      {
+        "id": "B",
+        "label": "Chauffer l'eau à la bouilloire avant",
+        "requiredBefore": [],
+        "scoreDelta": 5,
+        "carbonDelta": -2
+      }
+    ]
+  },
+  {
+    "id": "evt_numerique_mail",
+    "title": "Pollution invisible",
+    "description": "Votre boîte mail sature avec des milliers de messages non lus et de publicités.",
+    "profileFilter": "locataire",
+    "educationalNote": "Le stockage d'un mail pendant un an génère environ 10g de CO2 via les serveurs des data centers.",
+    "actions": [
+      {
+        "id": "A",
+        "label": "Se désabonner des newsletters inutiles",
+        "requiredBefore": [],
+        "scoreDelta": 12,
+        "carbonDelta": -3
+      },
+      {
+        "id": "B",
+        "label": "Supprimer les pièces jointes lourdes",
+        "requiredBefore": [],
+        "scoreDelta": 10,
+        "carbonDelta": -2
+      }
+    ]
+  },
+  {
+    "id": "evt_linge_froid",
+    "title": "Entretien du linge",
+    "description": "Vous lavez tout votre linge à 60°C pour être sûr de la propreté.",
+    "profileFilter": "locataire",
+    "educationalNote": "90% de l'énergie d'un lave-linge sert à chauffer l'eau. Laver à 30°C suffit pour le linge quotidien.",
+    "actions": [
+      {
+        "id": "A",
+        "label": "Passer les cycles quotidiens à 30°C",
+        "requiredBefore": [],
+        "scoreDelta": 15,
+        "carbonDelta": -8
+      },
+      {
+        "id": "B",
+        "label": "Utiliser le mode 'Eco' de la machine",
+        "requiredBefore": [],
+        "scoreDelta": 12,
+        "carbonDelta": -6
+      }
+    ]
+  },
+  {
+    "id": "evt_frigo_givre",
+    "title": "Maintenance du froid",
+    "description": "Une couche de givre de 3 cm s'est accumulée dans votre congélateur.",
+    "profileFilter": "locataire",
+    "educationalNote": "3 mm de givre augmentent la consommation électrique de votre réfrigérateur de 30%.",
+    "actions": [
+      {
+        "id": "A",
+        "label": "Dégivrer l'appareil immédiatement",
+        "requiredBefore": [],
+        "scoreDelta": 20,
+        "carbonDelta": -12
+      },
+      {
+        "id": "B",
+        "label": "Régler le thermostat sur la position max",
+        "requiredBefore": [],
+        "scoreDelta": -15,
+        "carbonDelta": 18
+      }
+    ]
+  },
+  {
+    "id": "evt_mobilier_occasion",
+    "title": "Aménagement responsable",
+    "description": "Vous avez besoin d'une nouvelle étagère pour votre salon.",
+    "profileFilter": "locataire",
+    "educationalNote": "L'achat d'occasion évite l'extraction de nouvelles ressources et réduit l'empreinte carbone liée au transport international.",
+    "actions": [
+      {
+        "id": "A",
+        "label": "Acheter en ressourcerie ou occasion",
+        "requiredBefore": [],
+        "scoreDelta": 25,
+        "carbonDelta": -35
+      },
+      {
+        "id": "B",
+        "label": "Commander un kit neuf premier prix",
+        "requiredBefore": [],
+        "scoreDelta": -10,
+        "carbonDelta": 40
+      }
+    ]
+  },
+  {
+    "id": "evt_compost_balcon",
+    "title": "Gestion des biodéchets",
+    "description": "Vous jetez vos épluchures aux ordures ménagères faute de jardin.",
+    "profileFilter": "locataire",
+    "educationalNote": "Les biodéchets représentent 30% du poids de nos poubelles. Le compostage réduit les émissions liées à l'incinération.",
+    "actions": [
+      {
+        "id": "A",
+        "label": "Installer un lombricomposteur",
+        "requiredBefore": [],
+        "scoreDelta": 22,
+        "carbonDelta": -15
+      },
+      {
+        "id": "B",
+        "label": "Trouver un bac de compost partagé",
+        "requiredBefore": [],
+        "scoreDelta": 18,
+        "carbonDelta": -12
+      }
+    ]
+  },
+  {
+    "id": "evt_streaming_wifi",
+    "title": "Sobriété numérique",
+    "description": "Vous regardez vos séries en 4G/5G même quand vous êtes chez vous.",
+    "profileFilter": "locataire",
+    "educationalNote": "Le Wi-Fi consomme jusqu'à 3 fois moins d'énergie que la 4G pour le même volume de données téléchargé.",
+    "actions": [
+      {
+        "id": "A",
+        "label": "Passer systématiquement en Wi-Fi",
+        "requiredBefore": [],
+        "scoreDelta": 10,
+        "carbonDelta": -4
+      },
+      {
+        "id": "B",
+        "label": "Réduire la résolution de 4K à HD",
+        "requiredBefore": [],
+        "scoreDelta": 15,
+        "carbonDelta": -8
+      }
+    ]
+  },
+  {
+    "id": "evt_viande_rouge",
+    "title": "Impact de l'assiette",
+    "description": "Vous consommez de la viande rouge (bœuf/agneau) quotidiennement.",
+    "profileFilter": "locataire",
+    "educationalNote": "La production d'un kg de bœuf émet 60kg de CO2, soit 10 fois plus que le poulet et 50 fois plus que les légumineuses.",
+    "actions": [
+      {
+        "id": "A",
+        "label": "Adopter un régime flexitarien",
+        "requiredBefore": [],
+        "scoreDelta": 25,
+        "carbonDelta": -50
+      },
+      {
+        "id": "B",
+        "label": "Instaurer deux jours végétariens",
+        "requiredBefore": [],
+        "scoreDelta": 15,
+        "carbonDelta": -20
+      }
+    ]
+  },
+  {
+    "id": "evt_transport_proximite",
+    "title": "Déplacements courts",
+    "description": "Vous prenez la voiture pour des trajets de moins de 2km en ville.",
+    "profileFilter": "locataire",
+    "educationalNote": "En ville, le vélo est souvent plus rapide que la voiture sur 5km. C'est aussi un gain de santé immédiat.",
+    "actions": [
+      {
+        "id": "A",
+        "label": "Marcher ou pédaler pour < 3km",
+        "requiredBefore": [],
+        "scoreDelta": 20,
+        "carbonDelta": -45
+      },
+      {
+        "id": "B",
+        "label": "Utiliser les transports en commun",
+        "requiredBefore": [],
+        "scoreDelta": 15,
+        "carbonDelta": -30
+      }
+    ]
+  },
+  {
+    "id": "evt_eau_robinet",
+    "title": "Hydratation et plastique",
+    "description": "Vous achetez des packs d'eau en bouteille par peur du goût du robinet.",
+    "profileFilter": "locataire",
+    "educationalNote": "L'eau du robinet est 100 à 300 fois moins chère que l'eau en bouteille et ne génère aucun déchet plastique.",
+    "actions": [
+      {
+        "id": "A",
+        "label": "Utiliser une carafe filtrante ou gourde",
+        "requiredBefore": [],
+        "scoreDelta": 20,
+        "carbonDelta": -25
+      },
+      {
+        "id": "B",
+        "label": "Laisser l'eau décanter au frais",
+        "requiredBefore": [],
+        "scoreDelta": 12,
+        "carbonDelta": -20
+      }
+    ]
+  },
+  {
+    "id": "evt_vetements_neufs",
+    "title": "Garde-robe éthique",
+    "description": "Vous achetez régulièrement des vêtements neufs à bas prix (fast-fashion).",
+    "profileFilter": "locataire",
+    "educationalNote": "L'industrie textile produit 1,2 milliard de tonnes de gaz à effet de serre par an, soit plus que les vols internationaux.",
+    "actions": [
+      {
+        "id": "A",
+        "label": "Acheter en friperie / Vinted",
+        "requiredBefore": [],
+        "scoreDelta": 22,
+        "carbonDelta": -40
+      },
+      {
+        "id": "B",
+        "label": "Réparer ses vêtements abîmés",
+        "requiredBefore": [],
+        "scoreDelta": 18,
+        "carbonDelta": -10
+      }
+    ]
+  },
+  {
+    "id": "evt_produits_entretien",
+    "title": "Ménage écologique",
+    "description": "Votre placard est rempli de produits chimiques spécifiques pour chaque surface.",
+    "profileFilter": "locataire",
+    "educationalNote": "Le vinaigre blanc, le bicarbonate et le savon noir peuvent remplacer 90% des produits ménagers conventionnels.",
+    "actions": [
+      {
+        "id": "A",
+        "label": "Passer au vinaigre et bicarbonate",
+        "requiredBefore": [],
+        "scoreDelta": 15,
+        "carbonDelta": -8
+      },
+      {
+        "id": "B",
+        "label": "Acheter des recharges grand format",
+        "requiredBefore": [],
+        "scoreDelta": 8,
+        "carbonDelta": -3
+      }
+    ]
+  },
+  {
+    "id": "evt_objets_panne",
+    "title": "Culture de la réparation",
+    "description": "Votre grille-pain ne fonctionne plus. Vous pensez à en racheter un.",
+    "profileFilter": "locataire",
+    "educationalNote": "Réparer un objet prolonge sa durée de vie et évite la création de déchets électroniques complexes à recycler.",
+    "actions": [
+      {
+        "id": "A",
+        "label": "Aller dans un Repair Café",
+        "requiredBefore": [],
+        "scoreDelta": 25,
+        "carbonDelta": -15
+      },
+      {
+        "id": "B",
+        "label": "Suivre un tutoriel de réparation",
+        "requiredBefore": [],
+        "scoreDelta": 20,
+        "carbonDelta": -12
+      },
+      {
+        "id": "C",
+        "label": "Jeter et acheter un neuf",
+        "requiredBefore": [],
+        "scoreDelta": -20,
+        "carbonDelta": 35
+      }
+    ]
+  },
+  {
+    "id": "evt_alimentation_saison",
+    "title": "Respect des cycles",
+    "description": "Vous avez envie de tomates et de fraises en plein mois de Janvier.",
+    "profileFilter": "locataire",
+    "educationalNote": "Une tomate produite sous serre chauffée en hiver émet 20 fois plus de CO2 qu'une tomate de saison locale.",
+    "actions": [
+      {
+        "id": "A",
+        "label": "Consommer des légumes de saison",
+        "requiredBefore": [],
+        "scoreDelta": 18,
+        "carbonDelta": -25
+      },
+      {
+        "id": "B",
+        "label": "S'inscrire à une AMAP locale",
+        "requiredBefore": [],
+        "scoreDelta": 25,
+        "carbonDelta": -35
+      }
+    ]
+  },
+  {
+    "id": "evt_banque_epargne",
+    "title": "Finance responsable",
+    "description": "Votre argent est déposé dans une banque finançant les énergies fossiles.",
+    "profileFilter": "locataire",
+    "educationalNote": "L'empreinte carbone de l'épargne d'un Français moyen peut être supérieure à sa consommation réelle.",
+    "actions": [
+      {
+        "id": "A",
+        "label": "Transférer vers une banque éthique",
+        "requiredBefore": [],
+        "scoreDelta": 30,
+        "carbonDelta": -80
+      },
+      {
+        "id": "B",
+        "label": "Investir dans un livret durable (LDDS)",
+        "requiredBefore": [],
+        "scoreDelta": 15,
+        "carbonDelta": -20
+      }
+    ]
+  },
+  {
+    "id": "evt_isolation_boudin",
+    "title": "Petite isolation thermique",
+    "description": "L'air froid s'engouffre sous votre porte d'entrée.",
+    "profileFilter": "locataire",
+    "educationalNote": "Une simple fuite d'air sous une porte peut augmenter la consommation de chauffage d'une pièce de 15%.",
+    "actions": [
+      {
+        "id": "A",
+        "label": "Placer un boudin de porte épais",
+        "requiredBefore": [],
+        "scoreDelta": 12,
+        "carbonDelta": -6
+      },
+      {
+        "id": "B",
+        "label": "Installer des joints aux fenêtres",
+        "requiredBefore": [],
+        "scoreDelta": 15,
+        "carbonDelta": -9
+      }
+    ]
+  },
+  {
+    "id": "evt_vacances_train",
+    "title": "Voyages et climat",
+    "description": "Vous préparez vos vacances à 800km de chez vous.",
+    "profileFilter": "locataire",
+    "educationalNote": "Le train émet jusqu'à 80 fois moins de CO2 que l'avion pour un trajet équivalent en Europe.",
+    "actions": [
+      {
+        "id": "A",
+        "label": "Prendre le train (Intercités/TGV)",
+        "requiredBefore": [],
+        "scoreDelta": 35,
+        "carbonDelta": -120
+      },
+      {
+        "id": "B",
+        "label": "Choisir le covoiturage",
+        "requiredBefore": [],
+        "scoreDelta": 20,
+        "carbonDelta": -60
+      },
+      {
+        "id": "C",
+        "label": "Prendre un vol low-cost",
+        "requiredBefore": [],
+        "scoreDelta": -40,
+        "carbonDelta": 180
+      }
+    ]
+  },
+  {
+    "id": "evt_vrac_emballage",
+    "title": "Réduction des déchets",
+    "description": "Vos placards débordent d'emballages carton et plastique.",
+    "profileFilter": "locataire",
+    "educationalNote": "L'achat en vrac permet d'économiser environ 15% sur le prix du produit et d'éviter les plastiques à usage unique.",
+    "actions": [
+      {
+        "id": "A",
+        "label": "Acheter des denrées sèches en vrac",
+        "requiredBefore": [],
+        "scoreDelta": 20,
+        "carbonDelta": -15
+      },
+      {
+        "id": "B",
+        "label": "Utiliser des sacs à vrac réutilisables",
+        "requiredBefore": [],
+        "scoreDelta": 12,
+        "carbonDelta": -8
+      }
+    ]
+  },
+  {
+    "id": "evt_smartphone_duree",
+    "title": "Équipement numérique",
+    "description": "Votre téléphone est un peu lent, vous lorgnez sur le dernier modèle.",
+    "profileFilter": "locataire",
+    "educationalNote": "80% de l'impact carbone d'un smartphone est lié à sa fabrication. Le garder 4 ans au lieu de 2 divise son impact par deux.",
+    "actions": [
+      {
+        "id": "A",
+        "label": "Remplacer la batterie uniquement",
+        "requiredBefore": [],
+        "scoreDelta": 25,
+        "carbonDelta": -30
+      },
+      {
+        "id": "B",
+        "label": "Acheter un modèle reconditionné",
+        "requiredBefore": [],
+        "scoreDelta": 15,
+        "carbonDelta": -15
+      }
+    ]
+  },
+  {
+    "id": "evt_canicule_volets",
+    "title": "Fraîcheur en été",
+    "description": "Il fait 30°C dans votre salon en pleine canicule.",
+    "profileFilter": "locataire",
+    "educationalNote": "Fermer les volets la journée et ventiler la nuit permet de gagner jusqu'à 5°C sans utiliser de climatisation.",
+    "actions": [
+      {
+        "id": "A",
+        "label": "Fermer volets et fenêtres le jour",
+        "requiredBefore": [],
+        "scoreDelta": 15,
+        "carbonDelta": 0
+      },
+      {
+        "id": "B",
+        "label": "Installer une climatisation mobile",
+        "requiredBefore": [],
+        "scoreDelta": -25,
+        "carbonDelta": 45
+      }
+    ]
+  },
+  {
+    "id": "evt_gaspillage_liste",
+    "title": "Courses intelligentes",
+    "description": "Vous jetez souvent des produits périmés oubliés au fond du frigo.",
+    "profileFilter": "locataire",
+    "educationalNote": "Le gaspillage alimentaire représente 10% des émissions mondiales de gaz à effet de serre.",
+    "actions": [
+      {
+        "id": "A",
+        "label": "Faire une liste de courses précise",
+        "requiredBefore": [],
+        "scoreDelta": 18,
+        "carbonDelta": -15
+      },
+      {
+        "id": "B",
+        "label": "Organiser son frigo (DLC devant)",
+        "requiredBefore": [],
+        "scoreDelta": 12,
+        "carbonDelta": -10
+      }
+    ]
+  },
+  {
+    "id": "evt_cadeaux_noel",
+    "title": "Consommation festive",
+    "description": "La période des fêtes approche, vous devez offrir 10 cadeaux.",
+    "profileFilter": "locataire",
+    "educationalNote": "Offrir des expériences (théâtre, massage) ou des biens dématérialisés réduit l'impact matériel de Noël.",
+    "actions": [
+      {
+        "id": "A",
+        "label": "Offrir des expériences/spectacles",
+        "requiredBefore": [],
+        "scoreDelta": 22,
+        "carbonDelta": -30
+      },
+      {
+        "id": "B",
+        "label": "Privilégier les cadeaux d'occasion",
+        "requiredBefore": [],
+        "scoreDelta": 20,
+        "carbonDelta": -25
+      }
+    ]
+  },
+  {
+    "id": "evt_multiprise_inter",
+    "title": "Lutte contre les veilles",
+    "description": "Votre box, TV et console restent allumées 24h/24.",
+    "profileFilter": "locataire",
+    "educationalNote": "Les appareils en veille peuvent représenter jusqu'à 10% de la facture d'électricité d'un foyer.",
+    "actions": [
+      {
+        "id": "A",
+        "label": "Installer une multiprise à interrupteur",
+        "requiredBefore": [],
+        "scoreDelta": 15,
+        "carbonDelta": -7
+      },
+      {
+        "id": "B",
+        "label": "Tout débrancher lors de déplacements",
+        "requiredBefore": [],
+        "scoreDelta": 10,
+        "carbonDelta": -4
+      }
+    ]
+  },
+  {
+    "id": "evt_eau_vaisselle",
+    "title": "Vaisselle et ressources",
+    "description": "Vous faites la vaisselle à la main en laissant couler l'eau.",
+    "profileFilter": "locataire",
+    "educationalNote": "Utiliser un bac de lavage et un bac de rinçage consomme 5 fois moins d'eau qu'un robinet ouvert.",
+    "actions": [
+      {
+        "id": "A",
+        "label": "Remplir les bacs de l'évier",
+        "requiredBefore": [],
+        "scoreDelta": 14,
+        "carbonDelta": -3
+      },
+      {
+        "id": "B",
+        "label": "Utiliser un lave-vaisselle (cycle éco)",
+        "requiredBefore": [],
+        "scoreDelta": 16,
+        "carbonDelta": -5
+      }
+    ]
+  },
+  {
+    "id": "evt_chauffage_pull",
+    "title": "Confort thermique",
+    "description": "Vous chauffez à 22°C pour rester en T-shirt en hiver.",
+    "profileFilter": "locataire",
+    "educationalNote": "Porter un pull permet de baisser le chauffage de 2°C sans perte de confort, soit 14% d'économie.",
+    "actions": [
+      {
+        "id": "A",
+        "label": "Régler à 19°C et mettre un pull",
+        "requiredBefore": [],
+        "scoreDelta": 18,
+        "carbonDelta": -15
+      },
+      {
+        "id": "B",
+        "label": "Fermer les volets dès la nuit tombée",
+        "requiredBefore": [],
+        "scoreDelta": 10,
+        "carbonDelta": -5
+      }
+    ]
+  },
+  {
+    "id": "evt_piles_recharge",
+    "title": "Déchets toxiques",
+    "description": "Vous utilisez beaucoup de piles jetables pour vos télécommandes.",
+    "profileFilter": "locataire",
+    "educationalNote": "Une pile rechargeable remplace environ 500 piles jetables au cours de sa vie.",
+    "actions": [
+      {
+        "id": "A",
+        "label": "Passer aux piles rechargeables",
+        "requiredBefore": [],
+        "scoreDelta": 15,
+        "carbonDelta": -10
+      },
+      {
+        "id": "B",
+        "label": "Rapporter les piles usagées au tri",
+        "requiredBefore": [],
+        "scoreDelta": 8,
+        "carbonDelta": -2
+      }
+    ]
+  },
+  {
+    "id": "evt_jardin_partage",
+    "title": "Lien social et nature",
+    "description": "Vous aimeriez cultiver vos propres légumes mais n'avez pas de jardin.",
+    "profileFilter": "locataire",
+    "educationalNote": "Le jardinage urbain réduit les îlots de chaleur et favorise la biodiversité locale.",
+    "actions": [
+      {
+        "id": "A",
+        "label": "Rejoindre un jardin partagé",
+        "requiredBefore": [],
+        "scoreDelta": 20,
+        "carbonDelta": -10
+      },
+      {
+        "id": "B",
+        "label": "Cultiver des aromates sur le balcon",
+        "requiredBefore": [],
+        "scoreDelta": 12,
+        "carbonDelta": -5
+      }
+    ]
+  },
+  {
+    "id": "evt_tri_papier",
+    "title": "Zéro papier",
+    "description": "Votre boîte aux lettres est inondée de publicités papier.",
+    "profileFilter": "locataire",
+    "educationalNote": "Un autocollant 'Stop Pub' permet d'économiser environ 30kg de papier par foyer et par an.",
+    "actions": [
+      {
+        "id": "A",
+        "label": "Coller un 'Stop Pub'",
+        "requiredBefore": [],
+        "scoreDelta": 15,
+        "carbonDelta": -12
+      },
+      {
+        "id": "B",
+        "label": "Passer aux factures dématérialisées",
+        "requiredBefore": [],
+        "scoreDelta": 10,
+        "carbonDelta": -5
       }
     ]
   }

@@ -1,6 +1,6 @@
 namespace Backend.Domains;
 
-public class RoomManager
+public class RoomManager(ILogger<RoomManager> logger)
 {
     private readonly Dictionary<string, Room> _rooms = new();
 
@@ -87,7 +87,7 @@ public class RoomManager
 
     // ── Progression par joueur ─────────────────────────────
 
-    public GameEvent? GetNextEventForPlayer(string roomId, string connectionId, string profile)
+    public GameEvent? PeekNextEventForPlayer(string roomId, string connectionId, string profile)
     {
         var room = GetRoom(roomId);
         if (room == null) return null;
@@ -98,12 +98,16 @@ public class RoomManager
             .Where(e => string.IsNullOrEmpty(e.ProfileFilter) || e.ProfileFilter == profile)
             .ToList();
 
-        if (index >= eligibleEvents.Count)
-            return null;
+        return index < eligibleEvents.Count ? eligibleEvents[index] : null;
+    }
 
-        var evt = eligibleEvents[index];
+    public void AdvancePlayerEvent(string roomId, string connectionId)
+    {
+        var room = GetRoom(roomId);
+        if (room == null) return;
+
+        room.PlayerEventIndex.TryGetValue(connectionId, out var index);
         room.PlayerEventIndex[connectionId] = index + 1;
-        return evt;
     }
 
     public bool HasMoreEventsForPlayer(string roomId, string connectionId, string profile)
@@ -136,7 +140,7 @@ public class RoomManager
         });
     }
 
-    public GameEvent? GetCurrentEventForPlayer(string roomId, string connectionId, Profile profile)
+    public GameEvent? GetCurrentEventForPlayer(string roomId, string connectionId, string profile)
     {
         var room = GetRoom(roomId);
         if (room == null) return null;
@@ -145,13 +149,12 @@ public class RoomManager
         var currentIndex = index - 1;
 
         var eligibleEvents = room.EventQueue
-            .Where(e => string.IsNullOrEmpty(e.ProfileFilter) || e.ProfileFilter == profile.ToString())
+            .Where(e => string.IsNullOrEmpty(e.ProfileFilter) || e.ProfileFilter == profile)
             .ToList();
 
-        if (currentIndex < 0 || currentIndex >= eligibleEvents.Count)
-            return null;
-
-        return eligibleEvents[currentIndex];
+        return currentIndex >= 0 && currentIndex < eligibleEvents.Count
+            ? eligibleEvents[currentIndex]
+            : null;
     }
 
     // ── Action history ─────────────────────────────────────
