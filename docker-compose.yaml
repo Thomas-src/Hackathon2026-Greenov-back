@@ -1,8 +1,6 @@
 ﻿services:
   api:
-    build:
-      context: .
-      dockerfile: Dockerfile
+    image: registry.redyd.dev/backend:latest
     container_name: live-backend
     ports:
       - "5000:8080"
