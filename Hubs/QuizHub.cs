@@ -53,12 +53,13 @@ public class QuizHub(
 
         roomManager.StartRoom(roomId);
 
-        var endsAt = new DateTimeOffset(
-            ((room.StartedAt ?? DateTime.UtcNow) + TimeSpan.FromMinutes(room.DurationMinutes))
-            .ToUniversalTime());
-
+        var startAt = (room.StartedAt ??= DateTime.UtcNow);
+        var endsAt = startAt.AddMinutes(room.DurationMinutes);
+        var endsAtUnix = new DateTimeOffset(endsAt).ToUnixTimeSeconds();
+        
+        logger.LogInformation("EndAt {}: , startAt: {}, time {}", endsAt, startAt, room.DurationMinutes);
         await Clients.Caller.SendAsync("GameStartedHost", new GameStartedHostDto(
-            EndsAtUnix: endsAt.ToUnixTimeSeconds(),
+            EndsAtUnix: endsAtUnix,
             Players: room.Players.Values.Select(p => new PlayerSummaryDto(
                 p.ConnectionId, p.Username, p.Profile.ToString().ToLowerInvariant(), p.Score, p.CarbonLevel)),
             GlobalCarbon: room.GlobalCarbon
