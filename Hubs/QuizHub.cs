@@ -126,7 +126,7 @@ public class QuizHub(
             PlayerCount: room.Players.Count
         ));
 
-        await Clients.GroupExcept(roomId, Context.ConnectionId).SendAsync("PlayerJoined",
+        await Clients.Group(roomId).SendAsync("PlayerJoined",
             new PlayerJoinedDto(PlayerCount: room.Players.Count));
     }
 
