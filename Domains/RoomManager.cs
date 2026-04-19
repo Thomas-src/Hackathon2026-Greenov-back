@@ -81,14 +81,12 @@ public class RoomManager(ILogger<RoomManager> logger)
         var room = GetRoom(roomId);
         if (room == null) return;
 
-        var rand = new Random();
-
         room.Players[connectionId] = new Player
         {
             ConnectionId = connectionId,
             Username = username,
             Profile = profile,
-            Score = rand.Next(30, 60)
+            Score = 0
         };
     }
 
