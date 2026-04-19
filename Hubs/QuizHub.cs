@@ -73,7 +73,8 @@ public class QuizHub(
             await Clients.Client(connectionId).SendAsync("GameStartedPlayer", new GameStartedPlayerDto(
                 HouseState: player.Score,
                 Carbon: player.CarbonLevel,
-                Profile: player.Profile.ToString().ToLowerInvariant()
+                Profile: player.Profile.ToString().ToLowerInvariant(),
+                Username:player.Username
             ), cancellationToken: cts.Token);
 
             await SendNextEventToPlayer(roomId, connectionId);
@@ -363,6 +364,7 @@ public class QuizHub(
         await Clients.Client(room!.HostConnectionId).SendAsync("GlobalDebrief", globalDebrief);
         logger.LogInformation("Sending debrief to host {HostId}: {Global}", room.HostConnectionId, globalDebrief);
 
+        await Clients.Caller.SendAsync("Debrief", globalDebrief);
         logger.LogInformation("Room {RoomId} terminée — raison: {Reason}", roomId, reason);
     }
 
