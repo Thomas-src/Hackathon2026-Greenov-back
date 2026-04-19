@@ -361,7 +361,7 @@ public class QuizHub(
         );
 
         await Clients.Client(room!.HostConnectionId).SendAsync("GlobalDebrief", globalDebrief);
-        logger.LogInformation("Sending to host {HostId}: {Global}", room.HostConnectionId, globalDebrief);
+        logger.LogInformation("Sending debrief to host {HostId}: {Global}", room.HostConnectionId, globalDebrief);
 
         logger.LogInformation("Room {RoomId} terminée — raison: {Reason}", roomId, reason);
     }
